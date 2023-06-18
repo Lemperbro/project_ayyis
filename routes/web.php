@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\admin\AdminCabangController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
@@ -20,15 +20,15 @@ use App\Http\Controllers\ranting\DashboardRantingController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-
-Route::get('/coba', function () {
-    return view('admin.cabang.index');
+Route::get('/', function () {
+    return view('page');
 });
+
+
+
+// Route::get('/coba', function () {
+//     return view('admin.cabang.index');
+// });
 
 Route::get('/add', function () {
     return view('admin.konfirmasi.index');
@@ -61,6 +61,7 @@ Route::middleware('admin')->group(function(){
 
     Route::get('/admin', [AdminDashboardController::class, 'index']);
     Route::get('/admin/konfirmasi', [AdminDashboardController::class, 'konfirmasi']);
+    Route::get('/admin/cabang', [AdminCabangController::class, 'index']);
 });
 
 Route::middleware('cabang')->group(function(){

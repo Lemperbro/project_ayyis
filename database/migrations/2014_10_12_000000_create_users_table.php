@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('image')->default('fp.png');
             $table->string('username');
+            $table->string('nia');
             $table->bigInteger('telp');
             $table->string('email')->unique();
             $table->string('password');

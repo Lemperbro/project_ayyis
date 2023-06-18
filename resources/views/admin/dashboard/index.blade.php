@@ -4,7 +4,6 @@
 @section('container')
     <div class="px-4 pt-6">
         {{-- card-1 start --}}
-        
         <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3 pb-4 ">
 
             <div
@@ -65,7 +64,7 @@
 
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
-                            <h1 class="font-bold text-6xl">10</h1>
+                            <h1 class="font-bold text-6xl">{{ $anggota->count() }}</h1>
                             <h1>Total Anggota</h1>
                         </div>
 
@@ -104,109 +103,74 @@
                 <!-- Card header -->
                 <div class="items-center justify-between lg:flex">
                     <div class="mb-4 lg:mb-0">
-                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">List Cabang</h3>
+                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">List Admin Cabang</h3>
                     </div>
                 </div>
                 <!-- Table -->
                 <div class="flex flex-col mt-6">
-                    <div class="overflow-x-auto rounded-lg">
+                    <div class="overflow-x-auto rounded-lg ">
                         <div class="inline-block min-w-full align-middle">
                             <div class="overflow-hidden shadow sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600 ">
                                     <thead class="bg-gray-50 dark:bg-gray-700">
-                                        <tr>
+                                        <tr class="">
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 No
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Username
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Email
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                                                Tahun
+                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                No Telphone
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Cabang
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Role
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white dark:bg-gray-800">
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                9093023
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                agungandhita@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                2020
-                                            </td>
+                                        @foreach ($cabang as $cabangs)
+                                            <tr class="text-center border-b-[1px] border-gray-600">
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $cabangs->username }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $cabangs->email }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $cabangs->telp }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $cabangs->cabang }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $cabangs->role }}
+                                                </td>
 
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                2
-                                            </td>
+                                            </tr>
+                                        @endforeach
 
-                                        </tr>
-                                        <tr class="bg-gray-50 dark:bg-gray-700">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                2.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                9093023
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                agungandhita@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                2020
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                2
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                3.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                9093023
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                agungandhita@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                2020
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                2
-                                            </td>
-                                        </tr>
 
                                     </tbody>
                                 </table>
@@ -242,282 +206,84 @@
                 <!-- Card header -->
                 <div class="items-center justify-between lg:flex">
                     <div class="mb-4 lg:mb-0">
-                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">List Ranting</h3>
+                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">List Admin Ranting</h3>
                     </div>
                 </div>
                 <!-- Table -->
                 <div class="flex flex-col mt-6">
-                    <div class="overflow-x-auto rounded-lg">
+                    <div class="overflow-x-auto rounded-lg scrollbar">
                         <div class="inline-block min-w-full align-middle">
                             <div class="overflow-hidden shadow sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
                                     <thead class="bg-gray-50 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 no
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Username
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Email
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 No Telpon
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Cabang
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Ranting
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Role
                                             </th>
 
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white dark:bg-gray-800">
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
+                                        @foreach ($ranting as $rantings)
+                                            <tr class="text-center border-b-[1px] border-gray-600">
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Gresik
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Example74@gmail.com
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    082230736205
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    082230736205
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    082230736205
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Admin
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
+                                        
 
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-
-
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

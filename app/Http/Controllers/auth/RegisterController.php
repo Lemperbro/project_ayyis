@@ -40,6 +40,7 @@ class RegisterController extends Controller
         }elseif(!in_array($request->role, ['cabang', 'ranting'])){
             return redirect()->back()->with('toast_error', 'gk ono cok');
         }
+
         $validasi['password'] = bcrypt($validasi['password']); 
 
         $proses = User::create([
@@ -47,8 +48,8 @@ class RegisterController extends Controller
             'email' => $request->email,
             'telp' => $request->telp,
             'role' => $request->role,
-            'ranting' => $request->ranting,
-            'cabang' => $request->cabang,
+            'ranting' => strtolower($request->ranting),
+            'cabang' => strtolower($request->cabang),
             'password' => $validasi['password'],
         ]);
 

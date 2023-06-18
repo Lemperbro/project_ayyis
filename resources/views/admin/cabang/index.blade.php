@@ -8,52 +8,75 @@
             <div class="w-full">
                 <h1 class="text-white font-semibold text-xl">Data Admin Cabang</h1>
 
-                <form class="">
+                <form class="" action="/admin/cabang">
 
-
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 justify-between my-5">
+                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-4 justify-between my-5">
                         <div class="my-4">
 
-                            <label for="username"
-                                class="dark:text-white text-grey-900 font-semibold inline-block">Cabang</label>
-                            <input type="text" id="username"
-                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <label for="nama"
+                                class="dark:text-white text-grey-900 font-semibold inline-block">Nama</label>
+                            <input type="text" id="nama" name="nama"
+                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" placeholder="Ex : Paijo" value="{{ request('nama') }}">
 
                         </div>
 
                         <div class="my-4">
 
-                            <label for="thn_masuk"
-                                class="dark:text-white text-grey-900 font-semibold inline-block">NIA</label>
-                            <input type="text" id="thn_masuk"
-                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <label for="cabang"
+                                class="dark:text-white text-grey-900 font-semibold inline-block">Cabang</label>
+                            <input type="text" id="cabang" name="cabang"
+                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" placeholder="Ex : Maduran" value="{{ request('cabang') }}">
 
+                        </div>
+
+                        <div class="my-4">
+
+                            <label for="nia"
+                                class="dark:text-white text-grey-900 font-semibold inline-block">NIA</label>
+                            <input type="text" id="nia" name="nia"
+                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" placeholder="12.313.2012.1212" value="{{ request('nia') }}">
+
+                        </div>
+
+                        <div class="my-4 grid grid-cols-2 gap-x-2">
+
+                            <button type="submit"
+                                class="focus:outline-none text-white bg-yellow-500  rounded-lg text-base font-semibold p-2 h-12 mt-8">
+                                Cari Data
+                            </button>
+                            <a href="/admin/cabang"
+                                class="bg-red-700 py-2.5 rounded-lg text-base text-white font-semibold inline-block text-center h-12 mt-8">Reset
+                                Filter</a>
                         </div>
 
                     </div>
-
-                    <button type="button"
-                        class="focus:outline-none text-white bg-red-700 hover:bg-yellow-500  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 ">
-                        Cari
-                    </button>
-
-                    <button 
-                        class="focus:outline-none text-white bg-blue-700 hover:bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2"type="button">
-                        Tambah Cabang
-                    </button>
-
-
-                    <button 
-                        class="focus:outline-none text-white bg-green-700 hover:bg-yellow-500 rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex" type="button">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/></svg>
-
-                        <span>import</span>
-
-                    </button>
-
-
                 </form>
+
+
+                <div class="flex gap-x-2">
+
+                    <button
+                        class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2"type="button">
+                        Tambah Admin Cabang
+                    </button>
+
+
+                    <button
+                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex"
+                        type="button">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            class="fill-white" style="transform: ;msFilter:;">
+                            <path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+                            <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+                        </svg>
+
+                        <span>Download Data Ke Excel</span>
+
+                    </button>
+
+                </div>
+
             </div>
             <div class="w-full" id="new-products-chart"></div>
         </div>
@@ -83,83 +106,46 @@
                                     </th>
                                     <th scope="col"
                                         class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        NIA
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Administrator
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white dark:bg-gray-800">
-                                <tr>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        1.
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        Lamongan
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        agungandhita@gmail.com
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        08887686245986
-                                    </td>
+                            <tbody class="">
+                                @foreach ($cabang as $cabangs) 
+                                    <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $loop->iteration }}
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $cabangs->cabang }}
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $cabangs->email }}
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $cabangs->telp }}
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $cabangs->nia }}
+                                        </td>
+    
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $cabangs->username }}
+                                        </td>
+    
+                                    </tr>
+                                @endforeach
 
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        Andhi
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        1.
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        Lamongan
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        agungandhita@gmail.com
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        08887686245986
-                                    </td>
-
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        Andhi
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        1.
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        Lamongan
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        agungandhita@gmail.com
-                                    </td>
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        08887686245986
-                                    </td>
-
-                                    <td
-                                        class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        Andhi
-                                    </td>
-
-                                </tr>
 
                             </tbody>
                         </table>
