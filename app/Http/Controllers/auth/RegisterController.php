@@ -17,7 +17,7 @@ class RegisterController extends Controller
         if($request->role == 'ranting'){
             $validasi = $request->validate([
                 'username' => 'required|max:255',
-                'email' => 'required|email:rfc,dns|unique:users',
+                'email' => 'required|email|unique:users',
                 'telp' => 'required',
                 'role' => 'required',
                 'ranting' => 'required',
@@ -29,7 +29,7 @@ class RegisterController extends Controller
         }elseif($request->role == 'cabang'){
             $validasi = $request->validate([
                 'username' => 'required|max:255',
-                'email' => 'required|email:rfc,dns|unique:users',
+                'email' => 'required|email|unique:users',
                 'telp' => 'required',
                 'role' => 'required',
                 'cabang' => 'required',

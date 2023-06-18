@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Cabang;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreAnggotaRequest;
+use App\Http\Requests\UpdateAnggotaRequest;
+use App\Models\Anggota;
 
-class CabangController extends Controller
+class AnggotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CabangController extends Controller
      */
     public function index()
     {
-        return view('admin.cabang.index');
+        //
     }
 
     /**
@@ -25,16 +25,16 @@ class CabangController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreAnggotaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAnggotaRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class CabangController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cabang  $cabang
+     * @param  \App\Models\Anggota  $anggota
      * @return \Illuminate\Http\Response
      */
-    public function show(Cabang $cabang)
+    public function show(Anggota $anggota)
     {
         //
     }
@@ -53,10 +53,10 @@ class CabangController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cabang  $cabang
+     * @param  \App\Models\Anggota  $anggota
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cabang $cabang)
+    public function edit(Anggota $anggota)
     {
         //
     }
@@ -64,11 +64,11 @@ class CabangController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cabang  $cabang
+     * @param  \App\Http\Requests\UpdateAnggotaRequest  $request
+     * @param  \App\Models\Anggota  $anggota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cabang $cabang)
+    public function update(UpdateAnggotaRequest $request, Anggota $anggota)
     {
         //
     }
@@ -76,10 +76,10 @@ class CabangController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cabang  $cabang
+     * @param  \App\Models\Anggota  $anggota
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cabang $cabang)
+    public function destroy(Anggota $anggota)
     {
         //
     }

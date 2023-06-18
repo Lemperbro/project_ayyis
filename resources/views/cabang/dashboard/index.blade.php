@@ -1,4 +1,4 @@
-@extends('admin.layout.two')
+@extends('cabang.layouts.main')
 
 
 @section('container')

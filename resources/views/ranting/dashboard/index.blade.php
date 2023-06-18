@@ -1,4 +1,4 @@
-@extends('admin.layout.three')
+@extends('ranting.layouts.main')
 
 @section('container')
     <div class="px-4 pt-6">
