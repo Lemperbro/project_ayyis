@@ -1,4 +1,5 @@
-@extends('admin.layout.main')
+@extends('cabang.layouts.main')
+
 
 @section('container')
 <div class="w-full mt-8 pb-4 p-6 h-screen">

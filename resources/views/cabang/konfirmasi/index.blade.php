@@ -56,23 +56,23 @@
                                     <thead class="bg-gray-50 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
                                                 no
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
                                                 Ranting
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
                                                 Administrator
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
                                                 Alamat
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
                                                 Aksi
                                             </th>
                                         </tr>
@@ -95,7 +95,7 @@
                                             </td>
 
                                             <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="p-4 justify-center items-center flex text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                 <div class="flex gap-x-4">
 
                                                     <a href="" class="inline-block  p-2 rounded-md bg-green-500">
@@ -121,32 +121,16 @@
 
                                                 </div>
                                             </td>
-
-
-
                             </div>
                             </td>
                             </tr>
-
                             </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-
-
-
-
-
-
     </div>
-
-
-
     </div>
 @endsection

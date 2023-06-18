@@ -3,586 +3,193 @@
 
 @section('container')
     <div class="px-4 pt-6">
-        {{-- card-1 start --}}
 
-        <div class="w-full mt-4 pb-4 ">
+
+
+        
+
+        {{-- card-1 start --}}
+        <div class="grid w-full gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3 pb-4 ">
+
+
+
 
             <div
-                class="items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
+                class="items-center justify-between p-4 bg-yellow-300 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
                 <div class="w-full">
-                    <h1 class="text-white font-semibold text-xl">Cari...</h1>
 
-                    <form class="">
-
-
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 justify-between my-5">
-                            <div class="my-4">
-
-                                <label for="username"
-                                    class="dark:text-white text-grey-900 font-semibold inline-block">Cabang</label>
-                                <input type="text" id="username"
-                                    class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-
-                            </div>
-
-                            <div class="my-4">
-
-                                <label for="thn_masuk"
-                                    class="dark:text-white text-grey-900 font-semibold inline-block">NIA</label>
-                                <input type="text" id="thn_masuk"
-                                    class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-
-                            </div>
-
+                    <div class="flex justify-between pt-4 pb-12">
+                        <div>
+                            <h1 class="font-bold text-6xl"></h1>
+                            <h1>Total Ranting</h1>
                         </div>
-                        <div class="flex">
 
-                        <button type="button"
-                            class="focus:outline-none text-white bg-primary-700 dark:bg-green-600 hover:bg-yellow-500  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 ">Cari</button>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-28 opacity-50" viewBox="0 0 640 512">
+                            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H471.4c5.4-9.4 8.6-20.3 8.6-32v-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2h61.4C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z" />
+                        </svg>
 
-                            <button 
-                            class="focus:outline-none text-white bg-green-700 hover:bg-yellow-500 rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex" type="button">
-    
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/></svg>
-    
-                            <span>import</span>
-    
-                        </button>
                     </div>
 
-                    </form>
+                    <a href=""
+                        class="absolute bottom-0  left-0 right-0 bg-yellow-400/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
+                        Detal</a>
+
+
                 </div>
                 <div class="w-full" id="new-products-chart"></div>
             </div>
             {{-- card-1 end --}}
 
-        </div>
-        <div class="w-full pb-4 ">
 
-            {{-- table matakuliah start --}}
+            {{-- card-3 start --}}
+
+            <div
+                class="items-center justify-between p-4 bg-green-500 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
+                <div class="w-full">
+
+                    <div class="flex justify-between pt-4 pb-12">
+                        <div>
+                            <h1 class="font-bold text-6xl"></h1>
+                            <h1>Total Anggota</h1>
+                        </div>
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-24 opacity-50" fill="currentcolor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z">
+                            </path>
+                        </svg>
+
+
+                    </div>
+
+                    <a href=""
+                        class="absolute bottom-0 left-0 right-0 bg-green-600/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
+                        Detal</a>
+
+
+                </div>
+                <div class="w-full" id="new-products-chart"></div>
+            </div>
+            {{-- card-3 end --}}
+
+
+
+
+        </div>
+
+        <div class="w-full mt-8 pb-4 ">
+
+
+            {{-- table admin start --}}
             <div
                 class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <!-- Card header -->
                 <div class="items-center justify-between lg:flex">
                     <div class="mb-4 lg:mb-0">
-                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Data cabang</h3>
+                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">List Admin Ranting</h3>
                     </div>
                 </div>
                 <!-- Table -->
                 <div class="flex flex-col mt-6">
-                    <div class="overflow-x-auto rounded-lg">
+                    <div class="overflow-x-auto rounded-lg scrollbar">
                         <div class="inline-block min-w-full align-middle">
                             <div class="overflow-hidden shadow sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
                                     <thead class="bg-gray-50 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 no
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Username
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Email
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                No Telpon
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Cabang
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                                                Jumlah Ranting
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Ranting
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                                                Alamat
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Role
                                             </th>
-                                            <th scope="col"
-                                                class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                                                Aksi
-                                            </th>
+
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white dark:bg-gray-800">
-                                        <tr>
+                                        <tr class="text-center border-b-[1px] border-gray-600">
                                             <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                1.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
+                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             </td>
                                             <td
                                                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr class="bg-gray-50 dark:bg-gray-700">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                2.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
+                                                Gresik
                                             </td>
                                             <td
                                                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                3.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
+                                                Example74@gmail.com
                                             </td>
                                             <td
                                                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50 dark:bg-gray-700">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                4.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
+                                                082230736205
                                             </td>
                                             <td
                                                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                5.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
+                                                082230736205
                                             </td>
                                             <td
                                                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50 dark:bg-gray-700">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                6.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
+                                                082230736205
                                             </td>
                                             <td
                                                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
+                                                Admin
                                             </td>
                                         </tr>
 
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                7.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
 
 
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50 dark:bg-gray-700">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                8.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                9.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50 dark:bg-gray-700">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                10.
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                Ryan Yulianto
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                53553545534
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                                yuliantoryan64@gmail.com
-                                            </td>
-
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
-
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
-                                                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-
-
-                                                </div>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Card Footer -->
+                <div class="flex items-center justify-between pt-3 sm:pt-6 float-right">
 
+                    <div class="flex-shrink-0 ">
+                        <a href="#"
+                            class="inline-flex items-center p-2 text-xs font-medium uppercase rounded-lg text-primary-700 sm:text-sm hover:bg-gray-100 dark:text-primary-500 dark:hover:bg-gray-700">
+                            Lihat Selengkapnya
+                            <svg class="w-4 h-4 ml-1 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            {{-- table matakuliah end --}}
-
-
-
-
-
-
+            {{-- table admin end --}}
 
 
         </div>
-
-        {{-- content-1 end --}}
-
-
     </div>
 @endsection

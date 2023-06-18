@@ -35,7 +35,7 @@ Route::get('/add', function () {
 });
 
 Route::get('/baru', function () {
-    return view('ranting.dashboard.index');
+    return view('cabang.dashboard.index');
 });
 
 
