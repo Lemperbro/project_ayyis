@@ -35,7 +35,7 @@ Route::get('/add', function () {
 });
 
 Route::get('/baru', function () {
-    return view('cabang.konfirmasi.index');
+    return view('ranting.dashboard.index');
 });
 
 
