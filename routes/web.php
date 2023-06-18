@@ -26,9 +26,9 @@ use App\Http\Controllers\ranting\DashboardRantingController;
 
 
 
-// Route::get('/coba', function () {
-//     return view('auth.register');
-// });
+Route::get('/coba', function () {
+    return view('admin.cabang.index');
+});
 
 
 Route::middleware('guest')->group(function(){
