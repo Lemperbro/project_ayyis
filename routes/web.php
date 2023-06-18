@@ -20,9 +20,9 @@ use App\Http\Controllers\ranting\DashboardRantingController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('page');
+});
 
 
 
