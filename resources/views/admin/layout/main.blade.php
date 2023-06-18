@@ -1,6 +1,6 @@
-@include('admin.partials.start')
+@include('globalPartials.start')
 
-@include('admin.partials.navbar')
+@include('globalPartials.navbar')
 
 <div class="flex pt-16 overflow-hidden bg-gray-100 dark:bg-gray-900">
 
@@ -13,10 +13,9 @@
 
     <main>
 
-@include('admin.partials.footer')
 
 </div>
 
 </div>
 
-@include('admin.partials.end')
+@include('globalPartials.end')

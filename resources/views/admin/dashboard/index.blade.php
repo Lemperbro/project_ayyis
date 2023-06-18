@@ -4,7 +4,7 @@
 @section('container')
     <div class="px-4 pt-6">
         {{-- card-1 start --}}
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis odit, doloribus laudantium, alias dicta odio harum, assumenda repellat saepe praesentium culpa eveniet temporibus hic unde nulla rerum voluptas dolor dignissimos.</p>
+        
         <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3 pb-4 ">
 
             <div

@@ -15,7 +15,7 @@ class DashboardCabangController extends Controller
      */
     public function index()
     {
-        return view('admin.cabang.index');
+        return view('cabang.dashboard.index');
     }
 
     /**

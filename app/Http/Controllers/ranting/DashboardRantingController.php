@@ -17,7 +17,7 @@ class DashboardRantingController extends Controller
      */
     public function index()
     {
-        return view('admin.ranting.index');
+        return view('ranting.dashboard.index');
     }
 
     /**
@@ -27,7 +27,7 @@ class DashboardRantingController extends Controller
      */
     public function create()
     {
-     return view('admin.ranting.add');   
+     return view('ranting.add');   
     }
 
     /**
