@@ -51,15 +51,10 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                            <li class="">
+                        <ul id="dropdown-example" class="hidden">
+                            <li class="py-1">
                                 <a href="/admin/cabang"
                                     class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Admin
-                                    Cabang</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data
                                     Cabang</a>
                             </li>
                         </ul>
@@ -90,11 +85,7 @@
                                     class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Admin
                                     Ranting</a>
                             </li>
-                            <li>
-                                <a href=""
-                                    class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Data
-                                    Ranting</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li class="py-2">

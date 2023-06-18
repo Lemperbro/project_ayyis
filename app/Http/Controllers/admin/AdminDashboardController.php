@@ -20,6 +20,8 @@ class AdminDashboardController extends Controller
         $cabang = User::where('role', 'cabang')->where('verified', 'user')->get();
         $ranting = User::where('role', 'ranting')->where('verified', 'user')->get();
 
+
+
         return view('admin.dashboard.index', [
             'cabang' => $cabang,
             'ranting' => $ranting

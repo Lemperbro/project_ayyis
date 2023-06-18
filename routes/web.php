@@ -30,6 +30,14 @@ Route::get('/coba', function () {
     return view('admin.cabang.index');
 });
 
+Route::get('/add', function () {
+    return view('admin.konfirmasi.index');
+});
+
+Route::get('/baru', function () {
+    return view('admin.ranting.index');
+});
+
 
 Route::middleware('guest')->group(function(){
 
