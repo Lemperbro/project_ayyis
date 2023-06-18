@@ -68,12 +68,12 @@ class AdminDashboardController extends Controller
             // NamaModel::whereRaw("SUBSTRING_INDEX(nia, '.', -2) = ?", [$year])
             //      ->get();
         }
-        dd($Anggotas->get());
+        // dd($Anggotas->get());
 
                 // $coba = "12./21]212;31";
         // $deli = array('./','/',']',';');
         // $a = str_replace($deli , '|', $coba);
         // $p = explode('|',$a);
-        // dd(implode('.',$p));
+        // dd(implode('.',$p));I
     }
 }

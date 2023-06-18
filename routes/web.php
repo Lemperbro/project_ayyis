@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\admin\AdminCabangController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
@@ -27,8 +27,16 @@ Route::get('/', function () {
 
 
 // Route::get('/coba', function () {
-//     return view('auth.register');
+//     return view('admin.cabang.index');
 // });
+
+Route::get('/add', function () {
+    return view('admin.konfirmasi.index');
+});
+
+Route::get('/baru', function () {
+    return view('cabang.konfirmasi.index');
+});
 
 
 Route::middleware('guest')->group(function(){
@@ -53,6 +61,7 @@ Route::middleware('admin')->group(function(){
 
     Route::get('/admin', [AdminDashboardController::class, 'index']);
     Route::get('/admin/konfirmasi', [AdminDashboardController::class, 'konfirmasi']);
+    Route::get('/admin/cabang', [AdminCabangController::class, 'index']);
 });
 
 Route::middleware('cabang')->group(function(){

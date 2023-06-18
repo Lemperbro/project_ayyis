@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('image');
             $table->string('nama');
-            $table->bigInteger('nia');
+            $table->string('nia');
             $table->string('ttl');
             $table->string('alamat');
             $table->string('ranting');
