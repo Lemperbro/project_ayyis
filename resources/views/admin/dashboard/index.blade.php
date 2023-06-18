@@ -13,7 +13,7 @@
 
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
-                            <h1 class="font-bold text-6xl">10</h1>
+                            <h1 class="font-bold text-6xl">{{ $ranting->count() }}</h1>
                             <h1>Total Ranting</h1>
                         </div>
 
@@ -42,7 +42,7 @@
 
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
-                            <h1 class="font-bold text-6xl">10</h1>
+                            <h1 class="font-bold text-6xl">{{ $cabang->count() }}</h1>
                             <h1>Total Cabang</h1>
                         </div>
 

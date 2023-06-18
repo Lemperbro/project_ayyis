@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\CabangController;
-use App\Http\Controllers\admin\RantingController;
-use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\auth\RegisterController;
+
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\cabang\DashboardCabangController;
+use App\Http\Controllers\ranting\DashboardRantingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
-Route::get('/coba', function () {
-    return view('auth.register');
-});
+// Route::get('/coba', function () {
+//     return view('auth.register');
+// });
 
 
 Route::middleware('guest')->group(function(){
@@ -50,17 +51,17 @@ Route::middleware('auth')->group(function(){
 
 Route::middleware('admin')->group(function(){
 
-    Route::get('/admin', [AdminController::class, 'index']);
-    Route::get('/admin/konfirmasi', [AdminController::class, 'konfirmasi']);
+    Route::get('/admin', [AdminDashboardController::class, 'index']);
+    Route::get('/admin/konfirmasi', [AdminDashboardController::class, 'konfirmasi']);
 });
 
 Route::middleware('cabang')->group(function(){
-    Route::get('/cabang', [CabangController::class, 'index']);
+    Route::get('/cabang', [DashboardCabangController::class, 'index']);
 
 });
 
 Route::middleware('ranting')->group(function(){
-    Route::get('/ranting', [RantingController::class, 'index']);
-    Route::get('/admin/ranting', [RantingController::class, 'create']);
+    Route::get('/ranting', [DashboardRantingController::class, 'index']);
+    Route::get('/admin/ranting', [DashboardRantingController::class, 'create']);
 
 });

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\ranting;
 
 use App\Http\Controllers\Controller;
-use App\Models\Ranting;
 use Illuminate\Http\Request;
+use App\Models\Anggota;
 use Carbon\Carbon;
 use Symfony\Contracts\Service\Attribute\Required;
 
-class RantingController extends Controller
+class DashboardRantingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -56,7 +56,7 @@ class RantingController extends Controller
             $files->move('image', $name);
         }
         
-        Ranting::create([
+        Anggota::create([
             'nama' => $validasi['nama'],
             'foto' => $name,
             'tanggal_lahir' => $validasi['tanggal_lahir'],
@@ -70,48 +70,5 @@ class RantingController extends Controller
             return redirect('/ranting')->with('success', 'successful additional to the Driver');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ranting  $ranting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ranting $ranting)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ranting  $ranting
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ranting $ranting)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ranting  $ranting
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Ranting $ranting)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Ranting  $ranting
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Ranting $ranting)
-    {
-        //
-    }
 }

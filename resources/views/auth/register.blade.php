@@ -73,13 +73,13 @@
 
                     <div id="input-ranting" class="hidden">
                         <label for="nama_ranting" class="text-xl font-normal">Nama Ranting:</label>
-                        <input type="text" id="nama_ranting" name="ranting" class="rounded-md w-full border h-12 p-2">
+                        <input type="text" id="nama_ranting" name="ranting" class="rounded-md w-full border h-12 p-2" placeholder="Maduran">
 
                       </div>
                       
                       <div id="input-cabang" class="hidden ">
                         <h1 for="nama_cabang" class="text-xl font-normal">Nama Cabang:</h1>
-                        <input type="text" id="nama_cabang" name="cabang" class="rounded-md w-full border h-12 p-2">
+                        <input type="text" id="nama_cabang" name="cabang" class="rounded-md w-full border h-12 p-2" placeholder="Lamongan">
                       </div>
 
                     <div class="w-full">
