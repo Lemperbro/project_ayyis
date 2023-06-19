@@ -34,7 +34,7 @@
                         <div class="my-4">
 
                             <label for="cabang"
-                                class="dark:text-white text-grey-900 font-semibold inline-block">Cabang</label>
+                                class="dark:text-white text-grey-900 font-semibold inline-block">cabang</label>
                             <input type="text" id="cabang" name="cabang"
                                 class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
                                 placeholder="Ex : Lamongan" value="{{ request('cabang') }}">
