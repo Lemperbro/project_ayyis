@@ -16,7 +16,8 @@
                             <label for="nama"
                                 class="dark:text-white text-grey-900 font-semibold inline-block">Nama</label>
                             <input type="text" id="nama" name="nama"
-                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" placeholder="Ex : Paijo" value="{{ request('nama') }}">
+                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
+                                placeholder="Ex : Paijo" value="{{ request('nama') }}">
 
                         </div>
 
@@ -25,7 +26,8 @@
                             <label for="cabang"
                                 class="dark:text-white text-grey-900 font-semibold inline-block">Cabang</label>
                             <input type="text" id="cabang" name="cabang"
-                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" placeholder="Ex : Maduran" value="{{ request('cabang') }}">
+                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
+                                placeholder="Ex : Maduran" value="{{ request('cabang') }}">
 
                         </div>
 
@@ -34,7 +36,8 @@
                             <label for="nia"
                                 class="dark:text-white text-grey-900 font-semibold inline-block">NIA</label>
                             <input type="text" id="nia" name="nia"
-                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" placeholder="12.313.2012.1212" value="{{ request('nia') }}">
+                                class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
+                                placeholder="12.313.2012.1212" value="{{ request('nia') }}">
 
                         </div>
 
@@ -52,13 +55,12 @@
                     </div>
                 </form>
 
-
                 <div class="flex gap-x-2">
 
-                    <button
+                    <a href="/admin/cabang/add"
                         class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2"type="button">
                         Tambah Admin Cabang
-                    </button>
+                    </a>
 
 
                     <button
@@ -112,10 +114,14 @@
                                         class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Administrator
                                     </th>
+                                    <th scope="col"
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="">
-                                @foreach ($cabang as $cabangs) 
+                                @foreach ($cabang as $cabangs)
                                     <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
@@ -137,12 +143,27 @@
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $cabangs->nia }}
                                         </td>
-    
+
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $cabangs->username }}
                                         </td>
-    
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            <form action="/admin/cabang/delete/{{ $cabangs->id }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="bg-red-600 p-2 rounded-md">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                        viewBox="0 0 448 512" class="fill-white">
+                                                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+
+
                                     </tr>
                                 @endforeach
 

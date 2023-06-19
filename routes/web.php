@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\admin\AdminCabangController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\admin\AdminCabangController;
+use App\Http\Controllers\admin\AdminRantingController;
+use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\cabang\DashboardCabangController;
 use App\Http\Controllers\ranting\DashboardRantingController;
 
@@ -30,13 +31,13 @@ Route::get('/', function () {
 //     return view('admin.cabang.index');
 // });
 
-Route::get('/add', function () {
-    return view('admin.konfirmasi.index');
-});
+// Route::get('/add', function () {
+//     return view('admin.konfirmasi.index');
+// });
 
-Route::get('/baru', function () {
-    return view('cabang.dashboard.index');
-});
+// Route::get('/baru', function () {
+//     return view('cabang.dashboard.index');
+// });
 
 
 Route::middleware('guest')->group(function(){
@@ -62,6 +63,11 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin', [AdminDashboardController::class, 'index']);
     Route::get('/admin/konfirmasi', [AdminDashboardController::class, 'konfirmasi']);
     Route::get('/admin/cabang', [AdminCabangController::class, 'index']);
+    Route::get('/admin/cabang/add', [AdminCabangController::class, 'create']);
+    Route::post('/admin/cabang/add', [AdminCabangController::class, 'store']);
+    Route::post('/admin/cabang/delete/{id}', [AdminCabangController::class, 'destroy']);
+    Route::get('/admin/ranting', [AdminRantingController::class, 'index']);
+    Route::get('/admin/ranting/add', [AdminRantingController::class, 'create']);
 });
 
 Route::middleware('cabang')->group(function(){
@@ -71,6 +77,6 @@ Route::middleware('cabang')->group(function(){
 
 Route::middleware('ranting')->group(function(){
     Route::get('/ranting', [DashboardRantingController::class, 'index']);
-    Route::get('/admin/ranting', [DashboardRantingController::class, 'create']);
+    Route::get('/ranting/add', [DashboardRantingController::class, 'create']);
 
 });
