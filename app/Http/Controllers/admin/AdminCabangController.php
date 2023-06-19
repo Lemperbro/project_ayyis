@@ -51,6 +51,18 @@ class AdminCabangController extends Controller
             'email' => 'required|email|unique:users',
             'telp' => 'required|min:9',
             'password' => 'required|min:5|max:255'
+        ],[
+            'nama.required' => 'Nama Harus Di isi',
+            'nia.required' => 'Nia Harus Di isi',
+            'nia.unique' => 'Nia Yang Anda Masukan Sudah Tersedia',
+            'cabang.required' => 'Cabang Harus Di Isi',
+            'email.required' => 'Email Harus Di Isi',
+            'email.unique' => 'Email Sudah Di pakai',
+            'telp.required' => 'Nomor Telpon Harus Di isi',
+            'telp.min' => 'Nomor Telpon Harus minimal :min',
+            'password.required' => 'Password Harus Di isi',
+            'password,min' => 'Password Harus minimal :min',
+            'password.max' => 'Password maximal :max'
         ]);
 
         $validasi['password'] = bcrypt($validasi['password']);

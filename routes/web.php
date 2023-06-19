@@ -68,6 +68,7 @@ Route::middleware('admin')->group(function(){
     Route::post('/admin/cabang/delete/{id}', [AdminCabangController::class, 'destroy']);
     Route::get('/admin/ranting', [AdminRantingController::class, 'index']);
     Route::get('/admin/ranting/add', [AdminRantingController::class, 'create']);
+    Route::post('/admin/ranting/add', [AdminRantingController::class, 'store']);
 });
 
 Route::middleware('cabang')->group(function(){
