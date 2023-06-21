@@ -1,41 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css','resources/js/app.js'])
+<html lang="en" >
 
-    <title>Document</title>
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Animated Gradient Border</title>
+  
+  
+  
+<style>
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,800');
+
+body {
+  background: url('https://3.bp.blogspot.com/-YBeTk9NQrR4/WrtiysOeVqI/AAAAAAAAEBs/mvMRVVTMWHM5FY1Y2ex4wSq7m2dD7ZYEQCLcBGAs/s1600/photo-1501449464997-86f52f4f9f66.jpg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(150deg, rgba(64,224,208, 0.3), rgba(255,0,128, 0.3));
+  font-family: 'Raleway', sans-serif;
+}
+
+.center-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  min-width: 400px;
+  padding: 25px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: rgba(255,255,255, 0.85);
+  border-radius: 15px;
+  background-size: cover;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.35);  
+  transition: background 0.5s ease;
+}
+
+.card:hover {
+  background: rgba(255,255,255, 0.95);
+}
+
+.profile {
+  width: 150px;
+  height: 150px; 
+  border-radius: 50%;
+  background-color: #FF0080;
+  background: linear-gradient(150deg, #40E0D0, #FF0080);
+  animation: gradientRotate 7s ease infinite;
+  transition: border-radius 0.5s ease;
+}
+
+.profile:hover {
+  border-radius: 45%;
+}
+
+.pic {
+  width: 95%;
+  height: 95%;
+  background-image: url('https://2.bp.blogspot.com/-n87xcAqSNvs/WrthSsymHZI/AAAAAAAAEBY/sy_yf-o3gSgRSUPXkyw8LQWl3nk3lsJoACLcBGAs/s1600/01x.jpg');
+  background-size: cover;
+  border-radius: 50%;
+  animation: picFix 7s ease infinite;
+  position: relative;
+}
+.container a {
+  text-decoration: none;
+}
+
+.info .title {
+  color: #C33764;
+  font-size: 2.3rem;
+  font-weight: 100;
+}
+
+.info .title span {
+  font-weight: 900;
+}
+
+.info .sub-title {
+  color: #727272;
+  font-size: 1rem;
+}
+
+@keyframes gradientRotate {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
+}
+
+@keyframes picFix {
+  0%{transform: rotate(360deg)}
+  100%{transform: rotate(0deg)}
+}
+
+@media screen and (max-width: 401px) {
+  .card {
+    min-width: 200px;
+  }
+  .card .profile {
+    margin-bottom: 10px;
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+</style>
+
+  
 </head>
+
 <body>
-    <section class="bg-white dark:bg-gray-900 ">
-        <div class="container flex items-center min-h-screen px-6 py-12 mx-auto">
-            <div class="flex flex-col items-center max-w-sm mx-auto text-center">
-                <p class="p-3 text-sm font-medium text-blue-500 rounded-full bg-blue-50 dark:bg-gray-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                    </svg>
-                </p>
-                <h1 class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Page not found</h1>
-                <p class="mt-4 text-gray-500 dark:text-gray-400">The page you are looking for doesn't exist. Here are some helpful links:</p>
-    
-                <div class="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
-                    <button class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:rotate-180">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                        </svg>
-    
-    
-                        <span>Go back</span>
-                    </button>
-    
-                    <button class="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
-                        Take me home
-                    </button>
-                </div>
-            </div>
+
+  <div class="container center-contents">
+  <a href="https://adimancv.com" target="_blank">
+    <div class="card center-contents">
+      <div class="profile center-contents">
+        <div class="pic"></div>
+      </div>
+      <div class="info">
+        <div class="title"><span>adimancv</span>.com</div>
+        <div class="sub-title">
+          Assalamualaikum..?? ðŸ‘‹ ðŸ‘‹ 
         </div>
-    </section>
+      </div>
+    </div>
+  </a>
+</div>
+  
+  
+
 </body>
+
 </html>

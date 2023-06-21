@@ -8,43 +8,67 @@
             <div class="mt-4">
                 <label for="nama" class="text-gray-900 dark:text-white">Username</label>
                 <input type="text" name="nama" id="nama"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Contoh: Andhi Saputra" required>
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 
+                    @error('nama')
+                    peer
+                     @enderror"
+                    value="{{ old('nama') }}" required/>
             </div>
 
             <div class="mt-4">
                 <label for="nia" class="text-gray-900 dark:text-white">NIA</label>
-                <input type="text" name="nia" id="nia"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Contoh: 12.23.2021.1232" required>
+                <input type="text" name="nia" id="nia" placeholder="Contoh: 12.23.2021.1232"
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                    @error('nia')
+                    peer
+                     @enderror"
+                    value="{{ old('nia') }}" required/>
             </div>
 
             <div class="mt-4">
                 <label for="ranting" class="text-gray-900 dark:text-white">Ranting</label>
-                <input type="text" name="ranting" id="ranting"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Contoh: Maduran" required>
+                <input type="text" name="ranting" id="ranting"  placeholder="Contoh: Maduran" 
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                     @error('ranting')
+                    peer
+                     @enderror"
+                    value="{{ old('ranting') }}" required/>
             </div>
 
             <div class="mt-4">
                 <label for="cabang" class="text-gray-900 dark:text-white">Cabang</label>
-                <input type="text" name="cabang" id="cabang"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Contoh: Lamongan" required>
+                <input type="text" name="cabang" id="cabang" placeholder="Contoh: Lamongan" 
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                     @error('cabang')
+                    peer
+                     @enderror"
+                    value="{{ old('cabang') }}" required/>
             </div>
 
             <div class="mt-4">
                 <label for="email" class="text-gray-900 dark:text-white">Email</label>
-                <input type="email" name="email" id="email"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Contoh: Example@gmail.com" required>
+                <input type="email" name="email" id="email" placeholder="Contoh: Example@gmail.com"
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                    @error('email')
+                    peer
+                     @enderror"
+                    value="{{ old('email') }}" required/>
             </div>
 
             <div class="mt-4">
                 <label for="telp" class="text-gray-900 dark:text-white">No Telpon</label>
-                <input type="number" name="telp" id="telp"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Contoh: 081423242242" required>
+                <input type="number" name="telp" id="telp" placeholder="Contoh: 081423242242"
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 
+                    @error('telp')
+                    peer
+                     @enderror"
+                    value="{{ old('telp') }}" required/>
             </div>
 
             <div class="mt-4">
                 <label for="password" class="text-gray-900 dark:text-white">Password</label>
-                <input type="password" name="password" id="password"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="......." required>
+                <input type="password" name="password" id="password" placeholder="......." 
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
             </div>
 
             <div class="flex gap-x-4 mt-4">
