@@ -34,7 +34,7 @@
                         <div class="my-4">
 
                             <label for="cabang"
-                                class="dark:text-white text-grey-900 font-semibold inline-block">cabang</label>
+                                class="dark:text-white text-grey-900 font-semibold inline-block">Cabang</label>
                             <input type="text" id="cabang" name="cabang"
                                 class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
                                 placeholder="Ex : Lamongan" value="{{ request('cabang') }}">
@@ -129,10 +129,14 @@
                                         class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Administrator
                                     </th>
+                                    <th scope="col"
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="">
-                                @foreach ($ranting as $rantings) 
+                                @foreach ($ranting as $rantings)
                                     <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
@@ -158,14 +162,25 @@
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $rantings->nia }}
                                         </td>
-    
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $rantings->username }}
                                         </td>
-    
+
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                <button onclick="delete_{{ $rantings->id }}.showModal()"
+                                                    class="bg-red-600 p-2 rounded-md">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                        viewBox="0 0 448 512" class="fill-white">
+                                                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                                                    </svg>
+                                                </button>
+                                        </td>
+
                                     </tr>
-    
                                 @endforeach
 
                             </tbody>
@@ -247,4 +262,23 @@
 
 
     </div>
+
+
+    {{-- modal delete start --}}
+
+    @foreach ($ranting as $rantings)
+        <dialog id="delete_{{ $rantings->id }}" class="modal modal-bottom sm:modal-middle">
+            <form action="/admin/ranting/delete/{{ $rantings->id }}" method="POST" class="modal-box dark:bg-gray-600">
+                @csrf
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Hapus Akun</h3>
+                <p class="py-4 text-gray-900 dark:text-white">Apakah Kamu Yakin Mau Menghapus Akun Ini ? </p>
+                <div class="modal-action">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn bg-red-600 hover:bg-red-700 text-white border-none">Tidak</button>
+                    <button type="submit" class="btn bg-green-600 hover:bg-green-700 text-white border-none">Ya</button>
+                </div>
+            </form>
+        </dialog>
+    @endforeach
+    {{-- modal delete end  --}}
 @endsection

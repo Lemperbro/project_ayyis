@@ -2,7 +2,7 @@
 
 @include('globalPartials.navbar')
 
-<div class="flex pt-16 overflow-hidden ">
+<div class="flex pt-16 overflow-hidden bg-gray-100 dark:bg-gray-900">
 
 @include('admin.partials.sidebar')
 

@@ -95,5 +95,11 @@ class AdminRantingController extends Controller
         }
     }
 
+    public function destroy($id){
+        $this->ranting->where('id', $id)->delete();
+
+        return redirect()->back()->with('toast_success', 'Berhasil Menghapus Akun');
+    }
+
     
 }

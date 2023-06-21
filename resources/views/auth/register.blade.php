@@ -16,7 +16,7 @@
                     @csrf
 
                     <div class="w-full">
-                        <h1 class='text-xl font-normal '>username</h1>
+                        <h1 class='text-xl font-normal '>Username</h1>
                         <input type="text" placeholder='Andhi Satria' name="username"
                             class='rounded-md w-full border h-12 p-2 @error('username')
                     peer
@@ -30,6 +30,20 @@
 
                     </div>
 
+                    <div class="w-full">
+                        <h1 class='text-xl font-normal'>NIA</h1>
+                        <input type="text" placeholder='10.21.2002.1213' name="nia"
+                            class='rounded-md w-full border h-12 p-2 @error('nia')
+                    peer
+                  @enderror'
+                            value="{{ old('nia') }}" />
+                        @error('nia')
+                            <p class="peer-invalid:visible text-red-700 font-light">
+                                {{ $message }}
+                            </p>
+                        @enderror
+
+                    </div>
 
                     <div class="w-full">
                         <h1 class='text-xl font-normal'>Email</h1>

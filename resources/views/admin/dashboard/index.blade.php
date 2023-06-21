@@ -257,27 +257,27 @@
                                                 </td>
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    Gresik
+                                                    {{ $rantings->username }}
                                                 </td>
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    Example74@gmail.com
+                                                    {{ $rantings->email }}
                                                 </td>
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    082230736205
+                                                    {{ $rantings->telp }}
                                                 </td>
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    082230736205
+                                                    {{ $rantings->cabang }}
                                                 </td>
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    082230736205
+                                                    {{ $rantings->ranting }}
                                                 </td>
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    Admin
+                                                    {{ $rantings->role }}
                                                 </td>
                                             </tr>
                                         @endforeach
