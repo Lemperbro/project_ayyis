@@ -18,6 +18,7 @@ class RegisterController extends Controller
             $validasi = $request->validate([
                 'username' => 'required|max:255',
                 'email' => 'required|email|unique:users',
+                'nia' => 'required',
                 'telp' => 'required',
                 'role' => 'required',
                 'ranting' => 'required',
@@ -30,6 +31,7 @@ class RegisterController extends Controller
             $validasi = $request->validate([
                 'username' => 'required|max:255',
                 'email' => 'required|email|unique:users',
+                'nia' => 'required',
                 'telp' => 'required',
                 'role' => 'required',
                 'cabang' => 'required',
@@ -47,6 +49,7 @@ class RegisterController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'telp' => $request->telp,
+            'nia' => $request->nia,
             'role' => $request->role,
             'ranting' => strtolower($request->ranting),
             'cabang' => strtolower($request->cabang),

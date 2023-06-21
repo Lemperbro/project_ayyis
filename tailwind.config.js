@@ -29,12 +29,16 @@ module.exports = {
     '!delay-[0ms]',
     'html.js :where([class*="taos:"]:not(.taos-init))'
   ],
+  daisyui: {
+    themes: [],
+  },
   theme: {
     container: {
       center: true,
       padding: "2rem",
     },
     extend: {
+      
       colors: {
         primary: { "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd", "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8", "800": "#1e40af", "900": "#1e3a8a" },
         main : "#1A1C1E",
@@ -137,7 +141,8 @@ module.exports = {
     require('tw-elements/dist/plugin'),
     require('@tailwindcss/line-clamp'),
     require('taos/plugin'),
-    require("tw-elements/dist/plugin.cjs")
+    require("tw-elements/dist/plugin.cjs"),
+    require("daisyui"),
 
     
 

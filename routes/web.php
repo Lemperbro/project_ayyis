@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\admin\AdminCabangController;
+use App\Http\Controllers\admin\AdminConfirmController;
 use App\Http\Controllers\admin\AdminRantingController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\cabang\DashboardCabangController;
@@ -59,9 +60,10 @@ Route::middleware('auth')->group(function(){
 
 
 Route::middleware('admin')->group(function(){
+    Route::post('/admin/konfirmasi/{id}', [AdminConfirmController::class, 'confirm']);
+    Route::get('/admin/konfirmasi', [AdminConfirmController::class, 'index']);
 
     Route::get('/admin', [AdminDashboardController::class, 'index']);
-    Route::get('/admin/konfirmasi', [AdminDashboardController::class, 'konfirmasi']);
     Route::get('/admin/cabang', [AdminCabangController::class, 'index']);
     Route::get('/admin/cabang/add', [AdminCabangController::class, 'create']);
     Route::post('/admin/cabang/add', [AdminCabangController::class, 'store']);
@@ -69,6 +71,7 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin/ranting', [AdminRantingController::class, 'index']);
     Route::get('/admin/ranting/add', [AdminRantingController::class, 'create']);
     Route::post('/admin/ranting/add', [AdminRantingController::class, 'store']);
+    Route::post('/admin/ranting/delete/{id}', [AdminRantingController::class, 'destroy']);
 });
 
 Route::middleware('cabang')->group(function(){
