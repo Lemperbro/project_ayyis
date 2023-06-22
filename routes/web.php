@@ -22,8 +22,8 @@ use App\Http\Controllers\ranting\DashboardRantingController;
 |
 */
 
-Route::get('/', function () {
-    return view('page');
+Route::get('/cek', function () {
+    return view('data.view');
 });
 
 
