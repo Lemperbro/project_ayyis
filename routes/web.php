@@ -23,7 +23,7 @@ use App\Http\Controllers\ranting\DashboardRantingController;
 */
 
 Route::get('/cek', function () {
-    return view('data.view');
+    return view('ranting.anggota.index');
 });
 
 
