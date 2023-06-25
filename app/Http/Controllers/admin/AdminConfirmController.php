@@ -37,4 +37,11 @@ class AdminConfirmController extends Controller
         return redirect()->back()->with('toast_success', 'Berhasil Mengkonfirmasi Akun');
     }
 
+    public function tolak($id){
+        $this->confirmCabang->where('id', $id)->delete();
+
+        return redirect()->back()->with('toast_success', 'Akun Berhasil Ditolak');
+    }
+    
+
 }

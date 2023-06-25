@@ -41,7 +41,8 @@
                                     class="focus:outline-none text-white bg-yellow-500  rounded-lg text-base font-semibold p-2 h-10 mt-7">
                                     Cari Data
                                 </button>
-                                <a href="/admin/konfirmasi" class="text-white bg-red-600 p-2 rounded-md h-10 mt-7 font-semibold text-base">
+                                <a href="/admin/konfirmasi"
+                                    class="text-white bg-red-600 p-2 rounded-md h-10 mt-7 font-semibold text-base">
                                     Reset Search
                                 </a>
                             </div>
@@ -139,8 +140,7 @@
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     <div class="flex gap-x-4 justify-center items-center">
 
-                                                        <form action="">
-                                                            <button type="submit" class="bg-red-500 p-2 rounded-md">
+                                                            <button class="bg-red-500 p-2 rounded-md" onclick="tolak_{{ $datas->id }}.showModal()">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                                                                     viewBox="0 0 448 512" class="fill-white">
                                                                     <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -148,7 +148,6 @@
                                                                         d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
                                                                 </svg>
                                                             </button>
-                                                        </form>
 
                                                         <button class="bg-green-500 p-2 rounded-md"
                                                             onclick="confirm_{{ $datas->id }}.showModal()">
@@ -207,12 +206,42 @@
                 <h3 class="font-bold text-lg text-gray-900 dark:text-white">Konfirmasi Akun</h3>
                 <p class="py-4 text-gray-900 dark:text-white">Apakah Kamu Yakin Mau Mengkonfirmasi Akun Ini ? </p>
                 <div class="modal-action">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn bg-red-600 hover:bg-red-700 text-white border-none">Tidak</button>
+                    <label for="close" class="btn bg-red-600 hover:bg-red-700 text-white border-none">Tidak</label>
                     <button type="submit" class="btn bg-green-600 hover:bg-green-700 text-white border-none">Ya</button>
                 </div>
             </form>
+            <form method="dialog" class="hidden">
+                <div class="modal-action">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button id="close" class="btn bg-red-600 hover:bg-red-700 text-white border-none">Close</button>
+            </form>
+            </div>
         </dialog>
     @endforeach
     {{-- modal confirm end  --}}
+
+
+        {{-- modal tolak start --}}
+
+        @foreach ($data as $tolak)
+        <dialog id="tolak_{{ $tolak->id }}" class="modal modal-bottom sm:modal-middle">
+            <form action="/admin/tolak/{{ $tolak->id }}" method="POST" class="modal-box dark:bg-gray-600">
+                @csrf
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Konfirmasi Akun</h3>
+                <p class="py-4 text-gray-900 dark:text-white">Apakah Kamu Yakin Mau Menolak Akun Ini ? </p>
+                <div class="modal-action">
+                    <label for="close_tolak" class="btn bg-red-600 hover:bg-red-700 text-white border-none">Tidak</label>
+                    <button type="submit" class="btn bg-green-600 hover:bg-green-700 text-white border-none">Ya</button>
+                </div>
+            </form>
+            <form method="dialog" class="hidden">
+                <div class="modal-action">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button id="close_tolak" class="btn bg-red-600 hover:bg-red-700 text-white border-none">Close</button>
+            </form>
+            </div>
+        </dialog>
+    @endforeach
+    {{-- modal tolak end  --}}
+
 @endsection

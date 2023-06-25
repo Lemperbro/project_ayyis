@@ -42,14 +42,7 @@ class AdminDashboardController extends Controller
         ]);
     }
 
-    public function konfirmasi()
-    {
-        $data = User::latest()->where('verified', 0);
 
-        return view('admin.konfirmasi.index', [
-            'data' => $data->get(),
-        ]);
-    }
 
     public function data_cabang()
     {
