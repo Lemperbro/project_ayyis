@@ -77,6 +77,7 @@
                             </svg>
 
                             <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Ranting</span>
+                            
                             <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"

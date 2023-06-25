@@ -10,7 +10,7 @@
 
                 <form class="" action="/admin/cabang">
 
-                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-4 justify-between my-5">
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-x-4 justify-between my-5">
                         <div class="mt-4">
 
                             <label for="nama"
@@ -51,19 +51,33 @@
 
                         </div>
 
+                        <div class="my-4 grid grid-cols-2 gap-x-2">
+                            <a href="#"
+                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12 mt-8">Cari Data
+                            </a>
+
+                            <button type="submit"
+                                class="bg-red-700 py-2.5 rounded-lg text-base text-white font-semibold inline-block text-center h-12 mt-8 ">
+                                 Reset
+                                Filter
+                            </button>
+                        </div>
+
 
                     </div>
 
                     <div class="flex w-full gap-x-8">
 
                         <button
-                            class="focus:outline-none text-white bg-green-800 p-2 h-12 rounded-lg text-base flex  font-semibold py-3 gap-x-2"
+                            class="focus:outline-none text-white bg-green-600 p-2 h-12 rounded-lg text-base flex  font-semibold py-3 gap-x-2"
                             type="button">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                class="fill-white" style="transform: ;msFilter:;">
-                                <path d="m12 16 4-5h-3V4h-2v7H8z"></path>
-                                <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                viewBox="0 0 576 512" fill="white">
+                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
                             </svg>
 
                             <span>Cetak Kartu Anggota</span>
@@ -72,14 +86,6 @@
 
 
 
-                        <a href="#"
-                            class="focus:outline-none text-white bg-red-700 rounded-lg text-base font-semibold py-3 px-2">Reset
-                            Filter</a>
-
-                        <button type="submit"
-                            class="focus:outline-none text-white bg-blue-700 rounded-lg text-base font-semibold py-2 px-2 ">
-                            Cari Data
-                        </button>
 
 
 
