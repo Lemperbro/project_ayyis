@@ -18,7 +18,7 @@
                     <p class="peer-invalid:visible text-red-700 font-light">
                         {{ $message }}
                     </p>
-                @enderror>
+                @enderror
         </div>
     
         <div class="mt-4">
