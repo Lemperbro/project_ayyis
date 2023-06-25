@@ -57,7 +57,7 @@
                     <div class="flex w-full gap-x-8">
 
                         <button
-                            class="focus:outline-none text-white bg-green-800 p-2 h-12 rounded-lg text-base flex  font-semibold py-3 gap-x-2"
+                            class="focus:outline-none text-white bg-green-600 p-2 h-12 rounded-lg text-base flex  font-semibold py-3 gap-x-2"
                             type="button">
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -77,7 +77,7 @@
                             Filter</a>
 
                         <button type="submit"
-                            class="focus:outline-none text-white bg-blue-700 rounded-lg text-base font-semibold py-2 px-2 ">
+                            class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold py-2 px-2 ">
                             Cari Data
                         </button>
 
