@@ -68,7 +68,7 @@
         </div>
 
 
-        <div class="flex flex-col justify-center items-center border w-full rounded-xl p-3 mb-4">
+        <div class="flex flex-col justify-center items-center border w-full rounded-xl p-3 mb-4 bg-gray-800">
             
             <img class="w-24 h-24 rounded-full shadow-lg object-cover" src="{{ asset('img/y.jpg') }}" alt="Bonnie image" />
             <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Slamet Sejahatera</h5>
