@@ -32,7 +32,7 @@
               </button>
               <ul id="dropdown-layouts" class="hidden py-1 space-y-1">
                 <li>
-                  <a href="" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Admin Rantin</a>
+                  <a href="" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Admin Ranting</a>
                 </li>
               </ul>
             </li>
