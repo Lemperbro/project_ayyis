@@ -124,7 +124,7 @@
                     </li>
 
                     <li class="py-2">
-                        <a href="/admin "
+                        <a href="/admin/anggota"
                             class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
 
                             <svg xmlns="http://www.w3.org/2000/svg"

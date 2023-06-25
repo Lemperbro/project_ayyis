@@ -6,10 +6,10 @@
 
 
 
-        
+
 
         {{-- card-1 start --}}
-        <div class="grid w-full gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3 pb-4 ">
+        <div class="grid w-full gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-2 pb-4 ">
 
 
 
@@ -20,7 +20,7 @@
 
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
-                            <h1 class="font-bold text-6xl"></h1>
+                            <h1 class="font-bold text-6xl">{{ $ranting->count() }}</h1>
                             <h1>Total Ranting</h1>
                         </div>
 
@@ -51,7 +51,7 @@
 
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
-                            <h1 class="font-bold text-6xl"></h1>
+                            <h1 class="font-bold text-6xl">{{ $anggota->count() }}</h1>
                             <h1>Total Anggota</h1>
                         </div>
 
@@ -133,35 +133,38 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white dark:bg-gray-800">
-                                        <tr class="text-center border-b-[1px] border-gray-600">
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Gresik
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Example74@gmail.com
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                082230736205
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                Admin
-                                            </td>
-                                        </tr>
+                                        @foreach ($ranting as $item)
+                                            <tr class="text-center border-b-[1px] border-gray-600">
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $item->username }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $item->email }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $item->telp }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $item->cabang }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $item->ranting }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    {{ $item->role }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
 
 
