@@ -270,7 +270,7 @@
         <dialog id="delete_{{ $rantings->id }}" class="modal modal-bottom sm:modal-middle">
             <form action="/admin/ranting/delete/{{ $rantings->id }}" method="POST" class="modal-box dark:bg-gray-600">
                 @csrf
-                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Hapus Akun</h3>
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Hapus    Akun</h3>
                 <p class="py-4 text-gray-900 dark:text-white">Apakah Kamu Yakin Mau Menghapus Akun Ini ? </p>
                 <div class="modal-action">
                     <!-- if there is a button in form, it will close the modal -->
