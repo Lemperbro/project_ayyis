@@ -57,7 +57,7 @@
                                         <tr>
                                             <th scope="col"
                                                 class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
-                                                no
+                                                No
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
@@ -65,11 +65,23 @@
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
+                                                Cabang
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
+                                                NIA
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
+                                                Email
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
                                                 Administrator
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
-                                                Alamat
+                                                No Telphone
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-center text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-white">
@@ -80,57 +92,74 @@
                                     <tbody class="bg-white dark:bg-gray-800">
 
 
-                                        <tr>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                            </td>
-                                            <td
-                                                class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                                            </td>
+                                        @foreach ($data as $item)
+                                            <tr class="text-center border-b-[1px] border-gray-600">
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->ranting }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->cabang }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-white">
+                                                    {{ $item->nia }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->email }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->username }}
+                                                </td>
+                                                <td
+                                                    class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->telp }}
+                                                </td>
 
-                                            <td
-                                                class="p-4 justify-center items-center flex text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                <div class="flex gap-x-4">
+                                                <td
+                                                    class="p-4 justify-center items-center flex text-sm font-normal text-gray-500 whitespace-nowrap dark:text-white">
+                                                    <div class="flex gap-x-4">
 
-                                                    <a href="" class="inline-block  p-2 rounded-md bg-green-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
-                                                            fill="currentColor" viewBox="0 0 512 512">
-                                                            <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                            <path
-                                                                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="">
-                                                        <button type="submit" class="bg-red-500 p-2 rounded-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-white"
-                                                                fill="currentColor" viewBox="0 0 448 512">
+                                                        <a href="" class="inline-block  p-2 rounded-md bg-green-500">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class=" w-5 text-white"
+                                                                fill="currentColor" viewBox="0 0 512 512">
                                                                 <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                                                 <path
-                                                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                                                    d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
                                                             </svg>
-                                                        </button>
-                                                    </form>
+                                                        </a>
+
+                                                        <form action="">
+                                                            <button type="submit" class="bg-red-500 p-2 rounded-md">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                    class="w-5 text-white" fill="currentColor"
+                                                                    viewBox="0 0 448 512">
+                                                                    <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                    <path
+                                                                        d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                                                </svg>
+                                                            </button>
+                                                        </form>
 
 
-                                                </div>
-                                            </td>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            </td>
-                            </tr>
-                            </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

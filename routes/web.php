@@ -10,7 +10,10 @@ use App\Http\Controllers\admin\AdminConfirmController;
 use App\Http\Controllers\admin\AdminRantingController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\cabang\CabangController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ranting\DashboardRantingController;
+use App\Http\Middleware\CabangMiddleware;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +51,7 @@ Route::middleware('guest')->group(function(){
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'create']);
     Route::post('/register', [RegisterController::class, 'store']);
+    Route::get('/registers', [RegisterController::class, 'coba']);
     
     
     });
@@ -83,6 +87,9 @@ Route::middleware('cabang')->group(function(){
     Route::get('/cabang/ranting', [CabangController::class, 'ranting']);
     Route::get('/cabang/ranting/create', [CabangController::class, 'ranting_create']);
     Route::post('/cabang/ranting/create', [CabangController::class, 'ranting_store']);
+    Route::get('/cabang/anggota', [CabangController::class, 'anggota']);
+    Route::get('/cabang/confirmation', [CabangController::class, 'confirmation']);
+    Route::post('/cabang/confirmation/{id}', [CabangController::class, 'confirmation_Action']);
 
 });
 
@@ -91,3 +98,6 @@ Route::middleware('ranting')->group(function(){
     Route::get('/ranting/add', [DashboardRantingController::class, 'create']);
 
 });
+
+Route::get('/', [HomeController::class, 'index']);
+

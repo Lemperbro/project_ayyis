@@ -1,15 +1,16 @@
 @extends('auth.layouts.main')
 
 @section('container')
-    <div class="flex flex-col items-center justify-center  px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div class="flex flex-col items-center justify-center  px-6 py-8 mx-auto lg:py-10">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img class="w-8 h-8 mr-2" src="{{ asset('img/cipta.png') }}" alt="logo">
+            <img class="w-10 h-10 mr-2" src="{{ asset('img/cipta.png') }}" alt="logo">
             Cipta Sejati
         </a>
         <div
             class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-xl xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                <h1
+                    class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                     Register Akun Kamu
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="/register" method="POST">
@@ -85,20 +86,26 @@
                             <option value="cabang">Cabang</option>
                         </select>
                     </div>
-
-                    <div id="input-ranting" class="hidden">
-                        <label for="nama_ranting" class="text-xl font-normal">Nama Ranting:</label>
-                        <input type="text" id="nama_ranting" name="ranting" class="rounded-md w-full border h-12 p-2"
-                            placeholder="Maduran">
-
-                    </div>
-
                     <div id="input-cabang" class="hidden ">
-                        <h1 for="nama_cabang" class="text-xl font-normal">Nama Cabang:</h1>
-                        <input type="text" id="nama_cabang" name="cabang" class="rounded-md w-full border h-12 p-2"
-                            placeholder="Lamongan">
+                        <h1 for="nama_cabang" class="text-xl font-normal">Cabang</h1>
+                        {{-- <input type="text" id="nama_cabang" name="cabang" class="rounded-md w-full border h-12 p-2"
+                            placeholder="Lamongan"> --}}
+                        <select name="cabang" id="cabang" class="h-12 p-2 rounded-md w-full border">
+                            <option selected>Pilih Cabang</option>
+                            @foreach ($cabang as $item)
+                                <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                            @endforeach
+                        </select>
                     </div>
+                    <div id="input-ranting" class="hidden">
+                        <label for="nama_ranting" class="text-xl font-normal">Ranting</label>
+                        {{-- <input type="text" id="nama_ranting" name="ranting" class="rounded-md w-full border h-12 p-2"
+                            placeholder="Maduran"> --}}
+                        <select name="ranting" id="ranting" class="h-12 p-2 rounded-md w-full border" disabled>
+                            <option selected>Pilih Ranting</option>
+                        </select>
 
+                    </div>
                     <div class="w-full">
                         <h1 class='text-xl font-normal'>Password</h1>
                         <input type="password" placeholder='Password' name="password"
