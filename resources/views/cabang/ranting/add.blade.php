@@ -1,9 +1,6 @@
 @extends('cabang.layouts.main')
 
 @section('container')
-    <div class="w-full mt-8 container">
-        <form action="#" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
-            <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Data Ranting</h1>
 
     <div class="w-full mt-8 container">
         <form action="#" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
