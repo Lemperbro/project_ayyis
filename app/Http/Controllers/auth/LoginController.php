@@ -34,7 +34,7 @@ class LoginController extends Controller
                 $request->session()->invalidate();
 
                 $request->session()->regenerateToken();
-                return redirect()->back()->with('toast_error', 'gk iso login cok');
+                return redirect()->back()->with('toast_error', 'Akun Belum Di Verfikasi silahkan Hubungi Admin Cabang');
             }
             if (auth()->user()->role == 'admin') {
                 return redirect()->intended('admin');

@@ -13,3 +13,4 @@
 
 
 @include('auth.partials.end')
+@include('sweetalert::alert')

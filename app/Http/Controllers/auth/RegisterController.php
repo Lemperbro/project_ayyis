@@ -69,7 +69,7 @@ class RegisterController extends Controller
 
             $ranting = null;
         } elseif (!in_array($request->role, ['cabang', 'ranting'])) {
-            return redirect()->back()->with('toast_error', 'gk ono cok');
+            return redirect()->back()->with('toast_error', 'Registrasi Gagal');
         }
         $cabang = $this->ApiCabangRanting->getDetailCabang($request->cabang);
         $validasi['password'] = bcrypt($validasi['password']);
