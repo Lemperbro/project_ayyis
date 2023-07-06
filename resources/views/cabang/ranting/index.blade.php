@@ -26,9 +26,16 @@
 
                             <label for="ranting"
                                 class="dark:text-white text-grey-900 font-semibold inline-block">Ranting</label>
-                            <input type="text" id="ranting" name="ranting"
+                            {{-- <input type="text" id="ranting" name="ranting"
                                 class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
-                                placeholder="Ex : Maduran" value="{{ request('ranting') }}">
+                                placeholder="Ex : Maduran" value="{{ request('ranting') }}"> --}}
+                                <select name="ranting" id="ranting"
+                                class="w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 h-12 mt-2">
+                                <option value="" selected>Pilih Ranting</option>
+                                @foreach ($filter_ranting as $item)
+                                    <option value="{{ $item['name'] }}" {{ ($item['name'] == request('ranting')? 'selected' : '') }}>{{ $item['name'] }}</option>
+                                @endforeach
+                            </select>
 
                         </div>
 

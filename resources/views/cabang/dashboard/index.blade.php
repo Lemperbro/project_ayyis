@@ -21,7 +21,7 @@
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
                             <h1 class="font-bold text-6xl">{{ $ranting->count() }}</h1>
-                            <h1>Total Ranting</h1>
+                            <h1 class="capitalize">Total Ranting Di {{ Auth()->user()->cabang }}</h1>
                         </div>
 
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-28 opacity-50" viewBox="0 0 640 512">
@@ -32,7 +32,7 @@
 
                     </div>
 
-                    <a href=""
+                    <a href="/cabang/ranting"
                         class="absolute bottom-0  left-0 right-0 bg-yellow-400/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
                         Detal</a>
 
@@ -52,7 +52,7 @@
                     <div class="flex justify-between pt-4 pb-12">
                         <div>
                             <h1 class="font-bold text-6xl">{{ $anggota->count() }}</h1>
-                            <h1>Total Anggota</h1>
+                            <h1 class="capitalize">Total Anggota Di {{ Auth()->user()->cabang }}</h1>
                         </div>
 
 
@@ -66,7 +66,7 @@
 
                     </div>
 
-                    <a href=""
+                    <a href="/cabang/anggota"
                         class="absolute bottom-0 left-0 right-0 bg-green-600/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
                         Detal</a>
 
@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <!-- Card Footer -->
-                <div class="flex items-center justify-between pt-3 sm:pt-6 float-right">
+                <div class="flex items-center justify-end pt-3 sm:pt-6 ">
 
                     <div class="flex-shrink-0 ">
                         <a href="#"

@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="flex justify-end ">
-        <a href="" class="text-white bg-blue-600 py-1 px-3 font-semibold rounded-lg text-xl mt-5">
+        <a href="/login" class="text-white bg-blue-600 py-1 px-3 font-semibold rounded-lg text-xl mt-5">
             Login
         </a>
     </div>

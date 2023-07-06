@@ -53,7 +53,7 @@ class RegisterController extends Controller
 
             ]);
 
-            $ranting = $this->ApiCabangRanting->getDetailRanting($request->ranting);
+            $ranting = strtolower($this->ApiCabangRanting->getDetailRanting($request->ranting)['name']);
 
         } elseif ($request->role == 'cabang') {
             $validasi = $request->validate([
@@ -79,15 +79,18 @@ class RegisterController extends Controller
             'telp' => $request->telp,
             'nia' => $request->nia,
             'role' => $request->role,
-            'ranting' => strtolower($ranting['name']),
+            'ranting' => $ranting,
             'cabang' => strtolower($cabang['name']),
             'password' => $validasi['password'],
         ]);
 
         if ($proses) {
-            return redirect('/login')->with('toast_success', 'Registration successfull !!');
+            return redirect('/login')->with([
+                'toast_success' => 'Registration successfull !!',
+                'succes_registrasi' => 'Akun Berhasil Dibuat, Mohon Tunggu Konfirmasi Dari Admin Pusat Agar Akun Bisa Digunakan'
+            ]);
         } else {
-            return redirect()->back()->with('warning', 'Registrasi Gagal');
+            return redirect()->back()->with('toast_warning', 'Registrasi Gagal');
         }
     }
 }
