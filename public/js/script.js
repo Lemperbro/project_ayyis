@@ -22,3 +22,11 @@ function ShowPassword() {
     }
  
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var Error = document.getElementById('unconfirmed-error');
+
+      if (Error) {
+          Error.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  });
