@@ -27,7 +27,7 @@ class DashboardRantingController extends Controller
      */
     public function create()
     {
-     return view('ranting.add');   
+     return view('ranting.anggota.add');   
     }
 
     /**

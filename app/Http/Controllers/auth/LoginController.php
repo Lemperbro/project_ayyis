@@ -34,7 +34,7 @@ class LoginController extends Controller
                 $request->session()->invalidate();
 
                 $request->session()->regenerateToken();
-                return redirect()->back()->with('toast_error', 'Akun Belum Di Verfikasi silahkan Hubungi Admin Cabang');
+                return redirect()->back()->with('info', 'Akun Berhasil Dibuat, Mohon Tunggu Konfirmasi Dari Admin Pusat Agar Akun Bisa Digunakan');
             }
             if (auth()->user()->role == 'admin') {
                 return redirect()->intended('admin');

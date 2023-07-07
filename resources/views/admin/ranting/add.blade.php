@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="w-full mt-8 container">
-        <form action="/admin/ranting/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
+        <form action="/admin/ranting/add" method="POST" class=" rounded-md h-screen" enctype="multipart/form-data">
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Data Ranting</h1>
             @csrf
             <div class="mt-4">

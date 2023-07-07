@@ -27,7 +27,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/cek', function () {
-    return view('cabang.ranting.add');
+    return view('ranting.dashboard.index');
 });
 
 

@@ -67,20 +67,93 @@
 
         </div>
 
+        <div class="flex flex-col mt-6">
+            <div class="overflow-x-auto rounded-lg">
+                <div class="inline-block min-w-full align-middle">
+                    <div class="overflow-hidden shadow sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                                <tr>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        No
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Nama
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Foto
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Tingkatan
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        NIA
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Ranting
+                                    </th>
+                                    <th scope="col"
+                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                    <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm flex justify-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            <img src="" alt="" class="w-28 object-contain">
+                                           
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        </td>
+    
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        </td>
+                                        <td
+                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            <form action="#" method="POST">
+                                                <button type="submit" class="bg-red-600 p-2 rounded-md">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
+                                                        class="fill-white">
+                                                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+    
+    
+                                    </tr>
 
-        <div class="flex flex-col justify-center items-center border w-full rounded-xl p-3 mb-4 bg-gray-800">
-            
-            <img class="w-24 h-24 rounded-full shadow-lg object-cover" src="{{ asset('img/y.jpg') }}" alt="Bonnie image" />
-            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Slamet Sejahatera</h5>
-            <span class="text-sm text-gray-500 dark:text-gray-400">Ketua Ranting</span>
-            <div class="flex mt-4 space-x-3 md:mt-6">
-                <a href="#"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Perbarui
-                    Profil</a>
 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
+
+
         </div>
-        {{-- Ketua Ranting End --}}
 
 
     </div>
