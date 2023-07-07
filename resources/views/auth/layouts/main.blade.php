@@ -1,6 +1,5 @@
-@include('auth.partials.head')
+@include('globalPartials.start')
 
-<body>
 
 
 <div class="container">
@@ -12,5 +11,4 @@
 
 
 
-@include('auth.partials.end')
-@include('sweetalert::alert')
+@include('globalPartials.end')

@@ -2,12 +2,8 @@
 
 @section('container')
     <div class="w-full mt-8 container">
-        
-        @if (session('toast_success'))
-            <script>
-                Swal.fire('Success', '{{ session('toast_success') }}', 'success');
-            </script>
-        @endif
+
+
 
         <form action="/cabang/ranting/create" method="POST" class=" rounded-md h-screen  shadow-best"
             enctype="multipart/form-data">
@@ -48,12 +44,16 @@
 
             <div class="mt-4">
                 <label for="ranting" class="text-gray-900 dark:text-white">Ranting</label>
-                <input type="text" name="ranting" id="ranting"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
-            @error('ranting')
-                    peer
-                     @enderror"
-                    value="{{ old('ranting') }}" />
+                <select name="ranting" id="ranting"
+                    class="w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                    @error('ranting')
+                            peer
+                             @enderror">
+                    <option value="" selected>Pilih Ranting</option>
+                    @foreach ($ranting as $item)
+                        <option value="{{ $item['name'] }}">{{ $item['name'] }}</option>
+                    @endforeach
+                </select>
 
                 @error('ranting')
                     <p class="peer-invalid:visible text-red-700 font-light">
@@ -128,7 +128,7 @@
 
             <div class="flex gap-x-4 mt-4">
                 <button type="submit" class="bg-green-600 py-2 px-4 rounded-md text-white">kirim</button>
-                <a href="/admin/kota" class="bg-red-600 px-4 py-2 text-white rounded-md">batal</a>
+                <a href="/cabang/ranting" class="bg-red-600 px-4 py-2 text-white rounded-md">batal</a>
             </div>
         </form>
     </div>

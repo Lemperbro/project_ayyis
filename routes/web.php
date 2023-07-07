@@ -89,7 +89,7 @@ Route::middleware('cabang')->group(function(){
     Route::post('/cabang/ranting/create', [CabangController::class, 'ranting_store']);
     Route::get('/cabang/anggota', [CabangController::class, 'anggota']);
     Route::get('/cabang/confirmation', [CabangController::class, 'confirmation']);
-    Route::post('/cabang/confirmation/{id}', [CabangController::class, 'confirmation_Action']);
+    Route::post('/cabang/{tipe}/{id}', [CabangController::class, 'confirmation_Action']);
 
 });
 
