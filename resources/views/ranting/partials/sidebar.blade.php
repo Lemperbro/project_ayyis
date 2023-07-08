@@ -37,7 +37,7 @@
                     </li>
 
                     <li class="">
-                        <a href="/admin "
+                        <a href="/ranting "
                             class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
 
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@
 
 
                     <li class="">
-                        <a href="/admin "
+                        <a href="/ranting/add"
                             class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="flex-shrink-0 w-6 h-6 text-gray-400" viewBox="0 0 640 512">

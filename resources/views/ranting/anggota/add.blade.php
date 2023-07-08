@@ -7,6 +7,25 @@
             @csrf
 
             <div class="mt-4">
+
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload
+                    Image</label>
+                <input id="file_input" type="file" name="image"
+                    class="block w-full text-sm text-gray-900 font-semibold border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 @error('nama')
+                    peer
+                     @enderror"
+                    value="{{ old('image') }}" />
+
+                @error('image')
+                    <p class="peer-invalid:visible text-red-700 font-light">
+                        {{ $message }}
+                    </p>
+                @enderror
+
+            </div>
+
+
+            <div class="mt-4">
                 <label for="nama" class="text-gray-900 dark:text-white">Nama</label>
                 <input type="text" name="nama" id="nama"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 
@@ -33,7 +52,7 @@
                      @enderror"
                     value="{{ old('nia') }}" />
 
-                    @error('nia')
+                @error('nia')
                     <p class="peer-invalid:visible text-red-700 font-light">
                         {{ $message }}
                     </p>
@@ -50,7 +69,7 @@
                      @enderror"
                     value="{{ old('ranting') }}" />
 
-                    @error('ranting')
+                @error('ranting')
                     <p class="peer-invalid:visible text-red-700 font-light">
                         {{ $message }}
                     </p>
@@ -67,7 +86,7 @@
                      @enderror"
                     value="{{ old('alamat') }}" />
 
-                    @error('alamat')
+                @error('alamat')
                     <p class="peer-invalid:visible text-red-700 font-light">
                         {{ $message }}
                     </p>
@@ -79,12 +98,12 @@
                 <label for="ttl" class="text-gray-900 dark:text-white">Tempat Tanggal Lahir</label>
                 <input type="date" name="ttl" id="ttl"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
-                    @error('name')
+                    @error('ttl')
                     peer
                      @enderror"
                     value="{{ old('ttl') }}" />
 
-                    @error('ttl')
+                @error('ttl')
                     <p class="peer-invalid:visible text-red-700 font-light">
                         {{ $message }}
                     </p>
@@ -100,7 +119,7 @@
                      @enderror"
                     value="{{ old('tingkatan') }}" />
 
-                    @error('tingkatan')
+                @error('tingkatan')
                     <p class="peer-invalid:visible text-red-700 font-light">
                         {{ $message }}
                     </p>
