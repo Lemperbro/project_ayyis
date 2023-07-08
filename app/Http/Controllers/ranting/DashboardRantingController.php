@@ -30,6 +30,11 @@ class DashboardRantingController extends Controller
      return view('ranting.anggota.add');   
     }
 
+    public function cek()
+    {
+     return view('ranting.anggota.index');   
+    }
+
     /**
      * Store a newly created resource in storage.
      *

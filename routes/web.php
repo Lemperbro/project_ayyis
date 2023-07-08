@@ -27,7 +27,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/cek', function () {
-    return view('ranting.dashboard.index');
+    return view('ranting.anggota.index');
 });
 
 
@@ -95,6 +95,7 @@ Route::middleware('cabang')->group(function(){
 
 Route::middleware('ranting')->group(function(){
     Route::get('/ranting', [DashboardRantingController::class, 'index']);
+    Route::get('/ranting/anggota', [DashboardRantingController::class, 'cek']);
     Route::get('/ranting/add', [DashboardRantingController::class, 'create']);
 
 });

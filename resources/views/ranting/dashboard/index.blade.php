@@ -83,31 +83,31 @@
                             <thead class="bg-gray-50 dark:bg-gray-700">
                                 <tr>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         No
                                     </th>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Nama
                                     </th>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Foto
                                     </th>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Tingkatan
                                     </th>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         NIA
                                     </th>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Ranting
                                     </th>
                                     <th scope="col"
-                                        class="p-4 text-lg font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                        class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                         Action
                                     </th>
                                 </tr>
