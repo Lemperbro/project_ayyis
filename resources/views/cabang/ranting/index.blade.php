@@ -11,7 +11,7 @@
 
                 <form class="" action="/cabang/ranting">
 
-                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-4 justify-between my-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 justify-between my-5">
                         <div class="my-4">
 
                             <label for="nama"
@@ -74,7 +74,7 @@
 
                     <button
                         class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex"
-                        type="button">
+                        type="button" onclick="downloadToExcel('dataPrint', 'Data-CiptaSejati')">
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             class="fill-white" style="transform: ;msFilter:;">
@@ -96,7 +96,7 @@
             <div class="overflow-x-auto rounded-lg">
                 <div class="inline-block min-w-full align-middle">
                     <div class="overflow-hidden shadow sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600" id="dataPrint">
                             <thead class="bg-gray-50 dark:bg-gray-700">
                                 <tr>
                                     <th scope="col"
