@@ -97,6 +97,8 @@ Route::middleware('ranting')->group(function(){
     Route::get('/ranting', [DashboardRantingController::class, 'index']);
     Route::get('/ranting/anggota', [DashboardRantingController::class, 'cek']);
     Route::get('/ranting/add', [DashboardRantingController::class, 'create']);
+    Route::post('/ranting/add', [DashboardRantingController::class, 'store']);
+
 
 });
 

@@ -53,41 +53,42 @@ class AdminRantingController extends Controller
     public function store(Request $request){
 
         $validasi = $request->validate([
+            'image' => 'required',
             'nama' => 'required',
             'nia' => 'required|unique:users,nia',
+            'ttl' => 'required',
+            'alamat' => 'required',
             'ranting' => 'required',
-            'cabang' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'telp' => 'required|min:8',
-            'password' => 'required|min:5|max:255'
+            'tingkatan' => 'required|min:5|max:255'
         ],[
             'nama.required' => 'Nama Harus Di isi',
             'nia.required' => 'Nia Harus Di isi',
             'nia.unique' => 'Nia Yang Anda Masukan Sudah Tersedia',
             'ranting.required' => 'Ranting Harus Di Isi',
-            'cabang.required' => 'Cabang Harus Di Isi',
-            'email.required' => 'Email Harus Di Isi',
-            'email.unique' => 'Email Sudah Di pakai',
-            'telp.required' => 'Nomor Telpon Harus Di isi',
-            'telp.min' => 'Nomor Telpon Harus minimal :min',
-            'password.required' => 'Password Harus Di isi',
-            'password,min' => 'Password Harus minimal :min',
-            'password.max' => 'Password maximal :max'
+            'tingkatan.required' => 'Tingkatan Harus Di Isi',
+            'tingkatan.unique' => 'Tingkatan Sudah Di pakai',
+            'ttl.required' => 'ttl Harus Di isi',
+            'alamat.required' => 'alamat Harus Di isi',
         ]);
 
-        $validasi['password'] = bcrypt($validasi['password']);
+        $files=array();
+    
+
+        if ($files = $request->file('image')) {
+            $extension = $files->getClientOriginalExtension();
+            $name = hash('sha256', time()) . '.' . $extension;
+            $files->move('ft_anggota', $name);
+        }
         
 
         $proses = User::create([
-            'username' => $request->nama,
+            'image' => $name,
+            'nama' => $request->nama,
             'nia' => $request->nia,
             'ranting' => $request->ranting,
-            'cabang' => $request->cabang,
-            'email' => $request->email,
-            'telp' => $request->telp,
-            'password' => $validasi['password'],
-            'role' => 'ranting',
-            'verified' => 'user'
+            'tigkatan' => $request->tingkatan,
+            'ttl' => $request->ttl,
+            'alamat' => $request->alamat,
         ]);
 
         if($proses){

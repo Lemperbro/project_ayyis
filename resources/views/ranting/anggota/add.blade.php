@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="w-full mt-8 px-4 md:px-0 md:container">
-        <form action="/admin/cabang/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
+        <form action="/ranting/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Anggota</h1>
             @csrf
 
@@ -60,6 +60,7 @@
 
             </div>
 
+
             <div class="mt-4">
                 <label for="ranting" class="text-gray-900 dark:text-white">Ranting</label>
                 <input type="text" name="ranting" id="ranting"
@@ -96,7 +97,7 @@
 
             <div class="mt-4">
                 <label for="ttl" class="text-gray-900 dark:text-white">Tempat Tanggal Lahir</label>
-                <input type="date" name="ttl" id="ttl"
+                <input type="text" name="ttl" id="ttl"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('ttl')
                     peer
