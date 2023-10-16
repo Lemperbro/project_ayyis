@@ -140,7 +140,7 @@
                                                     {{ $loop->iteration }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $item->username }}
                                                 </td>
                                                 <td
@@ -152,15 +152,15 @@
                                                     {{ $item->telp }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $item->cabang }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $item->ranting }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $item->role }}
                                                 </td>
                                             </tr>

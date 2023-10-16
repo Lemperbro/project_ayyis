@@ -137,11 +137,11 @@
                                             {{ $loop->iteration }}
                                         </td>
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $item->cabang }}
                                         </td>
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $item->ranting }}
                                         </td>
                                         <td
@@ -158,7 +158,7 @@
                                             {{ $item->nia }}
                                         </td>
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $item->username }}
                                         </td>
                                     </tr>
