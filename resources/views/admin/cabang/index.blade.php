@@ -1,7 +1,7 @@
 @extends('admin.layout.main')
 
 @section('container')
-    <div class="w-full mt-8 pb-4 p-6 h-screen">
+    <div class="w-full mt-8 pb-4 p-6 ">
 
         <div
             class="items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
@@ -55,25 +55,25 @@
                     </div>
                 </form>
 
-                <div class="flex gap-x-2">
+                <div class="flex flex-wrap gap-2">
 
                     <a href="/admin/cabang/add"
-                        class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2"type="button">
+                        class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 text-center block sm:inline-block w-full sm:w-auto"type="button">
                         Tambah Admin Cabang
                     </a>
 
 
                     <button
-                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex"
-                        type="button">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            class="fill-white" style="transform: ;msFilter:;">
-                            <path d="m12 16 4-5h-3V4h-2v7H8z"></path>
-                            <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
-                        </svg>
-
-                        <span>Download Data Ke Excel</span>
+                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 flex sm:inline-block w-full sm:w-auto"
+                        type="button" onclick="downloadToExcel('dataPrint', 'Data-CiptaSejati')">
+                        <div class="flex gap-x-2 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                class="fill-white" style="transform: ;msFilter:;">
+                                <path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+                                <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+                            </svg>
+                            <span>Download Data Ke Excel</span>
+                        </div>
 
                     </button>
 
@@ -87,7 +87,7 @@
             <div class="overflow-x-auto rounded-lg">
                 <div class="inline-block min-w-full align-middle">
                     <div class="overflow-hidden shadow sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600" id="dataPrint">
                             <thead class="bg-gray-50 dark:bg-gray-700">
                                 <tr>
                                     <th scope="col"
@@ -150,17 +150,15 @@
                                         </td>
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                            <form action="/admin/cabang/delete/{{ $cabangs->id }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="bg-red-600 p-2 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                                        viewBox="0 0 448 512" class="fill-white">
-                                                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                        <path
-                                                            d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
-                                                    </svg>
-                                                </button>
-                                            </form>
+                                            <button class="bg-red-600 p-2 rounded-md"
+                                                onclick="delete_{{ $cabangs->id }}.showModal()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
+                                                    class="fill-white">
+                                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                                                </svg>
+                                            </button>
                                         </td>
 
 
@@ -179,8 +177,34 @@
         </div>
 
 
-       
+
 
 
     </div>
 @endsection
+
+
+@foreach ($cabang as $delete)
+    <dialog id="delete_{{ $delete->id }}" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box bg-white dark:bg-gray-600">
+            <form action="/admin/cabang/delete/{{ $cabangs->id }}" method="POST">
+                @csrf
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Hapus Admin Cabang</h3>
+                <p class="py-4 capitalize text-gary-900 dark:text-white">Apakah kamu yakin mau menghapus <span
+                        class="font-semibold">{{ $delete->username }}</span></p>
+                <div class="flex gap-x-4">
+
+                    <button class="btn hidden" type="submit" id="hapus_btn">HAPUS</button>
+                </div>
+            </form>
+            <form method="dialog">
+                <div class="modal-action">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn bg-red-600 hover:bg-red-700 text-white border-none">TIDAK</button>
+                    <label for="hapus_btn"
+                        class="btn bg-green-600 hover:bg-green-700 text-white border-none">YA</label>
+                </div>
+            </form>
+        </div>
+    </dialog>
+@endforeach

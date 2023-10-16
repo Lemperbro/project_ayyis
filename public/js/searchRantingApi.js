@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#cabang').on('input', function () {
+    $('#cabang_select').on('input', function () {
         var ranting_area = document.getElementById('ranting');
         var cabang = $(this).val();
 

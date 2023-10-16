@@ -60,21 +60,11 @@
 
             </div>
 
-
             <div class="mt-4">
                 <label for="ranting" class="text-gray-900 dark:text-white">Ranting</label>
                 <input type="text" name="ranting" id="ranting"
-                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
-                    @error('ranting')
-                    peer
-                     @enderror"
-                    value="{{ old('ranting') }}" />
-
-                @error('ranting')
-                    <p class="peer-invalid:visible text-red-700 font-light">
-                        {{ $message }}
-                    </p>
-                @enderror
+                    class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 capitalize dark:focus:border-primary-500"
+                    value="{{ Auth()->user()->ranting }}" disabled/>
 
             </div>
 
@@ -129,7 +119,7 @@
 
             <div class="flex gap-x-4 mt-4">
                 <button type="submit" class="bg-green-600 py-2 px-4 rounded-md text-white">kirim</button>
-                <a href="/admin/cabang" class="bg-red-600 px-4 py-2 text-white rounded-md">batal</a>
+                <a href="/ranting/anggota" class="bg-red-600 px-4 py-2 text-white rounded-md">batal</a>
             </div>
         </form>
     </div>

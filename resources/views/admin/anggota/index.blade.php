@@ -8,7 +8,7 @@
             <div class="w-full">
                 <h1 class="text-white font-semibold text-xl">Data Anggota</h1>
 
-                <form class="" action="/admin/cabang">
+                <form class="" action="/admin/anggota">
 
                     <div class="grid grid-cols-1 lg:grid-cols-5 gap-x-4 justify-between my-5">
                         <div class="mt-4">
@@ -25,7 +25,7 @@
 
                             <label for="ranting"
                                 class="dark:text-white text-grey-900 font-semibold inline-block">Ranting</label>
-                            <input type="text" id="ranting" name="ranitng"
+                            <input type="text" id="ranting" name="ranting"
                                 class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12"
                                 placeholder="Ex : Gembong" value="{{ request('ranting') }}">
 
@@ -52,49 +52,17 @@
                         </div>
 
                         <div class="my-4 grid grid-cols-2 gap-x-2">
-                            <a href="#"
-                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12 mt-8">Cari Data
-                            </a>
-
                             <button type="submit"
+                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12 mt-8">Cari Data
+                            </button>
+
+                            <a href="/admin/anggota"
                                 class="bg-red-700 py-2.5 rounded-lg text-base text-white font-semibold inline-block text-center h-12 mt-8 ">
                                  Reset
                                 Filter
-                            </button>
+                            </a>
                         </div>
-
-
                     </div>
-
-                    <div class="flex w-full gap-x-8">
-
-                        <button
-                            class="focus:outline-none text-white bg-green-600 p-2 h-12 rounded-lg text-base flex  font-semibold py-3 gap-x-2"
-                            type="button">
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                viewBox="0 0 576 512" fill="white">
-                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path
-                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
-                            </svg>
-
-                            <span>Cetak Kartu Anggota</span>
-
-                        </button>
-
-
-
-
-
-
-                    </div>
-
-
-
-
-
                 </form>
 
 
@@ -172,8 +140,7 @@
                                         </td>
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                            <form action="#" method="POST">
-                                                <button type="submit" class="bg-red-600 p-2 rounded-md">
+                                                <button type="button" class="bg-red-600 p-2 rounded-md" onclick="delete_{{ $item->id }}.showModal()">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
                                                         class="fill-white">
                                                         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -181,7 +148,6 @@
                                                             d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
                                                     </svg>
                                                 </button>
-                                            </form>
                                         </td>
     
     
@@ -203,3 +169,30 @@
 
     </div>
 @endsection
+
+    {{-- modal delete start --}}
+    @foreach ($data_anggota as $delete)
+    <dialog id="delete_{{ $delete->id }}" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box bg-white dark:bg-gray-600">
+            <form action="/anggota/delete/{{ $delete->id }}" method="POST">
+                @csrf
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Hapus Admin Ranting</h3>
+                <p class="py-4 capitalize text-gary-900 dark:text-white">Apakah kamu yakin mau menghapus <span
+                        class="font-semibold">{{ $delete->username }}</span></p>
+                <div class="flex gap-x-4">
+
+                    <button class="btn hidden" type="submit" id="hapus_btn">HAPUS</button>
+                </div>
+            </form>
+            <form method="dialog">
+                <div class="modal-action">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn bg-red-600 hover:bg-red-700 text-white border-none">TIDAK</button>
+                    <label for="hapus_btn"
+                        class="btn bg-green-600 hover:bg-green-700 text-white border-none">YA</label>
+                </div>
+            </form>
+        </div>
+    </dialog>
+@endforeach
+{{-- modal delete end --}}

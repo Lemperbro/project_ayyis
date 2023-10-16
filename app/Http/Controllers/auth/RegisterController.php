@@ -30,16 +30,18 @@ class RegisterController extends Controller
             ]);
         }
 
+        $admin = User::where('role', 'admin')->where('verified', 'user')->get()->count();
         return view('auth.register', [
             'cabang' => $this->ApiCabangRanting->cabangApi(),
-            'ranting' => $ranting
+            'ranting' => $ranting,
+            'admin' => $admin
         ]);
     }
 
     public function store(Request $request)
     {
 
-        
+
         if ($request->role == 'ranting') {
             $validasi = $request->validate([
                 'username' => 'required|max:255',
@@ -54,7 +56,6 @@ class RegisterController extends Controller
             ]);
 
             $ranting = strtolower($this->ApiCabangRanting->getDetailRanting($request->ranting)['name']);
-
         } elseif ($request->role == 'cabang') {
             $validasi = $request->validate([
                 'username' => 'required|max:255',
@@ -68,10 +69,30 @@ class RegisterController extends Controller
             ]);
 
             $ranting = null;
-        } elseif (!in_array($request->role, ['cabang', 'ranting'])) {
-            return redirect()->back()->with('toast_error', 'Registrasi Gagal');
+        } elseif ($request->role == 'admin') {
+            $validasi = $request->validate([
+                'username' => 'required|max:255',
+                'email' => 'required|email|unique:users',
+                'nia' => 'required',
+                'telp' => 'required',
+                'role' => 'required',
+                'password' => 'required|confirmed|min:5|max:255',
+
+            ]);
+
+            $ranting = null;
+        } elseif (!in_array($request->role, ['cabang', 'ranting', 'admin'])) {
+            return redirect()->back()->with('toast_error', 'data tidak ada');
         }
-        $cabang = $this->ApiCabangRanting->getDetailCabang($request->cabang);
+
+        if (User::where('role', 'admin')->where('verified', 'user')->get()->count() < 1) {
+            $verified = 'user';
+            $cabang= null;
+        } else {
+            $cabang = strtolower($this->ApiCabangRanting->getDetailCabang($request->cabang)['name']);
+            $verified = 'register';
+        }
+
         $validasi['password'] = bcrypt($validasi['password']);
         $proses = User::create([
             'username' => $request->username,
@@ -80,14 +101,15 @@ class RegisterController extends Controller
             'nia' => $request->nia,
             'role' => $request->role,
             'ranting' => $ranting,
-            'cabang' => strtolower($cabang['name']),
+            'cabang' => $cabang,
             'password' => $validasi['password'],
+            'verified' => $verified
         ]);
 
         if ($proses) {
             return redirect('/login')->with([
                 'toast_success' => 'Registration successfull !!',
-                'succes_registrasi' => 'Akun Berhasil Dibuat, Mohon Tunggu Konfirmasi Dari Admin Pusat Agar Akun Bisa Digunakan'
+                'success_registrasi' => 'Akun Berhasil Dibuat, Mohon Tunggu Konfirmasi Dari Admin Agar Akun Bisa Digunakan'
             ]);
         } else {
             return redirect()->back()->with('toast_warning', 'Registrasi Gagal');

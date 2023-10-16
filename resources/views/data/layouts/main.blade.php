@@ -1,9 +1,9 @@
-@include('data.partials.head')
+@include('globalPartials.start')
 
 <body>
 
 
-<div class="container">
+<div class="px-4 md:container">
 
 @yield('container')
 
@@ -12,4 +12,4 @@
 
 
 
-@include('data.partials.end')
+@include('globalPartials.end')

@@ -8,7 +8,6 @@ module.exports = {
     './public/icons/*.css',
     "./node_modules/flowbite/**/*.js",
     "transform: (content) => content.replace(/taos:/g, '')",
-    "./node_modules/tw-elements/dist/js/**/*.js"
   ],
   safelist: [
     'w-64',

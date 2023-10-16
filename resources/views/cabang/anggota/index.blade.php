@@ -10,7 +10,7 @@
 
                 <form class="" action="/cabang/anggota">
 
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 justify-between my-5">
+                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-4 justify-between my-5">
                         <div class="mt-4">
 
                             <label for="nama"
@@ -25,12 +25,15 @@
 
                             <label for="ranting"
                                 class="dark:text-white text-grey-900 font-semibold inline-block">Ranting</label>
-                                <select name="ranting" id="ranting" class="w-full h-12 bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ">
-                                    <option value="" selected>Pilih Ranting</option>
-                                    @foreach ($ranting as $item)
-                                    <option value="{{ $item['name'] }}" {{ ($item['name'] == request('ranting')? 'selected' : '') }}>{{ $item['name'] }}</option>
-                                    @endforeach
-                                </select>
+                            <select name="ranting" id="ranting"
+                                class="w-full h-12 bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ">
+                                <option value="" selected>Pilih Ranting</option>
+                                @foreach ($ranting as $item)
+                                    <option value="{{ $item['name'] }}"
+                                        {{ $item['name'] == request('ranting') ? 'selected' : '' }}>{{ $item['name'] }}
+                                    </option>
+                                @endforeach
+                            </select>
 
                         </div>
 
@@ -45,57 +48,23 @@
                                 placeholder="12.313.2012.1212" value="{{ request('nia') }}">
 
                         </div>
-
-
-                    </div>
-
-                    <div class="flex w-full gap-x-8">
-
-                        <button
-                            class="focus:outline-none text-white bg-green-600 p-2 h-12 rounded-lg text-base flex  font-semibold py-3 gap-x-2"
-                            type="button">
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                viewBox="0 0 576 512" fill="white">
-                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path
-                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
-                            </svg>
-
-                            <span>Cetak Kartu Anggota</span>
-
-                        </button>
-
-
-
-                        <a href="#"
-                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12">Cari Data
-                            </a>
-
+                        <div class="mt-4 flex gap-x-4">
                             <button type="submit"
-                                class="bg-red-700 py-2.5 p-2 rounded-lg text-base text-white font-semibold inline-block text-center h-12 ">
-                                 Reset
-                                Filter
+                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12 w-full mt-8">Cari
+                                Data
                             </button>
 
+                            <a href="/cabang/anggota"
+                                class="bg-red-700 py-2.5 p-2 rounded-lg text-base text-white font-semibold inline-block text-center h-12 w-full mt-8 ">
+                                Reset
+                                Filter
+                            </a>
+                        </div>
 
 
                     </div>
 
-
-
-
-
                 </form>
-
-
-                {{-- <a href="#"
-                class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2"type="button">
-                
-            </a> --}}
-
-
 
             </div>
 

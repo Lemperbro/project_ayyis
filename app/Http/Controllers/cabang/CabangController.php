@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class CabangController extends Controller
 {
 
-    private $anggota,$ranting,$user_login, $ApiCabangRanting,$rantingConfirm;
+    private $anggota,$ranting,$user_login, $ApiCabangRanting,$rantingConfirm,$authCabang;
 
     public function __construct(Request $request,ApiCabangRantingController $ApiCabangRanting)
     {
@@ -22,6 +22,7 @@ class CabangController extends Controller
            $this->anggota = Anggota::where('cabang', Auth::user()->cabang)->latest();
            $this->ranting = User::where('role', 'ranting')->where('cabang', Auth::user()->cabang)->where('verified', 'user')->latest();
            $this->rantingConfirm = User::where('role', 'ranting')->where('cabang', Auth::user()->cabang)->where('verified', 'register')->latest();
+           $this->authCabang = Auth::user()->cabang;
             return $next($request);
         });
 
@@ -66,7 +67,6 @@ class CabangController extends Controller
         foreach($filteredData as $a ){
             $rantingApi = $this->ApiCabangRanting->rantingApi($a['id']);
         }
-        
         return view('cabang.ranting.index', [
             'ranting' => $ranting->paginate(20),
             'filter_ranting' => $rantingApi
@@ -171,8 +171,14 @@ class CabangController extends Controller
     }
 
     public function confirmation(){
+
+        $data = $this->rantingConfirm;
+
+        if(request('ranting')){
+            $data->where('ranting', request('ranting'));
+        }
         return view('cabang.konfirmasi.index', [
-            'data' => $this->rantingConfirm->get(),
+            'data' => $data->get(),
         ]);
     }
 

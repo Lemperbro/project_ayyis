@@ -11,24 +11,28 @@
                 <div class="w-full">
                     <h1 class="text-white font-semibold text-xl">Konfirmasi</h1>
 
-                    <form class="">
+                    <form class="/cabang/confirmation" method="GET">
 
 
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 justify-between my-5">
                             <div class="my-4">
 
-                                <label for="username"
+                                <label for="ranting"
                                     class="dark:text-white text-grey-900 font-semibold inline-block">Ranting</label>
-                                <input type="text" id="username"
-                                    class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <input type="text" id="ranting" name="ranting"
+                                    class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" value="{{ request('ranting') }}">
 
                             </div>
-
+                            <div class="mt-4 flex gap-x-4">
+                                <button type="submit"
+                                class="focus:outline-none text-white bg-yellow-500  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 h-12 mt-8">Cari Data</button>
+                                <a href="/cabang/confirmation"
+                                class="focus:outline-none text-white bg-red-600  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 h-12 mt-8">Reset Filter</a>
+                            </div>
 
                         </div>
 
-                        <button type="button"
-                            class="focus:outline-none text-white bg-primary-700 dark:bg-green-600 hover:bg-yellow-500  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 ">Cari</button>
+
                     </form>
                 </div>
                 <div class="w-full" id="new-products-chart"></div>

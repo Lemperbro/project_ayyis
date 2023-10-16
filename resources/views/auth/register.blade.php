@@ -1,7 +1,7 @@
 @extends('auth.layouts.main')
 
 @section('container')
-    <div class="flex flex-col items-center justify-center  px-6 py-8 mx-auto lg:py-10">
+    <div class="flex flex-col items-center justify-center py-8 mx-auto lg:py-10">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class="w-10 h-10 mr-2" src="{{ asset('img/cipta.png') }}" alt="logo">
             Cipta Sejati
@@ -84,13 +84,18 @@
                             <option selected>Pilih Sebagai</option>
                             <option value="ranting">Ranting</option>
                             <option value="cabang">Cabang</option>
+                            @if ($admin < 1)
+                                <option value="admin">Admin</option>
+                            @endif
                         </select>
                     </div>
                     <div id="input-cabang" class="hidden ">
-                        <h1 for="nama_cabang" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Cabang</h1>
+                        <h1 for="nama_cabang" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Cabang
+                        </h1>
                         {{-- <input type="text" id="nama_cabang" name="cabang" class="rounded-md w-full border h-12 p-2"
                             placeholder="Lamongan"> --}}
-                        <select name="cabang" id="cabang" class="h-12 p-2 rounded-md w-full border dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                        <select name="cabang" id="cabang_select"
+                            class="h-12 p-2 rounded-md w-full border dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                             <option selected>Pilih Cabang</option>
                             @foreach ($cabang as $item)
                                 <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
@@ -98,10 +103,13 @@
                         </select>
                     </div>
                     <div id="input-ranting" class="hidden">
-                        <label for="nama_ranting" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Ranting</label>
+                        <label for="nama_ranting"
+                            class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Ranting</label>
                         {{-- <input type="text" id="nama_ranting" name="ranting" class="rounded-md w-full border h-12 p-2"
                             placeholder="Maduran"> --}}
-                        <select name="ranting" id="ranting" class="h-12 p-2 rounded-md w-full border dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" disabled>
+                        <select name="ranting" id="ranting"
+                            class="h-12 p-2 rounded-md w-full border dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            disabled>
                             <option value="" selected>Pilih Ranting</option>
                         </select>
 
@@ -147,3 +155,7 @@
         </div>
     </div>
 @endsection
+
+@push('searchRantingRegister')
+<script src="{{ asset('js/searchRantingApi.js') }}"></script>
+@endpush

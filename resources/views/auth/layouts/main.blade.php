@@ -2,7 +2,7 @@
 
 
 
-<div class="container">
+<div class="px-4 md:container">
 
 @yield('container')
 

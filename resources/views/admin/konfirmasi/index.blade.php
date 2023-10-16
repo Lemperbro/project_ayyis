@@ -65,7 +65,8 @@
                 <!-- Card header -->
                 <div class="items-center justify-between lg:flex">
                     <div class="mb-4 lg:mb-0">
-                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Permintaan konfirmasi</h3>
+                        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Permintaan konfirmasi Akun
+                        </h3>
                     </div>
                 </div>
                 <!-- Table -->
@@ -86,6 +87,10 @@
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Ranting
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Email
                                             </th>
                                             <th scope="col"
@@ -99,6 +104,10 @@
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 No Telpon
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Role
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
@@ -120,6 +129,14 @@
                                                 </td>
                                                 <td
                                                     class="p-4 text-center text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    @if ($datas->ranting == null)
+                                                        kosong
+                                                    @else
+                                                        {{ $datas->ranting }}
+                                                    @endif
+                                                </td>
+                                                <td
+                                                    class="p-4 text-center text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $datas->email }}
                                                 </td>
                                                 <td
@@ -135,19 +152,24 @@
                                                     class="p-4 text-center text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $datas->telp }}
                                                 </td>
+                                                <td
+                                                    class="p-4 text-center text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $datas->role }}
+                                                </td>
 
                                                 <td
                                                     class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     <div class="flex gap-x-4 justify-center items-center">
 
-                                                            <button class="bg-red-500 p-2 rounded-md" onclick="tolak_{{ $datas->id }}.showModal()">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                                                    viewBox="0 0 448 512" class="fill-white">
-                                                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                                    <path
-                                                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                                                                </svg>
-                                                            </button>
+                                                        <button class="bg-red-500 p-2 rounded-md"
+                                                            onclick="tolak_{{ $datas->id }}.showModal()">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                                viewBox="0 0 448 512" class="fill-white">
+                                                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                <path
+                                                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                                            </svg>
+                                                        </button>
 
                                                         <button class="bg-green-500 p-2 rounded-md"
                                                             onclick="confirm_{{ $datas->id }}.showModal()">
@@ -201,7 +223,7 @@
 
     @foreach ($data as $confirm)
         <dialog id="confirm_{{ $confirm->id }}" class="modal modal-bottom sm:modal-middle">
-            <form action="/admin/konfirmasi/{{ $confirm->id }}" method="POST" class="modal-box dark:bg-gray-600">
+            <form action="/admin/konfirmasi/{{ $confirm->id }}" method="POST" class="modal-box dark:bg-gray-600 ">
                 @csrf
                 <h3 class="font-bold text-lg text-gray-900 dark:text-white">Konfirmasi Akun</h3>
                 <p class="py-4 text-gray-900 dark:text-white">Apakah Kamu Yakin Mau Mengkonfirmasi Akun Ini ? </p>
@@ -211,7 +233,7 @@
                 </div>
             </form>
             <form method="dialog" class="hidden">
-                <div class="modal-action">
+                <div class="modal-action ">
                     <!-- if there is a button in form, it will close the modal -->
                     <button id="close" class="btn bg-red-600 hover:bg-red-700 text-white border-none">Close</button>
             </form>
@@ -221,13 +243,13 @@
     {{-- modal confirm end  --}}
 
 
-        {{-- modal tolak start --}}
+    {{-- modal tolak start --}}
 
-        @foreach ($data as $tolak)
+    @foreach ($data as $tolak)
         <dialog id="tolak_{{ $tolak->id }}" class="modal modal-bottom sm:modal-middle">
             <form action="/admin/tolak/{{ $tolak->id }}" method="POST" class="modal-box dark:bg-gray-600">
                 @csrf
-                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Konfirmasi Akun</h3>
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Tolak Akun</h3>
                 <p class="py-4 text-gray-900 dark:text-white">Apakah Kamu Yakin Mau Menolak Akun Ini ? </p>
                 <div class="modal-action">
                     <label for="close_tolak" class="btn bg-red-600 hover:bg-red-700 text-white border-none">Tidak</label>
@@ -243,5 +265,4 @@
         </dialog>
     @endforeach
     {{-- modal tolak end  --}}
-
 @endsection

@@ -14,7 +14,7 @@ class AdminConfirmController extends Controller
 
     public function __construct()
     {
-        $this->confirmCabang = User::where('role', 'cabang')->where('verified', 'register');
+        $this->confirmCabang = User::whereIn('role', ['cabang','ranting'])->where('verified', 'register');
     }
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\ApiCabangRanting\ApiCabangRantingController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,11 +10,12 @@ use App\Http\Controllers\Controller;
 class AdminRantingController extends Controller
 {
     //
-    private $ranting;
+    private $ranting,$ApiRanting;
 
     public function __construct()
     {
         $this->ranting = User::where('role', 'ranting')->where('verified', 'user');
+        $this->ApiRanting = new ApiCabangRantingController();
     }
 
     public function index(){
@@ -43,52 +45,49 @@ class AdminRantingController extends Controller
     }
 
 
-    public function create(){
+    public function create(Request $request){
 
+        $cabang = $this->ApiRanting->cabangApi();
+        $ranting = null;
+        if ($request->cabang !== null) {
+            $ranting = $this->ApiRanting->rantingApi($request->cabang);
+            return response()->json([
+                'success' => true,
+                'id' => $request->cabang,
+                'data' => $ranting
+            ]);
+        }
         return view('admin.ranting.add', [
-            'ranting' => $this->ranting->latest()->get()
+            'cabang' => $cabang,
+            'ranting' => $ranting
         ]);
     }
 
     public function store(Request $request){
 
         $validasi = $request->validate([
-            'image' => 'required',
             'nama' => 'required',
             'nia' => 'required|unique:users,nia',
-            'ttl' => 'required',
-            'alamat' => 'required',
             'ranting' => 'required',
-            'tingkatan' => 'required|min:5|max:255'
-        ],[
-            'nama.required' => 'Nama Harus Di isi',
-            'nia.required' => 'Nia Harus Di isi',
-            'nia.unique' => 'Nia Yang Anda Masukan Sudah Tersedia',
-            'ranting.required' => 'Ranting Harus Di Isi',
-            'tingkatan.required' => 'Tingkatan Harus Di Isi',
-            'tingkatan.unique' => 'Tingkatan Sudah Di pakai',
-            'ttl.required' => 'ttl Harus Di isi',
-            'alamat.required' => 'alamat Harus Di isi',
+            'cabang' => 'required',
+            'email' => 'required|unique:users,email',
+            'telp' => 'required',
+            'password' => 'required'
         ]);
-
-        $files=array();
-    
-
-        if ($files = $request->file('image')) {
-            $extension = $files->getClientOriginalExtension();
-            $name = hash('sha256', time()) . '.' . $extension;
-            $files->move('ft_anggota', $name);
-        }
-        
+        $cabang = $this->ApiRanting->getDetailCabang($request->cabang)['name'];
+        $ranting = $this->ApiRanting->getDetailRanting($request->ranting)['name'];
+        $password = bcrypt($validasi['password']);
 
         $proses = User::create([
-            'image' => $name,
-            'nama' => $request->nama,
+            'username' => $request->nama,
             'nia' => $request->nia,
-            'ranting' => $request->ranting,
-            'tigkatan' => $request->tingkatan,
-            'ttl' => $request->ttl,
-            'alamat' => $request->alamat,
+            'telp' => $request->telp,
+            'email' => $request->email,
+            'password' => $password,
+            'ranting' => strtolower($ranting),
+            'cabang' => strtolower($cabang),
+            'role' => 'ranting',
+            'verified' => 'user'
         ]);
 
         if($proses){

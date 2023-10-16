@@ -9,7 +9,10 @@ use App\Http\Controllers\admin\AdminCabangController;
 use App\Http\Controllers\admin\AdminConfirmController;
 use App\Http\Controllers\admin\AdminRantingController;
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\auth\ProfileController;
 use App\Http\Controllers\cabang\CabangController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ranting\DashboardRantingController;
 use App\Http\Middleware\CabangMiddleware;
@@ -31,40 +34,27 @@ Route::get('/cek', function () {
 });
 
 
-
-// Route::get('/coba', function () {
-//     return view('admin.cabang.index');
-// });
-
-// Route::get('/add', function () {
-//     return view('admin.konfirmasi.index');
-// });
-
-// Route::get('/baru', function () {
-//     return view('cabang.dashboard.index');
-// });
-
-
-Route::middleware('guest')->group(function(){
+Route::middleware('guest')->group(function () {
 
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'create']);
     Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/registers', [RegisterController::class, 'coba']);
-    
-    
-    });
-    
-Route::middleware('auth')->group(function(){
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/anggota/delete/{id}', [AdminAnggotaController::class, 'delete']);
     Route::post('/logout', [LoginController::class, 'logout']);
-
-
+    Route::get('/edit-profile', [ProfileController::class, 'index']);
+    Route::post('/edit-profile/{id}', [ProfileController::class, 'update']);
+    Route::get('/edit-anggota/{id}', [AnggotaController::class, 'editAnggota']);
+    Route::post('/update-anggota/{id}', [AnggotaController::class, 'updateAnggota']);
 });
 
 
 
-Route::middleware('admin')->group(function(){
+Route::middleware('admin')->group(function () {
     Route::post('/admin/konfirmasi/{id}', [AdminConfirmController::class, 'confirm']);
     Route::post('/admin/tolak/{id}', [AdminConfirmController::class, 'tolak']);
     Route::get('/admin/konfirmasi', [AdminConfirmController::class, 'index']);
@@ -82,7 +72,7 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin/anggota', [AdminAnggotaController::class, 'index']);
 });
 
-Route::middleware('cabang')->group(function(){
+Route::middleware('cabang')->group(function () {
     Route::get('/cabang', [CabangController::class, 'index']);
     Route::get('/cabang/ranting', [CabangController::class, 'ranting']);
     Route::get('/cabang/ranting/create', [CabangController::class, 'ranting_create']);
@@ -90,17 +80,14 @@ Route::middleware('cabang')->group(function(){
     Route::get('/cabang/anggota', [CabangController::class, 'anggota']);
     Route::get('/cabang/confirmation', [CabangController::class, 'confirmation']);
     Route::post('/cabang/{tipe}/{id}', [CabangController::class, 'confirmation_Action']);
-
 });
 
-Route::middleware('ranting')->group(function(){
+Route::middleware('ranting')->group(function () {
     Route::get('/ranting', [DashboardRantingController::class, 'index']);
-    Route::get('/ranting/anggota', [DashboardRantingController::class, 'cek']);
+    Route::get('/ranting/anggota', [DashboardRantingController::class, 'anggota']);
     Route::get('/ranting/add', [DashboardRantingController::class, 'create']);
     Route::post('/ranting/add', [DashboardRantingController::class, 'store']);
-
-
+    Route::post('/ranting/delete/{id}', [DashboardRantingController::class, 'delete']);
 });
 
 Route::get('/', [HomeController::class, 'index']);
-

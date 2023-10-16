@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\ApiCabangRanting\ApiCabangRantingController;
 use App\Http\Controllers\Controller;
 use App\Models\Anggota;
 use App\Models\User;
@@ -30,15 +31,12 @@ class AdminDashboardController extends Controller
         $ranting = $this->ranting;
         $anggota = $this->anggota;
 
-
-
-
-
-
         return view('admin.dashboard.index', [
-            'cabang' => $cabang->get(),
-            'ranting' => $ranting->get(),
-            'anggota' => $anggota->get()
+            'cabang' => $cabang->paginate(10),
+            'ranting' => $ranting->paginate(10),
+            'anggota' => $anggota->get(),
+            'jumlah_cabang' => $cabang->get(),
+            'jumlah_ranting' => $ranting->get()
         ]);
     }
 

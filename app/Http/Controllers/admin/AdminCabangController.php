@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\ApiCabangRanting\ApiCabangRantingController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,11 +10,12 @@ use App\Http\Controllers\Controller;
 class AdminCabangController extends Controller
 {
     //
-    private $cabang;
+    private $cabang,$ApiCabang;
 
     public function __construct()
     {
         $this->cabang = User::where('role', 'cabang')->where('verified', 'user');
+        $this->ApiCabang = new ApiCabangRantingController();
     }
 
     public function index(){
@@ -40,7 +42,10 @@ class AdminCabangController extends Controller
     }
 
     public function create(){
-        return view('admin.cabang.add');
+        $cabang = $this->ApiCabang->cabangApi();
+        return view('admin.cabang.add', [
+            'cabang' => $cabang
+        ]);
     }
 
     public function store(Request $request){
@@ -75,7 +80,7 @@ class AdminCabangController extends Controller
             'email' => $request->email,
             'password' => $validasi['password'],
             'role' => 'cabang',
-            'cabang' => $request->cabang,
+            'cabang' => strtolower($request->cabang),
             'verified' => 'user'
         ]);
 
