@@ -18,9 +18,9 @@
                     </svg>
                 </button>
                 <a href="" class="flex ml-2 md:mr-24 gap-x-2">
-                    <img class="h-14 w-14 object-cover" src="{{ asset('img/cipta.png') }}" alt="">
+                    <img class="h-10 w-10 object-cover md:h-14 md:w-14" src="{{ asset('img/cipta.png') }}" alt="">
                     <span
-                        class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white uppercase">Cipta
+                        class="self-center md:text-2xl text-sm font-semibold    whitespace-nowrap dark:text-white uppercase">Cipta
                         Sejati</span>
                 </a>
             </div>
@@ -184,28 +184,29 @@
                     </svg>
                 </button>
                 <!-- Profile -->
-                <div class="flex items-center ml-3">
-                    <div>
-                        <button type="button" class="flex text-sm bg-gray-800 rounded-full" id="user-menu-button-2"
+                <div class="flex items-center ml-2 ">
+                    <div class="mr-8">
+                        <button type="button" class="flex text-sm rounded-full" id="user-menu-button-2"
                             aria-expanded="false" data-dropdown-toggle="dropdown-2">
                             {{-- <img class="w-8 h-8 rounded-full object-cover" src="{{ asset('ft_user/'.Auth()->user()->image) }}" alt="user photo"> --}}
-                            <h1 class="text-gray-900 dark:text-white font-semibold">{{ Auth()->user()->username }}</h1>
+                            <h1 class="text-gray-900 dark:text-white font-semibold capitalize">{{ Auth()->user()->username }}</h1>
                         </button>
                     </div>
                     <!-- Dropdown menu -->
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                         id="dropdown-2">
-                        <div class="px-4 py-3" role="none">
+                        <div class="px-5 py-2" role="none">
+                            <a href="/edit-profile" class="text-gray-900 pb-2 dark:text-white">
+                                Edit Profile
+                              </a>
                             <form action="/logout" method="post">
                                 @csrf
                                 <button type="submit"
-                                    class=" w-full flex text-sm text-gray-900 dark:text-white px-4 py-3">
+                                    class=" w-full flex text-sm text-gray-900 dark:text-white px-4 py-2">
                                     Logout
                                 </button>
                             </form>
-                            <a href="/edit-profile" class="text-gray-900 dark:text-white">
-                              Edit Profile
-                            </a>
+                           
                         </div>
                     </div>
                 </div>

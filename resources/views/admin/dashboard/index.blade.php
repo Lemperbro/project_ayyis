@@ -22,7 +22,7 @@
 
                     <a href="/admin/ranting"
                         class="absolute bottom-0  left-0 right-0 bg-yellow-400/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
-                        Detal</a>
+                        Detail</a>
 
 
                 </div>
@@ -48,7 +48,7 @@
 
                     <a href="/admin/cabang"
                         class="absolute bottom-0 left-0 right-0 bg-cyan-600/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
-                        Detal</a>
+                        Detail</a>
 
 
                 </div>
@@ -81,7 +81,7 @@
 
                     <a href="/admin/anggota"
                         class="absolute bottom-0 left-0 right-0 bg-green-600/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
-                        Detal</a>
+                        Detail</a>
 
 
                 </div>
@@ -108,34 +108,34 @@
                 </div>
                 <!-- Table -->
                 <div class="flex flex-col mt-6">
-                    <div class="overflow-x-auto rounded-lg ">
+                    <div class="overflow-x-auto rounded-lg scrollbar">
                         <div class="inline-block min-w-full align-middle">
                             <div class="overflow-hidden shadow sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600 ">
                                     <thead class="bg-gray-50 dark:bg-gray-700">
                                         <tr class="">
                                             <th scope="col"
-                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 No
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
-                                                Username
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                Administrator
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Email
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
-                                                No Telphone
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                No Telpon
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Cabang
                                             </th>
                                             <th scope="col"
-                                                class="p-4 text-xs font-semibold tracking-wider text-center text-gray-500 uppercase dark:text-white">
+                                                class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
                                                 Role
                                             </th>
                                         </tr>
@@ -148,7 +148,7 @@
                                                     {{ $loop->iteration }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $cabangs->username }}
                                                 </td>
                                                 <td
@@ -160,11 +160,11 @@
                                                     {{ $cabangs->telp }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $cabangs->cabang }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $cabangs->role }}
                                                 </td>
 
@@ -223,7 +223,7 @@
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
-                                                Username
+                                                Administrator
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
@@ -256,7 +256,7 @@
                                                     {{ $loop->iteration }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $rantings->username }}
                                                 </td>
                                                 <td
@@ -268,15 +268,15 @@
                                                     {{ $rantings->telp }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $rantings->cabang }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $rantings->ranting }}
                                                 </td>
                                                 <td
-                                                    class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    class="p-4 text-sm font-normal capitalize text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {{ $rantings->role }}
                                                 </td>
                                             </tr>

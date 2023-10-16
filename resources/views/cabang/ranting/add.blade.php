@@ -11,8 +11,8 @@
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Data Ranting</h1>
 
             <div class="mt-4">
-                <label for="nama" class="text-gray-900 dark:text-white">Username</label>
-                <input type="text" name="username" id="username"
+                <label for="nama" class="text-gray-900 dark:text-white">Administrator</label>
+                <input type="text" name="username" id="username" placeholder="Contoh: Ayis"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
             @error('username')
                     peer
@@ -28,7 +28,7 @@
 
             <div class="mt-4">
                 <label for="nia" class="text-gray-900 dark:text-white">Nia</label>
-                <input type="text" name="nia" id="nia"
+                <input type="text" name="nia" id="nia" placeholder="Contoh: 12.23.2021.1232"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                 @error('nia')
                         peer
@@ -64,7 +64,7 @@
 
             <div class="mt-4">
                 <label for="email" class="text-gray-900 dark:text-white">Email</label>
-                <input type="email" name="email" id="email"
+                <input type="email" name="email" id="email" placeholder="ex : example@gmail.com"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
             @error('email')
                     peer
@@ -80,7 +80,7 @@
 
             <div class="mt-4">
                 <label for="telp" class="text-gray-900 dark:text-white">No Telpon</label>
-                <input type="number" name="telp" id="telp"
+                <input type="number" name="telp" id="telp" placeholder="ex : 0833291937891"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
             @error('telp')
                     peer
@@ -96,7 +96,7 @@
 
             <div class="mt-4">
                 <label for="password" class="text-gray-900 dark:text-white">Password</label>
-                <input type="password" name="password" id="password"
+                <input type="password" name="password" id="password" placeholder=". . . . . "
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
             @error('password')
                     peer
@@ -112,7 +112,7 @@
 
             <div class="mt-4">
                 <label for="password_confirmation" class="text-gray-900 dark:text-white">Konfirmasi Password</label>
-                <input type="password" name="password_confirmation" id="password"
+                <input type="password" name="password_confirmation" id="password" placeholder=". . . . ."
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                 @error('password')
                         peer

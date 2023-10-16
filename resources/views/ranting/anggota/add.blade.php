@@ -1,7 +1,7 @@
 @extends('ranting.layouts.main')
 
 @section('container')
-    <div class="w-full mt-8 px-4 md:px-0 md:container">
+    <div class="w-full mt-8 container">
         <form action="/ranting/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Anggota</h1>
             @csrf
@@ -27,7 +27,7 @@
 
             <div class="mt-4">
                 <label for="nama" class="text-gray-900 dark:text-white">Nama</label>
-                <input type="text" name="nama" id="nama"
+                <input type="text" name="nama" id="nama" placeholder="Ex: Ayis"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 
                     @error('nama')
                     peer
@@ -45,7 +45,7 @@
 
             <div class="mt-4">
                 <label for="nia" class="text-gray-900 dark:text-white">NIA</label>
-                <input type="text" name="nia" id="nia"
+                <input type="text" name="nia" id="nia" placeholder="Contoh: 12.23.2021.1232"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('nia')
                     peer
@@ -62,7 +62,7 @@
 
             <div class="mt-4">
                 <label for="ranting" class="text-gray-900 dark:text-white">Ranting</label>
-                <input type="text" name="ranting" id="ranting"
+                <input type="text" name="ranting" id="ranting" placeholder="ex: parengan"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 capitalize dark:focus:border-primary-500"
                     value="{{ Auth()->user()->ranting }}" disabled/>
 
@@ -70,7 +70,7 @@
 
             <div class="mt-4">
                 <label for="alamat" class="text-gray-900 dark:text-white">Alamat</label>
-                <input type="alamat" name="alamat" id="alamat"
+                <input type="alamat" name="alamat" id="alamat" placeholder="Parengan Maduran Lamongan"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('alamat')
                     peer
@@ -87,7 +87,7 @@
 
             <div class="mt-4">
                 <label for="ttl" class="text-gray-900 dark:text-white">Tempat Tanggal Lahir</label>
-                <input type="text" name="ttl" id="ttl"
+                <input type="text" name="ttl" id="ttl" placeholder="ex: Lamongan, 07 juni 1999"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('ttl')
                     peer
@@ -104,7 +104,7 @@
 
             <div class="mt-4">
                 <label for="tingkatan" class="text-gray-900 dark:text-white">Tingkatan</label>
-                <input type="tingkatan" name="tingkatan" id="tingkatan"
+                <input type="tingkatan" name="tingkatan" id="tingkatan" placeholder="Ex: siswa"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('tingkatan')
                     peer
                      @enderror"

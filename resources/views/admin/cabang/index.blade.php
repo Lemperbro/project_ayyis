@@ -124,11 +124,11 @@
                                 @foreach ($cabang as $cabangs)
                                     <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center font-normal  text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $loop->iteration }}
                                         </td>
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center font-normal capitalize text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $cabangs->cabang }}
                                         </td>
                                         <td
@@ -136,16 +136,16 @@
                                             {{ $cabangs->email }}
                                         </td>
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center font-normal capitalize text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $cabangs->telp }}
                                         </td>
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center font-normal capitalize text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $cabangs->nia }}
                                         </td>
 
                                         <td
-                                            class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-sm text-center font-normal capitalize text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $cabangs->username }}
                                         </td>
                                         <td

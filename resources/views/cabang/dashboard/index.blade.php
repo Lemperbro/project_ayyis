@@ -34,7 +34,7 @@
 
                     <a href="/cabang/ranting"
                         class="absolute bottom-0  left-0 right-0 bg-yellow-400/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
-                        Detal</a>
+                        Detail</a>
 
 
                 </div>
@@ -68,7 +68,7 @@
 
                     <a href="/cabang/anggota"
                         class="absolute bottom-0 left-0 right-0 bg-green-600/50 font-semibold text-lg text-center rounded-b-md p-2">Lihat
-                        Detal</a>
+                        Detail</a>
 
 
                 </div>
@@ -107,7 +107,7 @@
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">
-                                                Username
+                                                Administrator
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-xs font-medium tracking-wider text-center text-gray-500 uppercase dark:text-white">

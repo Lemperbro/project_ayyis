@@ -1,19 +1,19 @@
 @extends('admin.layout.main')
 
 @section('container')
-    <div class="w-full mt-8 px-4 md:px-0 md:container">
+    <div class="w-full mt-8 container">
         <form action="/admin/cabang/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Data Cabang</h1>
             @csrf
 
             <div class="mt-4">
-                <label for="nama" class="text-gray-900 dark:text-white">Username</label>
+                <label for="nama" class="text-gray-900 dark:text-white">Administrator</label>
                 <input type="text" name="nama" id="nama"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 
                     @error('name')
                     peer
                      @enderror"
-                    value="{{ old('name') }}" />
+                    value="{{ old('name') }}" placeholder="Contoh: Ayis"/>
 
                 @error('name')
                     <p class="peer-invalid:visible text-red-700 font-light">
@@ -26,7 +26,7 @@
 
             <div class="mt-4">
                 <label for="nia" class="text-gray-900 dark:text-white">NIA</label>
-                <input type="text" name="nia" id="nia"
+                <input type="text" name="nia" id="nia" placeholder="Contoh: 12.23.2021.1232"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('nia')
                     peer
@@ -69,7 +69,7 @@
 
             <div class="mt-4">
                 <label for="email" class="text-gray-900 dark:text-white">Email</label>
-                <input type="email" name="email" id="email"
+                <input type="email" name="email" id="email" placeholder="Contoh : example@gmail.com"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('email')
                     peer
@@ -86,7 +86,7 @@
 
             <div class="mt-4">
                 <label for="telp" class="text-gray-900 dark:text-white">No Telpon</label>
-                <input type="number" name="telp" id="telp"
+                <input type="number" name="telp" id="telp" placeholder="contoh: 086617837718"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
                     @error('name')
                     peer
@@ -103,7 +103,7 @@
 
             <div class="mt-4">
                 <label for="password" class="text-gray-900 dark:text-white">Password</label>
-                <input type="password" name="password" id="password"
+                <input type="password" name="password" id="password" placeholder="......."
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('password')
                     peer
                      @enderror"
