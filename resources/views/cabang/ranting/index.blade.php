@@ -64,20 +64,20 @@
                 </form>
 
 
-                <div class="flex gap-x-2">
+                <div class="grid grid-cols-2 md:flex gap-x-2">
 
                     <a href="/cabang/ranting/create"
-                        class="focus:outline-none text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2">
+                        class="focus:outline-none text-center text-white bg-yellow-500 rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2">
                         Tambah Admin Ranting
                     </a>
 
 
                     <a href="/cabang/ranting?{{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }}"
-                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex"
+                        class="focus:outline-none text-center text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex"
                         >
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            class="fill-white" style="transform: ;msFilter:;">
+                            class="fill-white object-co" style="transform: ;msFilter:;">
                             <path d="m12 16 4-5h-3V4h-2v7H8z"></path>
                             <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
                         </svg>

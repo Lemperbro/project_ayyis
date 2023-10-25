@@ -23,11 +23,11 @@
                                     class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12" value="{{ request('ranting') }}">
 
                             </div>
-                            <div class="mt-4 flex gap-x-4">
+                            <div class="mt-4 grid grid-cols-2 gap-x-3">
                                 <button type="submit"
                                 class="focus:outline-none text-white bg-yellow-500  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 h-12 mt-8">Cari Data</button>
                                 <a href="/cabang/confirmation"
-                                class="focus:outline-none text-white bg-red-600  rounded-lg text-base font-semibold px-5 py-2 mr-2 mb-2 h-12 mt-8">Reset Filter</a>
+                                class="focus:outline-none text-white text-center bg-red-600  rounded-lg text-base font-semibold px-5 py-3 mr-2 mb-2 h-12 mt-8">Reset Filter</a>
                             </div>
 
                         </div>
