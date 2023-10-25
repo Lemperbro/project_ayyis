@@ -1,11 +1,5 @@
 @include('globalPartials.start')
-{{-- 1. username
-2. nia
-3. telp
-4. email
-5. password
-6. ranting
-7. cabang --}}
+
 @php
     if (Auth()->user()->role == 'admin') {
         $url = '/admin';
@@ -27,7 +21,7 @@
                         <div class="w-full">
                             <h1 class="text-gray-900 dark:text-white">Username</h1>
                             <input type="text" name="username"
-                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg mt-2 w-full text-gray-900 dark:text-white                     @error('username')
+                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg mt-2 w-full text-gray-900 dark:text-white @error('username')
                                 peer
                                  @enderror"
                                 value="{{ $data->username }}">

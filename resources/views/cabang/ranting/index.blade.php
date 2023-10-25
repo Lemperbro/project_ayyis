@@ -2,7 +2,7 @@
 
 
 @section('container')
-    <div class="w-full mt-8 pb-4 p-6 h-screen">
+    <div class="w-full mt-8 pb-4 p-6 min-h-screen">
 
         <div
             class="items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
@@ -72,9 +72,9 @@
                     </a>
 
 
-                    <button
+                    <a href="/cabang/ranting?{{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }}"
                         class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 gap-x-2 flex"
-                        type="button" onclick="downloadToExcel('dataPrint', 'Data-CiptaSejati')">
+                        >
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             class="fill-white" style="transform: ;msFilter:;">
@@ -84,7 +84,7 @@
 
                         <span>Download Data Ke Excel</span>
 
-                    </button>
+                    </a>
 
                 </div>
 
@@ -183,6 +183,9 @@
 
                             </tbody>
                         </table>
+                        <div class="mt-4">
+                            {{ $ranting->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
+                        </div>
                     </div>
                 </div>
             </div>

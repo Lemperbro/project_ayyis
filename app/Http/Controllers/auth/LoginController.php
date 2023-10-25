@@ -16,7 +16,7 @@ class LoginController extends Controller
             'tittle' => 'login'
         ]);
     }
-
+    
     public function login(Request $request)
     {
         $credentials = $request->validate([

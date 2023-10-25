@@ -13,8 +13,11 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mt-2">
                     Ubah Password
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="/login" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{ route('resetPassword.update') }}" method="POST">
                     @csrf
+
+                    <input type="hidden" name="token" value="{{ request()->token }}">
+                    <input type="hidden" name="email" value="{{ $email }}">
                     <div>
                         <label for="password"
                             class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Password</label>

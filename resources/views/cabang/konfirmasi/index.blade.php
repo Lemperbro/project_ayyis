@@ -158,6 +158,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="mt-4">
+                                    {{ $data->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
+                                </div>
                             </div>
                         </div>
                     </div>

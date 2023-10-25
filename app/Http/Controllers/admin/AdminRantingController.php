@@ -6,16 +6,18 @@ use App\Http\Controllers\ApiCabangRanting\ApiCabangRantingController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ExportExcelController;
 
 class AdminRantingController extends Controller
 {
     //
-    private $ranting,$ApiRanting;
+    private $ranting,$ApiRanting, $ExportExcel;
 
     public function __construct()
     {
         $this->ranting = User::where('role', 'ranting')->where('verified', 'user');
         $this->ApiRanting = new ApiCabangRantingController();
+        $this->ExportExcel = new ExportExcelController();
     }
 
     public function index(){
@@ -38,9 +40,20 @@ class AdminRantingController extends Controller
         if(request('nia')){
             $ranting->where('nia',request('nia'));
         }
+        if(request('download') == true){
+            $downloadExcel = $ranting->get();
+            return $this->ExportExcel->ExportUser($downloadExcel);
+        }
+        $appendsPaginate = [
+            'nama' => request('nama'),
+            'ranting' => request('ranting'),
+            'cabang' => request('cabang'),
+            'nia' => request('nia')
+        ];
 
         return view('admin.ranting.index', [
-            'ranting' => $ranting->get()
+            'ranting' => $ranting->paginate(10),
+            'appendsPaginate' => $appendsPaginate
         ]);
     }
 

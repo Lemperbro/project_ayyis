@@ -11,17 +11,16 @@ class ResetPasswordEmail extends Notification
 {
     use Queueable;
 
-
-    public $token;
+    private $token, $email;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($token)
+    public function __construct($token, $email)
     {
-        //
         $this->token = $token;
+        $this->email = $email;
     }
 
     /**
@@ -43,13 +42,12 @@ class ResetPasswordEmail extends Notification
      */
     public function toMail($notifiable)
     {
-        $resetUrl = url('reset-password', $this->token);
-        $email_growin = config('services.layanan.email');
+        $resetUrl = route('resetPassword', ['token' => $this->token, 'email' => $this->email]);
 
         return (new MailMessage)
-            ->view('auth.emailResetPass', ['resetUrl' => $resetUrl])
-            ->from($email_growin, 'Grow In Travel')
-            ->subject('Reset Password Grow In');
+                ->view('auth.emailResetPass', ['resetUrl' => $resetUrl])
+                ->from('yuliantoryan64@gmail.com', 'Cipta Sejati')
+                ->subject('Reset Password Cipta Sejati');
     }
 
     /**

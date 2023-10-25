@@ -6,7 +6,7 @@
 
     @include('admin.partials.sidebar')
 
-    <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-100 lg:ml-64 dark:bg-gray-900">
+    <div id="main-content" class="relative w-full h-full bg-gray-100 lg:ml-64 dark:bg-gray-900 pt-6 pb-20">
         <main>
 
             @yield('container')

@@ -1,7 +1,7 @@
 @extends('ranting.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-2">
+    <div class="px-4 min-h-screen">
 
         <h1 class="text-grey-900 dark:text-white font-semibold capitalize text-xl">Dashboard Ranting
             {{ Auth()->user()->ranting }}</h1>
@@ -159,7 +159,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{ $dataAnggota->links('vendor.pagination.simple-tailwind') }}
                     </div>
                 </div>
 

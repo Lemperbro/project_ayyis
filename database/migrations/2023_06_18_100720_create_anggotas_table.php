@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('anggotas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('admin_id');
             $table->text('image');
             $table->string('nama');
             $table->string('nia');

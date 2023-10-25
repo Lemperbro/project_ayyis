@@ -10,7 +10,7 @@ class CabangRepository implements CabangInterface{
     }
 
     public function getByCabang($cabang){
-
+    
     }
 
     public function delete($id){

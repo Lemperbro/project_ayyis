@@ -11,7 +11,9 @@ use App\Http\Controllers\admin\AdminRantingController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\auth\ProfileController;
+use App\Http\Controllers\auth\ResetPasswordController;
 use App\Http\Controllers\cabang\CabangController;
+use App\Http\Controllers\ExportExcelController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ranting\DashboardRantingController;
@@ -41,6 +43,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'create']);
     Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/registers', [RegisterController::class, 'coba']);
+
+    Route::get('/lupa-password', [ResetPasswordController::class, 'index'])->name('lupaPassword');
+    Route::post('/lupa-password', [ResetPasswordController::class, 'store'])->name('lupaPassword.post');
+    Route::get('/reset-password/{token}/{email}', [ResetPasswordController::class, 'reset'])->name('resetPassword');
+    Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name('resetPassword.update');
 });
 
 Route::middleware('auth')->group(function () {
@@ -48,7 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/edit-profile', [ProfileController::class, 'index']);
     Route::post('/edit-profile/{id}', [ProfileController::class, 'update']);
-    Route::get('/edit-anggota/{id}', [AnggotaController::class, 'editAnggota']);
+    Route::get('/edit-anggota/{id}', [AnggotaController::class, 'editAnggota'])->name('anggota.edit');
     Route::post('/update-anggota/{id}', [AnggotaController::class, 'updateAnggota']);
 });
 
@@ -91,3 +98,5 @@ Route::middleware('ranting')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/download', [ExportExcelController::class, 'Export']);

@@ -1,6 +1,7 @@
 <?php
+
 namespace App\Repositories\Interfaces;
 
-interface CabangInterface{
-    
+interface CabangInterface
+{
 }

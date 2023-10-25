@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\ranting;
 
+use App\Exports\ExportExcel;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ExportExcelController;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -14,7 +16,7 @@ use Symfony\Contracts\Service\Attribute\Required;
 class DashboardRantingController extends Controller
 {
 
-    private $anggota,$adminRantingCount, $authRanting;
+    private $anggota, $adminRantingCount, $authRanting, $ExportExcel;
 
     public function __construct()
     {
@@ -24,6 +26,7 @@ class DashboardRantingController extends Controller
             $this->authRanting = Auth()->user()->ranting;
             return $next($request);
         });
+        $this->ExportExcel = new ExportExcelController();
     }
     /**
      * Display a listing of the resource.
@@ -34,10 +37,10 @@ class DashboardRantingController extends Controller
     {
         $anggota = $this->anggota;
         $adminRantingCount = $this->adminRantingCount->get();
-        return view('ranting.dashboard.index',[
+        return view('ranting.dashboard.index', [
             'anggotaCount' => $anggota->get()->count(),
             'adminRantingCount' => $adminRantingCount,
-            'dataAnggota' => $anggota->paginate(10) 
+            'dataAnggota' => $anggota->paginate(10)
         ]);
     }
 
@@ -54,18 +57,30 @@ class DashboardRantingController extends Controller
     public function anggota()
     {
         $data = $this->anggota;
-        if(request('nama')){
-            $data->where('nama', 'like', '%'.request('nama').'%');
+        if (request('nama')) {
+            $data->where('nama', 'like', '%' . request('nama') . '%');
         }
 
-        if(request('nia')){
+        if (request('nia')) {
             $data->where('nia', request('nia'));
         }
+        $appendsPaginate = [
+            'nama' => request('nama'),
+            'nia' => request('nia')
+        ];
+        if (request('download') == true) {
+            $downloadExcel = $data->get();
+            return  $this->ExportExcel->ExportAnggota($downloadExcel);
 
-        return view('ranting.anggota.index',[
-            'data' => $data->paginate(20)
+        }
+
+        return view('ranting.anggota.index', [
+            'data' => $data->paginate(20),
+            'appendsPaginate' => $appendsPaginate,
         ]);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -91,10 +106,11 @@ class DashboardRantingController extends Controller
         }
         $ranting = Auth()->user()->ranting;
         $cabang = Auth()->user()->cabang;
-
+        $authId = Auth()->user()->id;
         Anggota::create([
             'nama' => $validasi['nama'],
             'image' => $name,
+            'admin_id' => $authId,
             'ttl' => $validasi['ttl'],
             'nia' => $validasi['nia'],
             'alamat' => $validasi['alamat'],
@@ -106,12 +122,13 @@ class DashboardRantingController extends Controller
         return redirect('/ranting')->with('success', 'berhasil menambahkan data anggota');
     }
 
-    public function delete(Anggota $id){
+    public function delete(Anggota $id)
+    {
         $id->delete();
 
-        try{
+        try {
             return redirect()->back()->with('toast_success', 'Berhasil Menghapus Anggota');
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return redirect()->back()->with('toast_error', 'Tidak Berhasil Menghapus Anggota');
         }
     }

@@ -13,16 +13,19 @@ class AnggotaRepository implements AnggotaInterface{
 
     public function getById(Anggota $id){
         return $id;
+        
     }
 
     public function getByRanting($ranting, $paginate){
         $data = Anggota::where('ranting', Auth()->user()->ranting)->where('cabang', $ranting)->latest();
         return $data->paginate($paginate);
+        
     }
 
     public function getByCabang($cabang,$paginate){
         $data = Anggota::where('cabang', $cabang)->latest();
         return $data->paginate($paginate);
+        
     }
     public function store(){
 

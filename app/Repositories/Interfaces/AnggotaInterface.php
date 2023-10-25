@@ -8,4 +8,4 @@ interface AnggotaInterface {
     public function getById(Anggota $id);
     public function getByRanting($ranting, $paginate);
     public function getByCabang($cabang, $paginate);
-}
+} 

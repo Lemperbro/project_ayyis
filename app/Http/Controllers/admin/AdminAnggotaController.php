@@ -32,8 +32,16 @@ class AdminAnggotaController extends Controller
         if(request('nia')){
             $data_anggota->where('nia', request('nia'));
         }
+        
+        $appendsPaginate = [
+            'nama' => request('nama'),
+            'ranting' => request('ranting'),
+            'cabang' => request('cabang'),
+            'nia' => request('nia')
+        ];
         return view('admin.anggota.index', [
-            'data_anggota' => $data_anggota->paginate(40)
+            'data_anggota' => $data_anggota->paginate(20),
+            'appendsPaginate' => $appendsPaginate
         ]);
     }
 

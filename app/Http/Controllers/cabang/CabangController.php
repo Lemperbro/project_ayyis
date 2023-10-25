@@ -7,13 +7,14 @@ use App\Models\User;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ExportExcelController;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
 class CabangController extends Controller
 {
 
-    private $anggota,$ranting,$user_login, $ApiCabangRanting,$rantingConfirm,$authCabang;
+    private $anggota,$ranting,$user_login, $ApiCabangRanting,$rantingConfirm,$authCabang, $ExportExcel;
 
     public function __construct(Request $request,ApiCabangRantingController $ApiCabangRanting)
     {
@@ -27,6 +28,7 @@ class CabangController extends Controller
         });
 
         $this->ApiCabangRanting = $ApiCabangRanting;
+        $this->ExportExcel = new ExportExcelController();
         
     }
     /**
@@ -39,7 +41,7 @@ class CabangController extends Controller
 
         return view('cabang.dashboard.index',[
             'anggota' => $this->anggota->paginate(10),
-            'ranting' => $this->ranting->get()
+            'ranting' => $this->ranting->paginate(10)
         ]);
     }
 
@@ -62,14 +64,27 @@ class CabangController extends Controller
         $filteredData = collect($CabangApi)->filter(function ($item) {
             // Kondisi filter
             return $item['name'] == strtoupper(Auth()->user()->cabang);
+            
         });
 
         foreach($filteredData as $a ){
             $rantingApi = $this->ApiCabangRanting->rantingApi($a['id']);
         }
+
+        if(request('download') == true){
+            $downloadExcel = $ranting->get();
+            return $this->ExportExcel->ExportUser($downloadExcel);
+        }
+        $appendsPaginate = [
+            'nama' => request('nama'),
+            'ranting' => request('ranting'),
+            'nia' => request('nia')
+        ];
+
         return view('cabang.ranting.index', [
             'ranting' => $ranting->paginate(20),
-            'filter_ranting' => $rantingApi
+            'filter_ranting' => $rantingApi,
+            'appendsPaginate' => $appendsPaginate
         ]);
     }
 
@@ -89,6 +104,7 @@ class CabangController extends Controller
         return view('cabang.ranting.add',[
             'ranting' => $rantingApi
         ]);
+        
     }
 
     public function ranting_store(Request $request){
@@ -164,9 +180,15 @@ class CabangController extends Controller
             $data->where('nia', request('nia'));
         }
 
+        $appendsPaginate = [
+            'nama' => request('nama'),
+            'ranting' => request('ranting'),
+            'nia' => request('nia')
+        ];
         return view('cabang.anggota.index', [
-            'data' => $data->get(),
-            'ranting' => $rantingApi
+            'data' => $data->paginate(20),
+            'ranting' => $rantingApi,
+            'appendsPaginate' => $appendsPaginate
         ]);
     }
 
@@ -177,8 +199,13 @@ class CabangController extends Controller
         if(request('ranting')){
             $data->where('ranting', request('ranting'));
         }
+
+        $appendsPaginate = [
+            'ranting' => request('ranting')
+        ];
         return view('cabang.konfirmasi.index', [
-            'data' => $data->get(),
+            'data' => $data->paginate(10),
+            'appendsPaginate' => $appendsPaginate
         ]);
     }
 

@@ -117,11 +117,11 @@
                                     </thead>
                                     <tbody class="">
 
-                                        @foreach ($data as $datas)
+                                        @foreach ($data as $key => $datas)
                                             <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
                                                 <td
                                                     class="p-4 text-center text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {{ $loop->iteration }}
+                                                    {{ $data->firstItem() + $key }}
                                                 </td>
                                                 <td
                                                     class="p-4 text-center text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
@@ -188,31 +188,32 @@
                                                 <!-- Open the modal using ID.showModal() method -->
 
 
-                            </div>
-                            </td>
-                            </tr>
-                            @endforeach
+                                            </tr>
+                                        @endforeach
 
-                            </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                                <div class="mt-4">
+                                    {{ $data->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+            {{-- table matakuliah end --}}
+
+
+
+
+
+
+
 
         </div>
-        {{-- table matakuliah end --}}
 
-
-
-
-
-
-
-
-    </div>
-
-    {{-- content-1 end --}}
+        {{-- content-1 end --}}
 
 
     </div>

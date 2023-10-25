@@ -21,6 +21,7 @@ class AnggotaController extends Controller
 
     public function editAnggota(Anggota $id, Request $request)
     {
+        
         if (Auth()->user()->role == 'ranting') {
             if (Auth()->user()->ranting !== $id->ranting) {
                 return redirect()->back();
@@ -40,13 +41,14 @@ class AnggotaController extends Controller
         foreach ($filteredData as $a) {
             $rantingApi = $this->ApiWilayah->rantingApi($a['id']);
         }
+        
         if ($request->cabang !== null) {
             $ranting = $this->ApiWilayah->rantingApi($request->cabang);
             return response()->json([
                 'success' => true,
                 'id' => $request->cabang,
                 'data' => $ranting
-            ]);
+            ]);   
         }
         return view('edit_anggota.index', [
             'data' => $id,

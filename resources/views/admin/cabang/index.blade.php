@@ -63,9 +63,8 @@
                     </a>
 
 
-                    <button
-                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 flex sm:inline-block w-full sm:w-auto"
-                        type="button" onclick="downloadToExcel('dataPrint', 'Data-CiptaSejati')">
+                    <a href="/admin/cabang?{{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }}"
+                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 flex sm:inline-block w-full sm:w-auto">
                         <div class="flex gap-x-2 mx-auto">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 class="fill-white" style="transform: ;msFilter:;">
@@ -75,14 +74,13 @@
                             <span>Download Data Ke Excel</span>
                         </div>
 
-                    </button>
+                    </a>
 
                 </div>
 
             </div>
 
         </div>
-       
         <div class="flex flex-col mt-6">
             <div class="overflow-x-auto rounded-lg scrollbar">
                 <div class="inline-block min-w-full align-middle">
@@ -121,11 +119,11 @@
                                 </tr>
                             </thead>
                             <tbody class="">
-                                @foreach ($cabang as $cabangs)
+                                @foreach ($cabang as $key => $cabangs)
                                     <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
                                         <td
                                             class="p-4 text-sm text-center font-normal  text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $loop->iteration }}
+                                            {{ $cabang->firstItem() + $key }}
                                         </td>
                                         <td
                                             class="p-4 text-sm text-center font-normal capitalize text-gray-900 whitespace-nowrap dark:text-white">
@@ -168,6 +166,9 @@
 
                             </tbody>
                         </table>
+                        <div class="mt-4">
+                            {{ $cabang->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
+                        </div>
                     </div>
                 </div>
             </div>

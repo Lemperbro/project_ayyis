@@ -1,7 +1,7 @@
 @extends('ranting.layouts.main')
 
 @section('container')
-    <div class="w-full mt-8 container">
+    <div class="w-full min-h-screen px-4">
         <form action="/ranting/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Anggota</h1>
             @csrf

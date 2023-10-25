@@ -75,9 +75,8 @@
                     </a>
 
 
-                    <button
-                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 flex flex-col w-full sm:w-auto text-center"
-                        type="button" onclick="downloadToExcel('dataPrint', 'Data-CiptaSejati')">
+                    <a href="/admin/ranting?{{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }}"
+                        class="focus:outline-none text-white bg-green-600  rounded-lg text-base flexfont-semibold px-5 py-2 mr-2 mb-2 flex flex-col w-full sm:w-auto text-center">
                         <div class="flex gap-x-2 mx-auto">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 class="fill-white" style="transform: ;msFilter:;">
@@ -87,7 +86,7 @@
 
                             <span>Download Data Ke Excel</span>
                         </div>
-                    </button>
+                    </a>
 
                 </div>
 
@@ -137,11 +136,11 @@
                                 </tr>
                             </thead>
                             <tbody class="">
-                                @foreach ($ranting as $rantings)
+                                @foreach ($ranting as $key => $rantings)
                                     <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600 overflow-x-auto rounded-lg scrollbar">
                                         <td
                                             class="p-4 text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $loop->iteration }}
+                                            {{ $ranting->firstItem() + $key }}
                                         </td>
                                         <td
                                             class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
@@ -186,6 +185,10 @@
 
                             </tbody>
                         </table>
+
+                        <div class="mt-4">
+                            {{ $ranting->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
+                        </div>
                     </div>
                 </div>
             </div>

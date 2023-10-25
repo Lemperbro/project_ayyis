@@ -24,9 +24,14 @@ class AdminConfirmController extends Controller
         if(request('search')){
             $data->where('username','like','%'.request('search').'%')->orWhere('nia','like','%'.request('search').'%');
         }
+        $appendsPaginate = [
+            'search' => request('search')
+        ];
         return view('admin.konfirmasi.index', [
-            'data' => $data->get(),
+            'data' => $data->paginate(10),
+            'appendsPaginate' => $appendsPaginate 
         ]);
+        
     }
 
     public function confirm($id){
@@ -43,5 +48,4 @@ class AdminConfirmController extends Controller
         return redirect()->back()->with('toast_success', 'Akun Berhasil Ditolak');
     }
     
-
 }
