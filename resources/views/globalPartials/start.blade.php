@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('src/style.css') }}">
+    <link rel="icon" href="{{ asset('img/cipta.png') }}">
 
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC

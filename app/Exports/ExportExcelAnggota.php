@@ -10,52 +10,56 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
 
-class ExportExcelAnggota implements FromCollection, WithHeadings, WithDrawings, ShouldAutoSize
+class ExportExcelAnggota extends ExportBase implements FromCollection,WithColumnWidths
 {
 
     private $data;
+    private static $counter = 0;
+
+    // protected $row_height = 50;
+    // protected $column_width = 30;
+
+
 
     public function __construct($data)
     {
         $this->data = $data;
     }
-    /**
-     * @return \Illuminate\Support\Collection
-     */
+
     public function collection()
     {
         return $this->data;
     }
 
-    public function headings(): array
+    public function columnWidths(): array
     {
         return [
-            'No',
-            'Nama',
-            'NIA',
-            'Tempat, Tanggal Lahir',
-            'Alamat',
-            'Ranting',
-            'Cabang',
-            'Tingkatan',
-            'Gambar'
+            'A' => 5,
+            'B' => 40,      
+            'C' => 25,      
+            'D' => 25,      
+            'E' => 45,      
+            'F' => 25,      
+            'G' => 25,      
+            'H' => 25,      
+            'I' => 15,      
         ];
     }
 
-    public function drawings(): array
+    public function map($row): array
     {
-        $drawings = [];
+        self::$counter++;
 
-        foreach ($this->data as $key => $anggota) {
-            $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
-            $drawing->setPath(public_path('ft_anggota/' . $anggota->image));
-            $drawing->setCoordinates('J' . $key + 1);
-            $drawing->setWidth(80);
-            $drawing->setHeight(80);
-            $drawings[] = $drawing;
-        }
+        $this->add_column('No', self::$counter);
+        $this->add_column('Nama', $row['nama']);
+        $this->add_column('NIA', $row['nia']);
+        $this->add_column('Tempat, Tanggal Lahir', $row['ttl']);
+        $this->add_column('Alamat', $row['alamat']);
+        $this->add_column('Ranting', $row['ranting']);
+        $this->add_column('Cabang', $row['cabang']);
+        $this->add_column('Tingkatan', $row['tingkatan']);
+        $this->add_column('Gambar', $this->draw('ft_anggota/'.$row['image']));
 
-        return $drawings;
+        return $this->get_row();
     }
-
 }

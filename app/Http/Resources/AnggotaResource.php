@@ -19,7 +19,6 @@ class AnggotaResource extends JsonResource
         return [
             'number' => self::$counter, 
             'nama' => $this->nama,
-            'image' => $this->image,
             'nia' => $this->nia,
             'ttl' => $this->ttl,
             'alamat' => $this->alamat,

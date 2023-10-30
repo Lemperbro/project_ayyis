@@ -180,6 +180,11 @@ class CabangController extends Controller
             $data->where('nia', request('nia'));
         }
 
+        if(request('download') == true){
+            $downloadExcel = $data->get();
+            return $this->ExportExcel->ExportAnggota($downloadExcel);
+        }
+
         $appendsPaginate = [
             'nama' => request('nama'),
             'ranting' => request('ranting'),

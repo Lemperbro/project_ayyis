@@ -70,6 +70,27 @@
 
         </div>
 
+        {{-- {{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }} --}}
+
+        <div
+            class="mt-6 items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
+            <div class=" w-full md:w-[60%] lg:w-[30%] gap-4">
+                <a href="/cabang/anggota?{{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }}"
+                    class="focus:outline-none text-white bg-primary-600 p-3 h-12 rounded-lg text-base flex  font-semibold gap-x-2">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-white" style="transform: ;msFilter:;">
+                        <path d="m12 16 4-5h-3V4h-2v7H8z">
+                        </path>
+                        <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+                    </svg>
+
+                    <span>Download Data</span>
+
+                </a>
+            </div>
+        </div>
+
         <div class="flex flex-col mt-6">
             <div class="overflow-x-auto rounded-lg">
                 <div class="inline-block min-w-full align-middle">
@@ -141,7 +162,16 @@
                                             <div class="flex gap-x-4 m-auto justify-center">
                                                 <div class="pt-1">
                                                     <a href="{{ route('anggota.edit', ['id' => $item->id]) }}">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" transform="matrix(1, 0, 0, 1, 0, 0)"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z" fill="#37801b"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z" fill="#37801b"/></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="28"
+                                                            height="28" viewBox="0 0 24 24"
+                                                            transform="matrix(1, 0, 0, 1, 0, 0)">
+                                                            <path
+                                                                d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"
+                                                                fill="#37801b" />
+                                                            <path
+                                                                d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"
+                                                                fill="#37801b" />
+                                                        </svg>
                                                     </a>
                                                 </div>
 

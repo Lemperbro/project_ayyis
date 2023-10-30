@@ -31,9 +31,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 |
 */
 
-Route::get('/cek', function () {
-    return view('ranting.anggota.index');
-});
+
 
 
 Route::middleware('guest')->group(function () {

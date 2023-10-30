@@ -53,12 +53,13 @@
 
                         <div class="my-4 grid grid-cols-2 gap-x-2">
                             <button type="submit"
-                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12 mt-8">Cari Data
+                                class="focus:outline-none text-white bg-yellow-500 text-center py-2.5 rounded-lg text-base font-semibold p-2 h-12 mt-8">Cari
+                                Data
                             </button>
 
                             <a href="/admin/anggota"
                                 class="bg-red-700 py-2.5 rounded-lg text-base text-white font-semibold inline-block text-center h-12 mt-8 ">
-                                 Reset
+                                Reset
                                 Filter
                             </a>
                         </div>
@@ -111,7 +112,7 @@
                                 </tr>
                             </thead>
                             <tbody class="">
-                                @foreach ($data_anggota as $key => $item) 
+                                @foreach ($data_anggota as $key => $item)
                                     <tr class="bg-white dark:bg-gray-800 border-b-[1px] border-gray-600">
                                         <td
                                             class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
@@ -133,45 +134,52 @@
                                             class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $item->cabang }}
                                         </td>
-    
+
                                         <td
                                             class="p-4 text-sm text-center capitalize font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $item->nia }}
                                         </td>
                                         <td
                                             class=" text-sm text-center font-normal text-gray-900 whitespace-nowrap dark:text-white flex justify-center items-center gap-x-4 p-2">
-                                            
+
                                             <div class="pt-1">
                                                 <a href="{{ route('anggota.edit', ['id' => $item->id]) }}">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" transform="matrix(1, 0, 0, 1, 0, 0)"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z" fill="#37801b"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z" fill="#37801b"/></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        viewBox="0 0 24 24" transform="matrix(1, 0, 0, 1, 0, 0)">
+                                                        <path
+                                                            d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"
+                                                            fill="#37801b" />
+                                                        <path
+                                                            d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"
+                                                            fill="#37801b" />
+                                                    </svg>
                                                 </a>
                                             </div>
-                                                <button type="button" class="bg-red-600 p-2 rounded-md" onclick="delete_{{ $item->id }}.showModal()">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
-                                                        class="fill-white">
-                                                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                        <path
-                                                            d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
-                                                    </svg>
-                                                </button>
+                                            <button type="button" class="bg-red-600 p-2 rounded-md"
+                                                onclick="delete_{{ $item->id }}.showModal()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
+                                                    class="fill-white">
+                                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                                                </svg>
+                                            </button>
                                         </td>
-    
-    
+
+
                                     </tr>
                                 @endforeach
 
 
                             </tbody>
                         </table>
-                        <div class="mt-4">
-                            {{ $data_anggota->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
-                        </div>
+
                     </div>
                 </div>
             </div>
-
-
-
+        </div>
+        <div class="mt-4">
+            {{ $data_anggota->appends($appendsPaginate)->links('vendor.pagination.tailwind') }}
         </div>
 
 
@@ -179,8 +187,8 @@
     </div>
 @endsection
 
-    {{-- modal delete start --}}
-    @foreach ($data_anggota as $delete)
+{{-- modal delete start --}}
+@foreach ($data_anggota as $delete)
     <dialog id="delete_{{ $delete->id }}" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box bg-white dark:bg-gray-600">
             <form action="/anggota/delete/{{ $delete->id }}" method="POST">
