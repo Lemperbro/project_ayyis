@@ -14,12 +14,12 @@
                     <form action="/admin/konfirmasi" method="GET" class="">
 
 
-                        <div class="flex gap-x-4 my-2">
-                            <div class="my-2 w-[30%]">
+                        <div class="flex-cols gap-x-4 my-2 md:flex">
+                            <div class="my-2 max-w-lg md:w-full">
 
-                                <label class="dark:text-white text-grey-900 font-semibold inline-block">Search</label>
+                                <label class="dark:text-white text-grey-900 font-semibold inline-block text-2xl md:text-lg">Search</label>
 
-                                <div class="relative w-full mt-2">
+                                <div class="relative w-full mt-2 sm:max-w-full ">
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
                                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -36,13 +36,13 @@
 
                             </div>
 
-                            <div class="mt-4 flex gap-x-2">
+                            <div class="mt-4 grid grid-cols-2 gap-x-3">
                                 <button type="submit"
-                                    class="focus:outline-none text-white bg-yellow-500  rounded-lg text-base font-semibold p-2 h-10 mt-7">
+                                    class="focus:outline-none md:max-w-full text-white bg-yellow-500  rounded-lg text-base font-semibold p-2 h-10 mt-7">
                                     Cari Data
                                 </button>
                                 <a href="/admin/konfirmasi"
-                                    class="text-white bg-red-600 p-2 rounded-md h-10 mt-7 font-semibold text-base">
+                                    class="focus:outline-none md:max-w-full text-white bg-red-700  text-center rounded-lg text-base font-semibold p-2 h-10 mt-7">
                                     Reset Search
                                 </a>
                             </div>
@@ -71,10 +71,10 @@
                 </div>
                 <!-- Table -->
                 <div class="flex flex-col mt-6">
-                    <div class="overflow-x-auto rounded-lg">
+                    <div class="overflow-x-auto rounded-lg scrollbar">
                         <div class="inline-block min-w-full align-middle">
                             <div class="overflow-hidden shadow sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600 ">
                                     <thead class="bg-gray-50 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col"

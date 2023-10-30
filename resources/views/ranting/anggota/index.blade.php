@@ -51,18 +51,18 @@
             class="mt-6 items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
             <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[60%] lg:w-[30%] gap-4">
                 <a href="/ranting/anggota?{{ http_build_query(array_merge(request()->all(), ['download' => 'true'])) }}"
-                    class="focus:outline-none text-white bg-primary-600 p-3 h-12 rounded-lg text-base flex  font-semibold gap-x-2"
+                    class="focus:outline-none text-white bg-primary-600 p-3 h-12 rounded-lg text-base text-center flex  font-semibold gap-x-2"
                     >
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-white" style="transform: ;msFilter:;"><path d="m12 16 4-5h-3V4h-2v7H8z">
                         </path><path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
                     </svg>
 
-                    <span>Download Data</span>
+                    <span class="">Download Data</span>
 
                 </a>
                 <button
-                    class="focus:outline-none text-white bg-green-600 p-3 h-12 rounded-lg text-base flex  font-semibold gap-x-2"
+                    class="focus:outline-none text-white bg-green-600 text-center p-3 h-12 rounded-lg text-base flex  font-semibold gap-x-2"
                     type="button" onclick="import_1.showModal()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-white" style="transform: ;msFilter:;">
                         <path d="M20 14V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4h-7v3l-5-4 5-4v3h7zM13 4l5 5h-5V4z"></path>
