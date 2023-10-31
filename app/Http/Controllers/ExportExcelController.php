@@ -27,7 +27,7 @@ class ExportExcelController extends Controller
     public function ExportUser($data)
     {
         $data = UserResource::collection($data);
-        return Excel::download(new ExportExcelUser($data), 'Data-Anggota-CiptaSejati.xlsx');
+        return Excel::download(new ExportExcelUser($data), 'Data-User-CiptaSejati.xlsx');
     }
 }
 

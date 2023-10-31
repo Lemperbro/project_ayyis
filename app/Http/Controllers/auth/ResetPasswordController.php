@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
                     
     }
 
-    public function reset($token,$email){
+    public function reset($token,$email){ 
         $check = DB::table('password_resets')->where('email', $email)->first();
         if($check !== null){
             if (!Hash::check($token, $check->token)) {
@@ -42,29 +42,24 @@ class ResetPasswordController extends Controller
         }else{
             return redirect('/login');
         }
-
         return view('auth.changePassword', [
             'token' => $token,
             'email' => $email
         ]);
     }
-
     public function update(Request $request){
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:5|confirmed',
-        ]);
-     
-        $status = Password::reset(
+        ]);  
+        $status = Password::reset( 
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
                 $user->forceFill([
                     'password' => Hash::make($password)
                 ])->setRememberToken(Str::random(60));
-     
                 $user->save();
-     
                 event(new PasswordReset($user));
             }
         );

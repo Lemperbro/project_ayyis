@@ -8,7 +8,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Maatwebsite\Excel\Concerns\WithDrawings;
 
 
-class ExportExcelUser implements FromCollection, WithHeadings, WithDrawings
+class ExportExcelUser implements FromCollection, WithHeadings
 {
 
     private $data;
@@ -26,13 +26,6 @@ class ExportExcelUser implements FromCollection, WithHeadings, WithDrawings
         return $this->data;
     }
 
-
-    // public function map($row): array
-    // {
-    //     return [
-    //         'gambar' => asset('fp_user/'.$row->image)
-    //     ];
-    // }
 
 
 

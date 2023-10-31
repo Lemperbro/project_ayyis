@@ -1,7 +1,7 @@
 @extends('admin.layout.main')
 
 @section('container')
-    <div class="w-full mt-8 container">
+    <div class="w-full mt-8 px-4 md:container">
         <form action="/admin/cabang/add" method="POST" class=" rounded-md h-screen  shadow-best" enctype="multipart/form-data">
             <h1 class="text-center font-semibold text-2xl text-gray-900 dark:text-white">Tambah Data Cabang</h1>
             @csrf

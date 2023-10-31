@@ -143,7 +143,7 @@ class ExportBase implements WithMapping, WithDrawings, withEvents {
             array_push($this->drawings, $drawing);
         }
 
-        return '';
+        return '';    
     }
 
     public function get_current_cell_coordinates() {
