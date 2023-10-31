@@ -96,5 +96,5 @@ Route::middleware('ranting')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index']);
-
+Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
