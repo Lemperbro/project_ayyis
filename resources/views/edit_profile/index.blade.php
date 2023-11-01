@@ -139,7 +139,7 @@
                             </div>
                         @endif
 
-                        <div class="grid grid-cols-2 gap-8 mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
                             <div class="w-full">
                                 <h1 class="text-gray-900 dark:text-white">Password</h1>
                                 <input type="password" name="password"
