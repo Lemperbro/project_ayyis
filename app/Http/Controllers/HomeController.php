@@ -15,15 +15,7 @@ class HomeController extends Controller
             $data = Anggota::where('nia',request('nia'))->first();
         }
 
-        if(Auth()->user() !== null){
-            if(Auth()->user()->role == 'admin'){
-                return redirect('/admin');
-            }elseif(Auth()->user()->role == 'cabang'){
-                return redirect('/cabang');
-            }elseif(Auth()->user()->role == 'ranting'){
-                return redirect('/ranting');
-            }
-        }
+
         return view('data.cari', [
             'data' => $data
         ]);
