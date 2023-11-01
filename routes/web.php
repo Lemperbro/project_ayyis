@@ -87,9 +87,9 @@ Route::middleware('cabang')->group(function () {
     Route::post('/cabang/{tipe}/{id}', [CabangController::class, 'confirmation_Action']);
 });
 
+Route::get('/ranting/anggota', [DashboardRantingController::class, 'anggota']);
 Route::middleware('ranting')->group(function () {
     Route::get('/ranting', [DashboardRantingController::class, 'index']);
-    Route::get('/ranting/anggota', [DashboardRantingController::class, 'anggota']);
     Route::get('/ranting/add', [DashboardRantingController::class, 'create']);
     Route::post('/ranting/add', [DashboardRantingController::class, 'store']);
     Route::post('/ranting/delete/{id}', [DashboardRantingController::class, 'delete']);

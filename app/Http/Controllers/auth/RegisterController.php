@@ -85,7 +85,7 @@ class RegisterController extends Controller
             return redirect()->back()->with('toast_error', 'data tidak ada');
         }
 
-        if (User::where('role', 'admin')->where('verified', 'user')->get()->count() < 1) {
+        if (User::where('role', 'admin')->where('verified', 'user')->get()->count() < 1 && $request->role == 'admin') {
             $verified = 'user';
             $cabang= null;
         } else {
@@ -109,7 +109,8 @@ class RegisterController extends Controller
         if ($proses) {
             return redirect('/login')->with([
                 'toast_success' => 'Registration successfull !!',
-                'success_registrasi' => 'Akun Berhasil Dibuat, Mohon Tunggu Konfirmasi Dari Admin Agar Akun Bisa Digunakan'
+                'success_registrasi' => 'Akun Berhasil Dibuat, Mohon Tunggu Konfirmasi Dari Admin Agar Akun Bisa Digunakan',
+                'verified' => $proses->verified
             ]);
         } else {
             return redirect()->back()->with('toast_warning', 'Registrasi Gagal');

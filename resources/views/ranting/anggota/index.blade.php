@@ -63,7 +63,7 @@
                     <span>Download Data</span>
 
                 </a>
-                <button
+                {{-- <button
                     class="focus:outline-none text-white bg-green-600 p-3 h-12 rounded-lg text-base flex  font-semibold gap-x-2"
                     type="button" onclick="import_1.showModal()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -75,7 +75,7 @@
 
                     <span>Import Dari Excel</span>
 
-                </button>
+                </button> --}}
 
             </div>
         </div>
