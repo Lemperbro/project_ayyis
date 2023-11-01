@@ -36,6 +36,16 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 Route::middleware('guest')->group(function () {
 
+            if(Auth()->user() !== null){
+            if(Auth()->user()->role == 'admin'){
+                return redirect('/admin');
+            }elseif(Auth()->user()->role == 'cabang'){
+                return redirect('/cabang');
+            }elseif(Auth()->user()->role == 'ranting'){
+                return redirect('/ranting');
+            }
+        }
+    
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'create']);
