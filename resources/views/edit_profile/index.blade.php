@@ -17,7 +17,7 @@
                 <h1 class="text-gray-900 dark:text-white text-xl font-semibold">Edit Profile</h1>
                 <form action="/edit-profile/{{ $data->id }}" method="POST" class="mt-4 ">
                     @csrf
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="w-full">
                             <h1 class="text-gray-900 dark:text-white">Username</h1>
                             <input type="text" name="username"
