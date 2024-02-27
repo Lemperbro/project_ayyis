@@ -16,14 +16,14 @@ class LoginController extends Controller
             'tittle' => 'login'
         ]);
     }
-    
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
+         
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();

@@ -48,19 +48,19 @@ class Handler extends ExceptionHandler
         });
     }
 
-    /**
-     * Render the exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function render($request, Throwable $exception)
-    {
+    // /**
+    //  * Render the exception into an HTTP response.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function render($request, Throwable $exception)
+    // {
 
-        if ($this->isHttpException($exception)) {
-            return response()->view('error.404');
-        } else {
-            return response()->view('error.500');
-        }
-    }
+    //     if ($this->isHttpException($exception)) {
+    //         return response()->view('error.404');
+    //     } else {
+    //         return response()->view('error.500');
+    //     }
+    // }
 }

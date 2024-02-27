@@ -14,32 +14,34 @@ class ResetPasswordController extends Controller
 {
     //
 
-    public function index(){
+    public function index()
+    {
         return view('auth.forgotPassword');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
 
         $request->validate(['email' => 'required|email']);
- 
+
         $status = Password::sendResetLink(
             $request->only('email')
         );
-     
+
         return $status === Password::RESET_LINK_SENT
-                    ? back()->with('ResetSuccess', 'Silahkan cek email untuk melakukan reset password')
-                    : back()->withErrors('ResetError' , $status);
-                    
+            ? back()->with('ResetSuccess', 'Silahkan cek email untuk melakukan reset password')
+            : back()->withErrors('ResetError', $status);
     }
 
-    public function reset($token,$email){ 
+    public function reset($token, $email)
+    {
         $check = DB::table('password_resets')->where('email', $email)->first();
-        if($check !== null){
+        if ($check !== null) {
             if (!Hash::check($token, $check->token)) {
                 return redirect('/login');
-            }            
-        }else{
+            }
+        } else {
             return redirect('/login');
         }
         return view('auth.changePassword', [
@@ -47,13 +49,15 @@ class ResetPasswordController extends Controller
             'email' => $email
         ]);
     }
-    public function update(Request $request){
+    
+    public function update(Request $request)
+    {
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:5|confirmed',
-        ]);  
-        $status = Password::reset( 
+        ]);
+        $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
                 $user->forceFill([
@@ -63,11 +67,11 @@ class ResetPasswordController extends Controller
                 event(new PasswordReset($user));
             }
         );
-     
+
         return $status === Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('UpdateSuccess', 'Berhasil memperbarui password')
-                    : back()->withErrors('UpdateError', 'Tidak berhasil memperbarui password');
+            ? redirect()->route('login')->with('UpdateSuccess', 'Berhasil memperbarui password')
+            : back()->withErrors('UpdateError', 'Tidak berhasil memperbarui password');
+
+            
     }
-
-
 }
