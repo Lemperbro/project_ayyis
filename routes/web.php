@@ -3,9 +3,7 @@
 use GuzzleHttp\Middleware;
 use App\Console\Commands\DbBackup;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\HomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Middleware\CabangMiddleware;
@@ -106,16 +104,6 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
-    // Nama file backup
-    $filename = 'backup_' . now()->timestamp . '.sql';
-    
-    // Lokasi penyimpanan file backup
-    $backupPath = storage_path('app/backup/' . $filename);
-    
-    // Dump database ke file
-    $dumpCommand = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE') . ' > ' . $backupPath;
-    exec($dumpCommand);
-    
-    // Set header untuk memicu unduhan file
-    return response()->download($backupPath, $filename)->deleteFileAfterSend();
+    Artisan::call('backup:run');
+    // return 'Backup berhasil';
 });

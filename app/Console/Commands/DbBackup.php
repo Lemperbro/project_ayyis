@@ -31,28 +31,15 @@ class DbBackup extends Command
 {
     // Nama file backup
     $filename = 'backup_' . now()->timestamp . '.sql';
-
-    // Command untuk membuat backup
-    $command = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE');
-
-    // Membuat proses
-    $process = Process::fromShellCommandline($command);
-
-    // Memulai proses
-    $process->start();
-
+    
+    // Lokasi penyimpanan file backup
+    $backupPath = storage_path('app/backup/' . $filename);
+    
+    // Dump database ke file
+    $dumpCommand = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE') . ' > ' . $backupPath;
+    exec($dumpCommand);
+    
     // Set header untuk memicu unduhan file
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-
-    // Membaca output dan mengirimkan ke output HTTP
-    while ($process->isRunning()) {
-        echo $process->getOutput();
-        flush();
-        usleep(100000); // Jeda 0.1 detik
-    }
-
-    // Mengakhiri proses
-    $process->stop();
+    return response()->download($backupPath, $filename)->deleteFileAfterSend();
 }
 }
