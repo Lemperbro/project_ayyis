@@ -1,5 +1,6 @@
 <?php
 
+use App\Console\Commands\DbBackup;
 use App\Http\Controllers\admin\AdminAnggotaController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +38,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 Route::middleware('guest')->group(function () {
 
 
-    
+
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'create']);
@@ -101,9 +102,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
-Route::get('/backup', function(){
-    $filename = 'backup_'.strtotime(now()).'.sql';
-    $command = 'mysqldump --user='.env('DB_USERNAME').' --password='.env('DB_PASSWORD').' --host='.env('DB_HOST').' '.env('DB_DATABASE').' > '.storage_path().'/app/backup/'.$filename;
-
-    exec($command);
+Route::get('/backup', function () {
+    $backup = new DbBackup;
+    return $backup->handle();
 });
