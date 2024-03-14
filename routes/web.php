@@ -1,25 +1,26 @@
 <?php
 
-use App\Console\Commands\DbBackup;
-use App\Http\Controllers\admin\AdminAnggotaController;
 use GuzzleHttp\Middleware;
+use App\Console\Commands\DbBackup;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\HomeController;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Middleware\CabangMiddleware;
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\ExportExcelController;
+use App\Http\Controllers\auth\ProfileController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\cabang\CabangController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\admin\AdminCabangController;
+use App\Http\Controllers\admin\AdminAnggotaController;
 use App\Http\Controllers\admin\AdminConfirmController;
 use App\Http\Controllers\admin\AdminRantingController;
-use App\Http\Controllers\admin\AdminDashboardController;
-use App\Http\Controllers\AnggotaController;
-use App\Http\Controllers\auth\ProfileController;
 use App\Http\Controllers\auth\ResetPasswordController;
-use App\Http\Controllers\cabang\CabangController;
-use App\Http\Controllers\ExportExcelController;
-use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\ranting\DashboardRantingController;
-use App\Http\Middleware\CabangMiddleware;
-use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,5 +104,6 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
-    return exec('php artisan backup:run');
+    Artisan::call('backup:run');
+    return 'Backup berhasil';
 });
