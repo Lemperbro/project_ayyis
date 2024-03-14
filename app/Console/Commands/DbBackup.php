@@ -29,7 +29,7 @@ class DbBackup extends Command
     public function handle()
     {
         // Nama file backup
-        $filename = 'backup_' . time() . '.sql';
+        $filename = 'backup_' . strtotime(now()) . '.sql';
     
         // Lokasi penyimpanan file backup
         $backupPath = storage_path('app/backup/' . $filename);
@@ -41,6 +41,6 @@ class DbBackup extends Command
         exec($command);
     
         // Inisialisasi unduhan file backup
-        return Response::download($backupPath, $filename)->deleteFileAfterSend(true);
+        return response()->download($backupPath, $filename)->deleteFileAfterSend();
     }
 }
