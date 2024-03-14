@@ -29,18 +29,16 @@ class DbBackup extends Command
     public function handle()
     {
         // Nama file backup
-        $filename = 'backup_' . strtotime(now()) . '.sql';
-    
-        // Lokasi penyimpanan file backup
-        $backupPath = storage_path('app/backup/' . $filename);
+        $filename = 'backup_' . now()->timestamp . '.sql';
     
         // Command untuk membuat backup
-        $command = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE') . ' > ' . $backupPath;
+        $command = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE');
     
-        // Eksekusi perintah untuk membuat backup
-        exec($command);
+        // Set header untuk memicu unduhan file
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
     
-        // Inisialisasi unduhan file backup
-        return response()->download($backupPath, $filename)->deleteFileAfterSend();
+        // Eksekusi perintah untuk membuat backup dan langsung kirimkan hasilnya ke output
+        passthru($command);
     }
 }
