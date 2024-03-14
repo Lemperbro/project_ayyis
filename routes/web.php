@@ -103,6 +103,5 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
-    $backup = new DbBackup;
-    return $backup->handle();
+    return exec('php artisan backup:run');
 });
