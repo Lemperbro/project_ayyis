@@ -105,33 +105,25 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
+    // Jalankan perintah backup menggunakan Artisan
+    Artisan::call('backup:run');
+
+    // Dapatkan output dari perintah backup
+    $output = Artisan::output();
+
     // Nama file backup
     $filename = 'backup_' . now()->timestamp . '.sql';
 
-    // Command untuk membuat backup
-    $command = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE');
-
-    // Membuat proses
-    $process = Process::fromShellCommandline($command);
-
-    // Memulai proses
-    $process->start();
+    // Simpan output backup ke file sementara
+    Storage::put('temporary_backup/' . $filename, $output);
 
     // Set header untuk memicu unduhan file
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
 
-    // Membaca output dan mengirimkan ke output HTTP
-    while ($process->isRunning()) {
-        echo $process->getOutput();
-        flush();
-        usleep(100000); // Jeda 0.1 detik
-    }
+    // Baca file dan kirimkan ke output HTTP
+    readfile(Storage::path('temporary_backup/' . $filename));
 
-    // Mengakhiri proses
-    $process->stop();
-    
-    // Menghapus file backup sementara
-    $process->wait(); // Tunggu proses selesai sepenuhnya
-    unlink(storage_path('app/'.$filename));
+    // Hapus file backup sementara setelah dikirim
+    Storage::delete('temporary_backup/' . $filename);
 });
