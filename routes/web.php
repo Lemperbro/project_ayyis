@@ -5,6 +5,7 @@ use App\Console\Commands\DbBackup;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\HomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Middleware\CabangMiddleware;
