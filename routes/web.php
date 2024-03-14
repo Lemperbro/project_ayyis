@@ -104,6 +104,6 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
-    Artisan::call('backup:run');
+   return Artisan::call('backup:run');
     // return 'Backup berhasil';
 });
