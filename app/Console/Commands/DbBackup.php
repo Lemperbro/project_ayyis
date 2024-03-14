@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Response;
 
 class DbBackup extends Command
 {
@@ -27,9 +28,19 @@ class DbBackup extends Command
      */
     public function handle()
     {
-        $filename = 'backup_'.strtotime(now()).'.sql';
-        $command = 'mysqldump --user='.env('DB_USERNAME').' --password='.env('DB_PASSWORD').' --host='.env('DB_HOST').' '.env('DB_DATABASE').' > '.storage_path().'/app/backup/'.$filename;
+        // Nama file backup
+        $filename = 'backup_' . time() . '.sql';
     
+        // Lokasi penyimpanan file backup
+        $backupPath = storage_path('app/backup/' . $filename);
+    
+        // Command untuk membuat backup
+        $command = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE') . ' > ' . $backupPath;
+    
+        // Eksekusi perintah untuk membuat backup
         exec($command);
+    
+        // Inisialisasi unduhan file backup
+        return Response::download($backupPath, $filename)->deleteFileAfterSend(true);
     }
 }
