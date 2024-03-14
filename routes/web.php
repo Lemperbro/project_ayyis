@@ -100,3 +100,10 @@ Route::middleware('ranting')->group(function () {
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
+
+Route::get('/backup', function(){
+    $filename = 'backup_'.strtotime(now()).'.sql';
+    $command = 'mysqldump --user='.env('DB_USERNAME').' --password='.env('DB_PASSWORD').' --host='.env('DB_HOST').' '.env('DB_DATABASE').' > '.storage_path().'/app/backup/'.$filename;
+
+    exec($command);
+});
