@@ -30,7 +30,7 @@ class DbBackup extends Command
     public function handle()
 {
     // Nama file backup
-    $filename = 'backup_' . now()->timestamp . '.sql';
+    $filename = 'hmm.sql';
     
     // Lokasi penyimpanan file backup
     $backupPath = public_path('backup/' . $filename);
