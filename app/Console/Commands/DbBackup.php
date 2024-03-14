@@ -33,13 +33,13 @@ class DbBackup extends Command
     $filename = 'backup_' . now()->timestamp . '.sql';
     
     // Lokasi penyimpanan file backup
-    $backupPath = storage_path('app/backup/' . $filename);
+    $backupPath = public_path('backup/' . $filename);
     
     // Dump database ke file
     $dumpCommand = 'mysqldump --user=' . env('DB_USERNAME') . ' --password=' . env('DB_PASSWORD') . ' --host=' . env('DB_HOST') . ' ' . env('DB_DATABASE') . ' > ' . $backupPath;
     exec($dumpCommand);
     
     // Set header untuk memicu unduhan file
-    return response()->download($backupPath, $filename)->deleteFileAfterSend();
+    return redirect($backupPath);
 }
 }
