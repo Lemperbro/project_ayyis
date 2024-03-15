@@ -4,6 +4,7 @@ use GuzzleHttp\Middleware;
 use App\Console\Commands\DbBackup;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\HomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Middleware\CabangMiddleware;
@@ -104,6 +105,25 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
+    // Jalankan perintah backup menggunakan Artisan
     Artisan::call('backup:run');
-    // return 'Backup berhasil';
+
+    // Dapatkan output dari perintah backup
+    $output = Artisan::output();
+
+    // Nama file backup
+    $filename = 'backup_' . now()->timestamp . '.sql';
+
+    // Simpan output backup ke file sementara
+    Storage::put('temporary_backup/' . $filename, $output);
+
+    // Set header untuk memicu unduhan file
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
+
+    // Baca file dan kirimkan ke output HTTP
+    readfile(Storage::path('temporary_backup/' . $filename));
+
+    // Hapus file backup sementara setelah dikirim
+    Storage::delete('temporary_backup/' . $filename);
 });
