@@ -112,7 +112,7 @@ Route::get('/backup', function () {
     $output = Artisan::output();
 
     // Nama file backup
-    $filename = 'backup_' . now()->timestamp . '.sql';
+    $filename = 'backup2.sql';
 
     // Simpan output backup ke file sementara
     Storage::put('temporary_backup/' . $filename, $output);
