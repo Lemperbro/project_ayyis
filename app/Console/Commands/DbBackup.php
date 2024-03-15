@@ -27,8 +27,8 @@ class DbBackup extends Command
      */
     public function handle()
     {
-        $filename = 'backup2.sql';
-        $command = 'mysqldump --user='.env('DB_USERNAME').' --password='.env('DB_PASSWORD').' --host='.env('DB_HOST').' '.env('DB_DATABASE').' > '.storage_path().'/app/backup/'.$filename;
+        $filename = 'backup_'.strtotime(now()).'.sql';
+        $command = 'mysqldump --user='.env('DB_USERNAME').' --password='.env('DB_PASSWORD').' --host='.env('DB_HOST').' '.env('DB_DATABASE').' > '.public_path('backup/'.$filename);
     
         exec($command);
     }
