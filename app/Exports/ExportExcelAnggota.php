@@ -42,7 +42,7 @@ class ExportExcelAnggota extends ExportBase implements FromCollection,WithColumn
             'F' => 25,      
             'G' => 25,      
             'H' => 25,      
-            'I' => 15,      
+            // 'I' => 15,      
         ];
     }
 
@@ -58,7 +58,7 @@ class ExportExcelAnggota extends ExportBase implements FromCollection,WithColumn
         $this->add_column('Ranting', $row['ranting']);
         $this->add_column('Cabang', $row['cabang']);
         $this->add_column('Tingkatan', $row['tingkatan']);
-        $this->add_column('Gambar', $this->draw('ft_anggota/'.$row['image']));
+        // $this->add_column('Gambar', $this->draw('ft_anggota/'.$row['image']));
 
         return $this->get_row();
     }
