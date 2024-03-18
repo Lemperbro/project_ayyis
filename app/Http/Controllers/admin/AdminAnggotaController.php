@@ -37,7 +37,7 @@ class AdminAnggotaController extends Controller
         }
         if(request('download') == true){
             $downloadExcel = $data_anggota->get();
-            return $this->ExportExcel->ExportUser($downloadExcel);
+            return $this->ExportExcel->ExportAnggota($downloadExcel);
         }
         $appendsPaginate = [
             'nama' => request('nama'),
