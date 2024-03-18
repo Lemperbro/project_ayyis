@@ -15,7 +15,7 @@ class AdminCabangController extends Controller
 
     public function __construct()
     {
-        $this->cabang = User::where('role', 'cabang')->where('verified', 'user');
+        $this->cabang = User::withTrashed()->where('verified', 'user');
         $this->ApiCabang = new ApiCabangRantingController();
         $this->ExportExcel = new ExportExcelController();
     }

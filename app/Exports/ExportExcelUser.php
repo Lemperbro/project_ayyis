@@ -33,16 +33,13 @@ class ExportExcelUser implements FromCollection, WithHeadings
     {
         return [
             'No',
-            'Id', 
             'Username',
-            'password',
             'NIA',
             'Nomor Telphone',
             'Email',
             'Ranting',
             'Cabang',
-            'Role',
-            'Verified'
+            'Role'
         ];
     }
 }

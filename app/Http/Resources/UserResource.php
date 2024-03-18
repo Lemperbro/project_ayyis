@@ -20,16 +20,13 @@ class UserResource extends JsonResource
 
         return [
             'No' => self::$counter,
-            'id' => $this->id,
             'username' => $this->username,
-            'password' => $this->password,
             'nia' => $this->nia,
             'telp' => '0'.$this->telp,
             'email' => $this->email,
             'ranting' => $this->ranting ?? 'Null',
             'cabang' => $this->cabang ?? 'Null',
-            'role' => $this->role,
-            'virified' => $this->verified,
+            'role' => $this->role
         ];
     }
 }
