@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers\admin;
 
+use Exception;
+use App\Models\Anggota;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Anggota;
-use Exception;
+use App\Http\Controllers\ExportExcelController;
 
 class AdminAnggotaController extends Controller
 {
     //
 
-    private $anggota;
+    private $anggota, $ExportExcel;
 
     public function __construct()
     {
         $this->anggota = Anggota::latest();
+        $this->ExportExcel = new ExportExcelController();
+
     }
 
     public function index(){
@@ -32,7 +35,10 @@ class AdminAnggotaController extends Controller
         if(request('nia')){
             $data_anggota->where('nia', request('nia'));
         }
-        
+        if(request('download') == true){
+            $downloadExcel = $data_anggota->get();
+            return $this->ExportExcel->ExportUser($downloadExcel);
+        }
         $appendsPaginate = [
             'nama' => request('nama'),
             'ranting' => request('ranting'),
