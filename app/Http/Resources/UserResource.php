@@ -20,6 +20,7 @@ class UserResource extends JsonResource
 
         return [
             'No' => self::$counter,
+            'id' => $this->id,
             'username' => $this->username,
             'password' => $this->password,
             'nia' => $this->nia,

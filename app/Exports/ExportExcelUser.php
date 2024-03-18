@@ -33,6 +33,7 @@ class ExportExcelUser implements FromCollection, WithHeadings
     {
         return [
             'No',
+            'Id', 
             'Username',
             'password',
             'NIA',

@@ -51,6 +51,7 @@ class ExportExcelAnggota extends ExportBase implements FromCollection,WithColumn
         self::$counter++;
 
         $this->add_column('No', self::$counter);
+        $this->add_column('admin_id', $row['admin_id']);
         $this->add_column('Nama', $row['nama']);
         $this->add_column('NIA', $row['nia']);
         $this->add_column('Tempat, Tanggal Lahir', $row['ttl']);

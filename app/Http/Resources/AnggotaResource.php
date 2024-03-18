@@ -18,6 +18,7 @@ class AnggotaResource extends JsonResource
         self::$counter++;
         return [
             'number' => self::$counter, 
+            'admin_id' => $this->admin_id,
             'nama' => $this->nama,
             'nia' => $this->nia,
             'ttl' => $this->ttl,
