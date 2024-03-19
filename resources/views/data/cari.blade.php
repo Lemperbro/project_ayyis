@@ -6,7 +6,7 @@
 
         <a href="#" class="flex items-center mb-10 text-4xl font-semibold text-gray-900 dark:text-white">
             <img class="w-20 h-20 mr-2" src="{{ asset('img/cipta.png') }}" alt="logo">
-            <p>Cipta Sejati fix</p>
+            <p>Cipta Sejati</p>
         </a>
 
         {{-- <h1 class="text-2xl mb-8 mt-8 font-semibold text-yellow-500 uppercase">
