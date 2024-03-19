@@ -87,6 +87,7 @@ Route::middleware('cabang')->group(function () {
     Route::get('/cabang/ranting', [CabangController::class, 'ranting']);
     Route::get('/cabang/ranting/create', [CabangController::class, 'ranting_create']);
     Route::post('/cabang/ranting/create', [CabangController::class, 'ranting_store']);
+    Route::post('/cabang/ranting/delete/{id}', [CabangController::class, 'rantingDelete']);
     Route::get('/cabang/anggota', [CabangController::class, 'anggota']);
     Route::get('/cabang/confirmation', [CabangController::class, 'confirmation']);
     Route::post('/cabang/{tipe}/{id}', [CabangController::class, 'confirmation_Action']);
@@ -103,9 +104,3 @@ Route::middleware('ranting')->group(function () {
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/a', [HomeController::class, 'indexs']);
 Route::get('/download', [ExportExcelController::class, 'Export']);
-
-// Route::get('/backup', function () {
-//     User::where('email', 'sihdobleh@gmail.com')->update([
-//         'role' => 'admin'
-//     ]);
-// });

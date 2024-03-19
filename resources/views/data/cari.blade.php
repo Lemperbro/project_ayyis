@@ -53,8 +53,8 @@
         <div class="relative overflow-x-auto mt-8">
             @if ($data !== null)
                 <div class="flex flex-col md:flex-row gap-4 p-4 bg-white shadow-best rounded-md dark:bg-gray-700">
-                    <img src="{{ asset('ft_anggota/' . $data->image) }}" alt="" class="object-contain w-full md:w-[40%]">
-                    <div class="flex gap-x-4 w-[60%]">
+                    <img src="{{ asset('ft_anggota/' . $data->image) }}" alt="" class="object-cover w-full md:w-[40%] h-60 md:h-52">
+                    <div class="flex gap-x-4 w-full md:w-[60%]">
                         <div class="font-semibold flex flex-col justify-between text-gray-900 dark:text-white">
                             <h1>Nama</h1>
                             <h1>NIA</h1>
@@ -75,13 +75,13 @@
                             <h1>:</h1>
                         </div>
                         <div class="flex flex-col justify-between text-gray-900 dark:text-white">
-                            <h1>{{ $data->nama }}</h1>
-                            <h1>{{ $data->nia }}</h1>
-                            <h1>{{ $data->ttl }}</h1>
-                            <h1>{{ $data->alamat }}</h1>
-                            <h1>{{ $data->ranting }}</h1>
-                            <h1>{{ $data->cabang }}</h1>
-                            <h1>{{ $data->tingkatan }}</h1>
+                            <h1 class="capitalize">{{ $data->nama }}</h1>
+                            <h1 class="capitalize">{{ $data->nia }}</h1>
+                            <h1 class="capitalize">{{ $data->ttl }}</h1>
+                            <h1 class="capitalize">{{ $data->alamat }}</h1>
+                            <h1 class="capitalize">{{ $data->ranting }}</h1>
+                            <h1 class="capitalize">{{ $data->cabang }}</h1>
+                            <h1 class="capitalize">{{ $data->tingkatan }}</h1>
                         </div>
                     </div>
                 </div>

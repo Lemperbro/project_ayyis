@@ -152,7 +152,14 @@ class CabangController extends Controller
             return redirect('/cabang/ranting')->with('toast_error', 'Gagal Menambah Data Admin Ranting');
         }
     }
-
+    public function rantingDelete(User $id){
+        $delete = $id->delete();
+        if($delete){
+            return redirect()->back()->with('toast_success', 'Berhasil menghapus data');
+        }else{
+            return redirect()->back()->with('toast_error', 'Tidak berhasil menghapus data');
+        }
+    }
     public function anggota(){
         $data = $this->anggota;
 
