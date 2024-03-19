@@ -224,7 +224,7 @@
                 <h3 class="font-bold text-lg">Detail Anggota</h3>
                 <div class="w-full mt-4">
                     <img src="{{ asset('ft_anggota/' . $view->image) }}" alt=""
-                        class="w-full h-auto object-contain">
+                        class="object-cover w-full md:w-[40%] h-60 md:h-52">
                 </div>
                 <div class=" my-4">
 
