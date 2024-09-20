@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Auth;
 class CabangController extends Controller
 {
 
-    private $anggota,$ranting,$user_login, $ApiCabangRanting,$rantingConfirm,$authCabang, $ExportExcel;
+    private $anggota, $ranting, $user_login, $ApiCabangRanting, $rantingConfirm, $authCabang, $ExportExcel;
 
-    public function __construct(Request $request,ApiCabangRantingController $ApiCabangRanting)
+    public function __construct(Request $request, ApiCabangRantingController $ApiCabangRanting)
     {
         $this->middleware(function ($request, $next) {
-           $this->user_login = Auth::user();
-           $this->anggota = Anggota::where('cabang', Auth::user()->cabang)->latest();
-           $this->ranting = User::where('role', 'ranting')->where('cabang', Auth::user()->cabang)->where('verified', 'user')->latest();
-           $this->rantingConfirm = User::where('role', 'ranting')->where('cabang', Auth::user()->cabang)->where('verified', 'register')->latest();
-           $this->authCabang = Auth::user()->cabang;
+            $this->user_login = Auth::user();
+            $this->anggota = Anggota::where('cabang', Auth::user()->cabang)->latest();
+            $this->ranting = User::where('role', 'ranting')->where('cabang', Auth::user()->cabang)->where('verified', 'user')->latest();
+            $this->rantingConfirm = User::where('role', 'ranting')->where('cabang', Auth::user()->cabang)->where('verified', 'register')->latest();
+            $this->authCabang = Auth::user()->cabang;
             return $next($request);
         });
 
         $this->ApiCabangRanting = $ApiCabangRanting;
         $this->ExportExcel = new ExportExcelController();
-        
+
     }
     /**
      * Display a listing of the resource.
@@ -39,39 +39,40 @@ class CabangController extends Controller
     public function index()
     {
 
-        return view('cabang.dashboard.index',[
+        return view('cabang.dashboard.index', [
             'anggota' => $this->anggota->paginate(10),
             'ranting' => $this->ranting->paginate(10)
         ]);
     }
 
-    public function ranting(){
+    public function ranting()
+    {
         $ranting = $this->ranting;
 
-        if(request('nama')){
-            $ranting->where('username','like','%'.request('nama').'%');
+        if (request('nama')) {
+            $ranting->where('username', 'like', '%' . request('nama') . '%');
         }
-        if(request('ranting')){
-            $ranting->where('ranting',strtolower(request('ranting')));
+        if (request('ranting')) {
+            $ranting->where('ranting', strtolower(request('ranting')));
         }
-        if(request('nia')){
-            $ranting->where('nia',request('nia'));
+        if (request('nia')) {
+            $ranting->where('nia', request('nia'));
         }
 
         $CabangApi = $this->ApiCabangRanting->cabangApi();
 
-        
+
         $filteredData = collect($CabangApi)->filter(function ($item) {
             // Kondisi filter
             return $item['name'] == strtoupper(Auth()->user()->cabang);
-            
+
         });
 
-        foreach($filteredData as $a ){
+        foreach ($filteredData as $a) {
             $rantingApi = $this->ApiCabangRanting->rantingApi($a['id']);
         }
 
-        if(request('download') == true){
+        if (request('download') == true) {
             $downloadExcel = $ranting->get();
             return $this->ExportExcel->ExportUser($downloadExcel);
         }
@@ -88,26 +89,28 @@ class CabangController extends Controller
         ]);
     }
 
-    public function ranting_create(){
+    public function ranting_create()
+    {
         $CabangApi = $this->ApiCabangRanting->cabangApi();
 
-        
+
         $filteredData = collect($CabangApi)->filter(function ($item) {
             // Kondisi filter
             return $item['name'] == strtoupper(Auth()->user()->cabang);
         });
 
-        foreach($filteredData as $a ){
+        foreach ($filteredData as $a) {
             $rantingApi = $this->ApiCabangRanting->rantingApi($a['id']);
         }
 
-        return view('cabang.ranting.add',[
+        return view('cabang.ranting.add', [
             'ranting' => $rantingApi
         ]);
-        
+
     }
 
-    public function ranting_store(Request $request){
+    public function ranting_store(Request $request)
+    {
 
 
         $validasi = $request->validate([
@@ -117,7 +120,7 @@ class CabangController extends Controller
             'email' => 'required|email:dns|unique:users,email',
             'telp' => 'required|min:8',
             'password' => 'required|confirmed|min:5|max:255'
-        ],[
+        ], [
             'username.required' => 'Username Harus Di isi',
             'nia.required' => 'Nia Harus Di isi',
             'nia.unique' => 'Nia Yang Anda Masukan Sudah Tersedia',
@@ -132,8 +135,8 @@ class CabangController extends Controller
             'password.confirmed' => 'Password Tidak Sama'
         ]);
 
-        $validasi['password'] = bcrypt($validasi['password']); 
-        
+        $validasi['password'] = bcrypt($validasi['password']);
+
         $up = User::create([
             'username' => $request->username,
             'nia' => $request->nia,
@@ -146,48 +149,50 @@ class CabangController extends Controller
             'verified' => 'user'
         ]);
 
-        if($up){
+        if ($up) {
             return redirect('/cabang/ranting')->with('toast_success', 'Berhasil Menambah Data Admin Ranting');
-        }else{
+        } else {
             return redirect('/cabang/ranting')->with('toast_error', 'Gagal Menambah Data Admin Ranting');
         }
     }
-    public function rantingDelete(User $id){
+    public function rantingDelete(User $id)
+    {
         $delete = $id->delete();
-        if($delete){
+        if ($delete) {
             return redirect()->back()->with('toast_success', 'Berhasil menghapus data');
-        }else{
+        } else {
             return redirect()->back()->with('toast_error', 'Tidak berhasil menghapus data');
         }
     }
-    public function anggota(){
+    public function anggota()
+    {
         $data = $this->anggota;
 
         $CabangApi = $this->ApiCabangRanting->cabangApi();
 
-        
+
         $filteredData = collect($CabangApi)->filter(function ($item) {
             // Kondisi filter
             return $item['name'] == strtoupper(Auth()->user()->cabang);
         });
 
-        foreach($filteredData as $a ){
+        foreach ($filteredData as $a) {
             $rantingApi = $this->ApiCabangRanting->rantingApi($a['id']);
         }
 
-        if(request('nama')){
-            $data->where('nama','like','%'.request('nama').'%');
+        if (request('nama')) {
+            $data->where('nama', 'like', '%' . request('nama') . '%');
         }
 
-        if(request('ranting') !== null){
+        if (request('ranting') !== null) {
             $data->where('ranting', strtolower(request('ranting')));
         }
 
-        if(request('nia')){
+        if (request('nia')) {
             $data->where('nia', request('nia'));
         }
 
-        if(request('download') == true){
+        if (request('download') == true) {
             $downloadExcel = $data->get();
             return $this->ExportExcel->ExportAnggota($downloadExcel);
         }
@@ -204,11 +209,12 @@ class CabangController extends Controller
         ]);
     }
 
-    public function confirmation(){
+    public function confirmation()
+    {
 
         $data = $this->rantingConfirm;
 
-        if(request('ranting')){
+        if (request('ranting')) {
             $data->where('ranting', request('ranting'));
         }
 
@@ -221,22 +227,23 @@ class CabangController extends Controller
         ]);
     }
 
-    public function confirmation_Action($tipe, $id){
+    public function confirmation_Action($tipe, $id)
+    {
         $data = $this->rantingConfirm->where('id', $id);
-        if($tipe == 'confirmation'){
+        if ($tipe == 'confirmation') {
             $data->update([
                 'verified' => 'user'
             ]);
-        }elseif($tipe == 'tolak'){
+        } elseif ($tipe == 'tolak') {
             $data->forcedelete();
             return redirect()->back()->with('toast_success', 'Berhasil Menolak Akun Dan Berhasil Dihapus');
-        }elseif(!in_array($tipe,['confirmation', 'tolak'])){
+        } elseif (!in_array($tipe, ['confirmation', 'tolak'])) {
             return redirect()->back()->with('toast_error', 'Gagal Mengkonfirmasi Akun');
         }
 
         try {
             return redirect()->back()->with('toast_success', 'Berhasil Mengkonfirmasi Akun');
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return redirect()->back()->with('toast_error', 'Gagal Mengkonfirmasi Akun');
         }
 
@@ -249,7 +256,7 @@ class CabangController extends Controller
      */
     public function create()
     {
-        
+
     }
 
 
